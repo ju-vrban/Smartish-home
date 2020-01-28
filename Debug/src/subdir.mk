@@ -4,7 +4,9 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/RTC.c \
 ../src/_write.c \
+../src/light_mgmt.c \
 ../src/main.c \
 ../src/stm32f4xx_hal_msp.c \
 ../src/stm32f4xx_it.c \
@@ -12,7 +14,9 @@ C_SRCS += \
 ../src/system_stm32f4xx.c 
 
 OBJS += \
+./src/RTC.o \
 ./src/_write.o \
+./src/light_mgmt.o \
 ./src/main.o \
 ./src/stm32f4xx_hal_msp.o \
 ./src/stm32f4xx_it.o \
@@ -20,7 +24,9 @@ OBJS += \
 ./src/system_stm32f4xx.o 
 
 C_DEPS += \
+./src/RTC.d \
 ./src/_write.d \
+./src/light_mgmt.d \
 ./src/main.d \
 ./src/stm32f4xx_hal_msp.d \
 ./src/stm32f4xx_it.d \

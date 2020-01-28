@@ -98,7 +98,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+      mainEntranceLight(0x01);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -170,8 +170,8 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PD10 */
   GPIO_InitStruct.Pin = GPIO_PIN_10;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PD11 */
@@ -180,6 +180,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+
 
 }
 

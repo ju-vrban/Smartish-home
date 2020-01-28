@@ -21,7 +21,8 @@ src/main.o: ../src/main.c ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash_ramfunc.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h \
- ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h
+ ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h \
+ ../include/light_mgmt.h ../include/main.h
 
 ../include/main.h:
 
@@ -74,3 +75,7 @@ src/main.o: ../src/main.c ../include/main.h \
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h:
+
+../include/light_mgmt.h:
+
+../include/main.h:
