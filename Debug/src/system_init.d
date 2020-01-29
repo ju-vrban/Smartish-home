@@ -1,5 +1,4 @@
-system/src/stm32f4xx/stm32f4xx_hal_gpio.o: \
- ../system/src/stm32f4xx/stm32f4xx_hal_gpio.c \
+src/system_init.o: ../src/system_init.c ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
@@ -26,7 +25,11 @@ system/src/stm32f4xx/stm32f4xx_hal_gpio.o: \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
- ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h
+ ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
+ ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
+ ../include/system_init.h
+
+../include/main.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal.h:
 
@@ -85,3 +88,11 @@ system/src/stm32f4xx/stm32f4xx_hal_gpio.o: \
 ../system/include/stm32f4xx/stm32f4xx_hal_tim.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h:
+
+../include/light_mgmt.h:
+
+../include/main.h:
+
+../include/system_init.h:
+
+../include/system_init.h:

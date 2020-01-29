@@ -20,9 +20,14 @@ src/main.o: ../src/main.c ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash_ramfunc.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_i2c.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_i2c_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h \
- ../include/light_mgmt.h ../include/main.h
+ ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
+ ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
+ ../system/include/diag/Trace.h
 
 ../include/main.h:
 
@@ -72,10 +77,22 @@ src/main.o: ../src/main.c ../include/main.h \
 
 ../system/include/stm32f4xx/stm32f4xx_hal_flash_ramfunc.h:
 
+../system/include/stm32f4xx/stm32f4xx_hal_i2c.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_i2c_ex.h:
+
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h:
 
+../system/include/stm32f4xx/stm32f4xx_hal_tim.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h:
+
 ../include/light_mgmt.h:
 
 ../include/main.h:
+
+../include/system_init.h:
+
+../system/include/diag/Trace.h:

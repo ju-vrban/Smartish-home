@@ -1,5 +1,5 @@
-system/src/stm32f4xx/stm32f4xx_hal_gpio.o: \
- ../system/src/stm32f4xx/stm32f4xx_hal_gpio.c \
+system/src/stm32f4xx/stm32f4xx_hal_i2c_ex.o: \
+ ../system/src/stm32f4xx/stm32f4xx_hal_i2c_ex.c \
  ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
