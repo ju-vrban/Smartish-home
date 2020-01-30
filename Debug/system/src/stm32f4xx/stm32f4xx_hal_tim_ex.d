@@ -25,6 +25,8 @@ system/src/stm32f4xx/stm32f4xx_hal_tim_ex.o: \
  ../system/include/stm32f4xx/stm32f4xx_hal_i2c_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_rtc.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_rtc_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h
 
@@ -81,6 +83,10 @@ system/src/stm32f4xx/stm32f4xx_hal_tim_ex.o: \
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_rtc.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_rtc_ex.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_tim.h:
 

@@ -1,5 +1,5 @@
-system/src/stm32f4xx/stm32f4xx_hal_flash_ramfunc.o: \
- ../system/src/stm32f4xx/stm32f4xx_hal_flash_ramfunc.c \
+system/src/stm32f4xx/stm32f4xx_hal_rtc_ex.o: \
+ ../system/src/stm32f4xx/stm32f4xx_hal_rtc_ex.c \
  ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \

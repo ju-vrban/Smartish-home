@@ -5,8 +5,11 @@
 extern "C" {
 #endif
 
+void SystemClock_Config(void);
 void GPIO_Init(void);
 void I2C1_Init(void);
+void RTC_Init(void);
+
 
 #ifdef __cplusplus
 }

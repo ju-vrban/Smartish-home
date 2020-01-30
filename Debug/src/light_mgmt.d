@@ -23,6 +23,8 @@ src/light_mgmt.o: ../src/light_mgmt.c ../system/include/cmsis/stm32f4xx.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_i2c_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_rtc.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_rtc_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
  ../include/light_mgmt.h ../include/system_init.h ../include/main.h
@@ -84,6 +86,10 @@ src/light_mgmt.o: ../src/light_mgmt.c ../system/include/cmsis/stm32f4xx.h \
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_pwr_ex.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_rtc.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_rtc_ex.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_tim.h:
 
