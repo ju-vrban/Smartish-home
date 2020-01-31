@@ -16,27 +16,13 @@
   ******************************************************************************
   */
 
-/* Includes -----------------------------------------------------------------*/
+
 #include "main.h"
 #include "diag/Trace.h"
 
-
-/* Private typedef -----------------------------------------------------------*/
-
-
-/* Private define ------------------------------------------------------------*/
-
-
-/* Private macro -------------------------------------------------------------*/
-
-
-/* Private variables ---------------------------------------------------------*/
-
-
-/* Private function prototypes -----------------------------------------------*/
-
-
-/* Private user code ---------------------------------------------------------*/
+RTC_HandleTypeDef RTCHandle;
+RTC_TimeTypeDef setTime;
+RTC_DateTypeDef setDate;
 
 /**
   * @brief  The application entry point.
@@ -44,28 +30,44 @@
   */
 int main(void)
 {
-  /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
-
   /* Configure the system clock */
   SystemClock_Config();
 
-
   /* Initialize all configured peripherals */
+  RTC_Init();
   GPIO_Init();
   I2C1_Init();
 
+  setTime.Hours = 23;
+  setTime.Minutes = 59;
+  setTime.Seconds = 45;
+  HAL_RTC_SetTime(&RTCHandle, &setTime, RTC_FORMAT_BIN);
+
+  setDate.Date = 31;
+  setDate.Month = RTC_MONTH_JANUARY;
+  setDate.Year = 20;
+  setDate.WeekDay = RTC_WEEKDAY_FRIDAY;
+  HAL_RTC_SetDate(&RTCHandle, &setDate, RTC_FORMAT_BIN);
+
+
+
   while (1)
   {
+      HAL_RTC_SetTime(&RTCHandle, &setTime, RTC_FORMAT_BIN);
+      HAL_RTC_SetDate(&RTCHandle, &setDate, RTC_FORMAT_BIN);
+      HAL_Delay(400);
+      HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
 
-
+      /*
       mainEntranceLight(0x01);
       HAL_Delay(500);
       mainEntranceLight(0x00);
       HAL_Delay(500);
+      */
   }
 
 }
