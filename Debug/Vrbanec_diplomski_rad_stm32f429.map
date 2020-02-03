@@ -52,13 +52,13 @@ Archive member included to satisfy reference by file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
-RTCAlarmA           0x28              ./src/system_init.o
+RTCAlarmA           0x28              ./src/RTC_ds3231.o
 __lock___atexit_recursive_mutex
                     0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 __lock___arc4random_mutex
                     0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 errno               0x4               ./system/src/newlib/_syscalls.o
-hi2c1               0x54              ./src/system_init.o
+hi2c1               0x54              ./src/RTC_ds3231.o
 uwTick              0x4               ./system/src/stm32f4xx/stm32f4xx_hal.o
 pFlash              0x20              ./system/src/stm32f4xx/stm32f4xx_hal_flash.o
 __lock___env_recursive_mutex
@@ -69,12 +69,14 @@ setDate             0x4               ./src/main.o
 __lock___malloc_recursive_mutex
                     0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 setTime             0x14              ./src/main.o
+GPIO_InitStruct     0x14              ./src/RTC_ds3231.o
+Time                0x7               ./src/RTC_ds3231.o
 __lock___at_quick_exit_mutex
                     0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 __lock___dd_hash_mutex
                     0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 __lock___tz_mutex   0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
-RTCHandle           0x20              ./src/main.o
+RTCHandle           0x20              ./src/RTC_ds3231.o
 __lock___sfp_recursive_mutex
                     0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 
@@ -3360,6 +3362,132 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./system/src/cmsis/startup_stm32f429xx.o
  .text.Reset_Handler
                 0x0000000000000000       0x50 ./system/src/cmsis/startup_stm32f429xx.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
+ .text          0x0000000000000000        0x0 ./src/RTC_ds3231.o
+ .data          0x0000000000000000        0x0 ./src/RTC_ds3231.o
+ .bss           0x0000000000000000        0x0 ./src/RTC_ds3231.o
+ .text.decToBcd
+                0x0000000000000000       0x20 ./src/RTC_ds3231.o
+ .text.bcdToDec
+                0x0000000000000000       0x10 ./src/RTC_ds3231.o
+ .text.set_Time
+                0x0000000000000000       0x74 ./src/RTC_ds3231.o
+ .text.get_Time
+                0x0000000000000000       0x70 ./src/RTC_ds3231.o
+ .rodata.str1.4
+                0x0000000000000000       0x41 ./src/RTC_ds3231.o
+ .bss.conf_mode
+                0x0000000000000000        0x1 ./src/RTC_ds3231.o
+ .bss.transmissionReady
+                0x0000000000000000        0x1 ./src/RTC_ds3231.o
+ .data.dayOfWeek
+                0x0000000000000000       0x1c ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0xa9c ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x22 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x5e ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x18 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x94 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x35 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x34 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x174 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x57 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x58 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x1f ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x43 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x20 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x18e ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x339 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x10 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x35 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x190 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x32 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x28 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x34e ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x1c ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x22 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000     0x102d ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x11f ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000    0x17f79 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x43 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000     0x36c2 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0xca5 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x9fe ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x182 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x117 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x157 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x27 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x287 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x5f ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x236 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x132 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x41d ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x2e ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x1b5 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x22 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0xd6 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x11a ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0xe2 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x89 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x31a ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x405 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0xe4 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x8a0 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x47 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000      0x134 ./src/RTC_ds3231.o
  .group         0x0000000000000000        0xc ./src/_write.o
  .text          0x0000000000000000        0x0 ./src/_write.o
  .data          0x0000000000000000        0x0 ./src/_write.o
@@ -3419,13 +3547,13 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./src/light_mgmt.o
  .text.mainEntranceLight
                 0x0000000000000000       0x28 ./src/light_mgmt.o
- .debug_info    0x0000000000000000      0x2a7 ./src/light_mgmt.o
- .debug_abbrev  0x0000000000000000      0x145 ./src/light_mgmt.o
+ .debug_info    0x0000000000000000      0xc9f ./src/light_mgmt.o
+ .debug_abbrev  0x0000000000000000      0x1ba ./src/light_mgmt.o
  .debug_loc     0x0000000000000000       0x42 ./src/light_mgmt.o
  .debug_aranges
                 0x0000000000000000       0x20 ./src/light_mgmt.o
  .debug_ranges  0x0000000000000000       0x10 ./src/light_mgmt.o
- .debug_macro   0x0000000000000000      0x1d8 ./src/light_mgmt.o
+ .debug_macro   0x0000000000000000      0x1dc ./src/light_mgmt.o
  .debug_macro   0x0000000000000000      0xa9c ./src/light_mgmt.o
  .debug_macro   0x0000000000000000       0x32 ./src/light_mgmt.o
  .debug_macro   0x0000000000000000       0x28 ./src/light_mgmt.o
@@ -3466,7 +3594,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x47 ./src/light_mgmt.o
  .debug_macro   0x0000000000000000      0x134 ./src/light_mgmt.o
  .debug_line    0x0000000000000000      0x447 ./src/light_mgmt.o
- .debug_str     0x0000000000000000    0xd5af6 ./src/light_mgmt.o
+ .debug_str     0x0000000000000000    0xd62c1 ./src/light_mgmt.o
  .comment       0x0000000000000000       0x67 ./src/light_mgmt.o
  .debug_frame   0x0000000000000000       0x28 ./src/light_mgmt.o
  .ARM.attributes
@@ -4348,6 +4476,7 @@ LOAD ./system/src/cortexm/_initialize_hardware.o
 LOAD ./system/src/cortexm/_reset_hardware.o
 LOAD ./system/src/cortexm/exception_handlers.o
 LOAD ./system/src/cmsis/startup_stm32f429xx.o
+LOAD ./src/RTC_ds3231.o
 LOAD ./src/_write.o
 LOAD ./src/light_mgmt.o
 LOAD ./src/main.o
@@ -4374,7 +4503,7 @@ END GROUP
                 0x000000002002fc00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                        PROVIDE (_Main_Stack_Limit = __Main_Stack_Limit)
                 0x0000000000000100                _Minimum_Stack_Size = 0x100
-                0x00000000200001e0                PROVIDE (_Heap_Begin = _end_noinit)
+                0x00000000200001fc                PROVIDE (_Heap_Begin = _end_noinit)
                 0x000000002002fc00                PROVIDE (_Heap_Limit = (__stack - __Main_Stack_Size))
 
 .isr_vector     0x0000000008000000      0x3ec
@@ -4407,7 +4536,7 @@ END GROUP
                 0x0000000008000404                __data_regions_array_end = .
                 0x0000000008000404                __bss_regions_array_start = .
                 0x0000000008000404        0x4 LONG 0x20000080 ADDR (.bss)
-                0x0000000008000408        0x4 LONG 0x200001e0 (ADDR (.bss) + SIZEOF (.bss))
+                0x0000000008000408        0x4 LONG 0x200001fc (ADDR (.bss) + SIZEOF (.bss))
                 0x000000000800040c        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
                 0x0000000008000410        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x0000000008000414                __bss_regions_array_end = .
@@ -4689,11 +4818,11 @@ END GROUP
                 0x0000000008001acc       0xf8 ./src/system_init.o
                 0x0000000008001acc                SystemClock_Config
  .text.GPIO_Init
-                0x0000000008001bc4       0x80 ./src/system_init.o
+                0x0000000008001bc4       0x7c ./src/system_init.o
                 0x0000000008001bc4                GPIO_Init
  .text.I2C1_Init
-                0x0000000008001c44       0x88 ./src/system_init.o
-                0x0000000008001c44                I2C1_Init
+                0x0000000008001c40       0x8c ./src/system_init.o
+                0x0000000008001c40                I2C1_Init
  .text.RTC_Init
                 0x0000000008001ccc       0x64 ./src/system_init.o
                 0x0000000008001ccc                RTC_Init
@@ -4861,7 +4990,7 @@ END GROUP
 .bss_CCMRAM     0x0000000010000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x0000000020000080      0x160
+.bss            0x0000000020000080      0x17c
                 0x0000000020000080                __bss_start__ = .
                 0x0000000020000080                _sbss = .
  *(.bss_begin .bss_begin.*)
@@ -4884,46 +5013,48 @@ END GROUP
                 0x0000000020000114                uwTick
  COMMON         0x0000000020000118        0x4 ./system/src/newlib/_syscalls.o
                 0x0000000020000118                errno
- COMMON         0x000000002000011c       0x38 ./src/main.o
-                0x000000002000011c                setDate
-                0x0000000020000120                setTime
-                0x0000000020000134                RTCHandle
- COMMON         0x0000000020000154       0x7c ./src/system_init.o
-                0x0000000020000154                RTCAlarmA
-                0x000000002000017c                hi2c1
- COMMON         0x00000000200001d0        0x9 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
-                0x00000000200001d0                __lock___atexit_recursive_mutex
-                0x00000000200001d1                __lock___arc4random_mutex
-                0x00000000200001d2                __lock___env_recursive_mutex
-                0x00000000200001d3                __lock___sinit_recursive_mutex
-                0x00000000200001d4                __lock___malloc_recursive_mutex
-                0x00000000200001d5                __lock___at_quick_exit_mutex
-                0x00000000200001d6                __lock___dd_hash_mutex
-                0x00000000200001d7                __lock___tz_mutex
-                0x00000000200001d8                __lock___sfp_recursive_mutex
+ COMMON         0x000000002000011c       0xb8 ./src/RTC_ds3231.o
+                0x000000002000011c                RTCAlarmA
+                0x0000000020000144                hi2c1
+                0x0000000020000198                GPIO_InitStruct
+                0x00000000200001ac                Time
+                0x00000000200001b4                RTCHandle
+ COMMON         0x00000000200001d4       0x18 ./src/main.o
+                0x00000000200001d4                setDate
+                0x00000000200001d8                setTime
+ COMMON         0x00000000200001ec        0x9 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
+                0x00000000200001ec                __lock___atexit_recursive_mutex
+                0x00000000200001ed                __lock___arc4random_mutex
+                0x00000000200001ee                __lock___env_recursive_mutex
+                0x00000000200001ef                __lock___sinit_recursive_mutex
+                0x00000000200001f0                __lock___malloc_recursive_mutex
+                0x00000000200001f1                __lock___at_quick_exit_mutex
+                0x00000000200001f2                __lock___dd_hash_mutex
+                0x00000000200001f3                __lock___tz_mutex
+                0x00000000200001f4                __lock___sfp_recursive_mutex
  *(.bss_end .bss_end.*)
- *fill*         0x00000000200001d9        0x3 
- .bss_end       0x00000000200001dc        0x4 ./system/src/newlib/_startup.o
-                0x00000000200001e0                . = ALIGN (0x4)
-                0x00000000200001e0                __bss_end__ = .
-                0x00000000200001e0                _ebss = .
+ *fill*         0x00000000200001f5        0x3 
+ .bss_end       0x00000000200001f8        0x4 ./system/src/newlib/_startup.o
+                0x00000000200001fc                . = ALIGN (0x4)
+                0x00000000200001fc                __bss_end__ = .
+                0x00000000200001fc                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x00000000200001e0        0x0
-                0x00000000200001e0                _noinit = .
+.noinit         0x00000000200001fc        0x0
+                0x00000000200001fc                _noinit = .
  *(.noinit .noinit.*)
-                0x00000000200001e0                . = ALIGN (0x4)
-                0x00000000200001e0                _end_noinit = .
+                0x00000000200001fc                . = ALIGN (0x4)
+                0x00000000200001fc                _end_noinit = .
                 [!provide]                        PROVIDE (end = _end_noinit)
                 [!provide]                        PROVIDE (_end = _end_noinit)
                 [!provide]                        PROVIDE (__end = _end_noinit)
                 [!provide]                        PROVIDE (__end__ = _end_noinit)
 
-._check_stack   0x00000000200001e0      0x100
-                0x00000000200002e0                . = (. + _Minimum_Stack_Size)
- *fill*         0x00000000200001e0      0x100 
+._check_stack   0x00000000200001fc      0x100
+                0x00000000200002fc                . = (. + _Minimum_Stack_Size)
+ *fill*         0x00000000200001fc      0x100 
 
 .b1text
  *(.b1text)
@@ -4986,6 +5117,7 @@ END GROUP
  .comment       0x0000000000000066       0x67 ./system/src/diag/trace_impl.o
  .comment       0x0000000000000066       0x67 ./system/src/cortexm/_initialize_hardware.o
  .comment       0x0000000000000066       0x67 ./system/src/cortexm/exception_handlers.o
+ .comment       0x0000000000000066       0x67 ./src/RTC_ds3231.o
  .comment       0x0000000000000066       0x67 ./src/main.o
  .comment       0x0000000000000066       0x67 ./src/stm32f4xx_hal_msp.o
  .comment       0x0000000000000066       0x67 ./src/stm32f4xx_it.o
@@ -5028,55 +5160,57 @@ END GROUP
  .ARM.attributes
                 0x00000000000002b2       0x21 ./system/src/cmsis/startup_stm32f429xx.o
  .ARM.attributes
-                0x00000000000002d3       0x2e ./src/main.o
+                0x00000000000002d3       0x2e ./src/RTC_ds3231.o
  .ARM.attributes
-                0x0000000000000301       0x2e ./src/stm32f4xx_hal_msp.o
+                0x0000000000000301       0x2e ./src/main.o
  .ARM.attributes
-                0x000000000000032f       0x2e ./src/stm32f4xx_it.o
+                0x000000000000032f       0x2e ./src/stm32f4xx_hal_msp.o
  .ARM.attributes
-                0x000000000000035d       0x2e ./src/syscalls.o
+                0x000000000000035d       0x2e ./src/stm32f4xx_it.o
  .ARM.attributes
-                0x000000000000038b       0x2e ./src/system_init.o
+                0x000000000000038b       0x2e ./src/syscalls.o
  .ARM.attributes
-                0x00000000000003b9       0x2e ./src/system_stm32f4xx.o
+                0x00000000000003b9       0x2e ./src/system_init.o
  .ARM.attributes
-                0x00000000000003e7       0x1e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                0x00000000000003e7       0x2e ./src/system_stm32f4xx.o
  .ARM.attributes
-                0x0000000000000405       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x0000000000000415       0x1e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x0000000000000433       0x1e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x0000000000000433       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x0000000000000451       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-errno.o)
+                0x0000000000000461       0x1e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x000000000000047f       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-impure.o)
+                0x000000000000047f       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000000000004ad       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memcpy-stub.o)
+                0x00000000000004ad       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000000000004db       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memset.o)
+                0x00000000000004db       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x0000000000000509       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
+                0x0000000000000509       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x0000000000000537       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000000000537       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
  .ARM.attributes
-                0x0000000000000565       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000000000565       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
  .ARM.attributes
-                0x0000000000000593       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memchr.o)
+                0x0000000000000593       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x00000000000005af       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memmove.o)
+                0x00000000000005c1       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memchr.o)
  .ARM.attributes
-                0x00000000000005dd       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-freer.o)
+                0x00000000000005dd       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memmove.o)
  .ARM.attributes
-                0x000000000000060b       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
+                0x000000000000060b       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x0000000000000639       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-reallocr.o)
+                0x0000000000000639       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x0000000000000667       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sbrkr.o)
+                0x0000000000000667       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-reallocr.o)
  .ARM.attributes
-                0x0000000000000695       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
+                0x0000000000000695       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x00000000000006c3       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
+                0x00000000000006c3       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
  .ARM.attributes
-                0x00000000000006f1       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
+                0x00000000000006f1       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
+ .ARM.attributes
+                0x000000000000071f       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 
 .debug
  *(.debug)
@@ -5090,7 +5224,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0xa20
+.debug_aranges  0x0000000000000000      0xa58
  *(.debug_aranges)
  .debug_aranges
                 0x0000000000000000      0x100 ./system/src/stm32f4xx/stm32f4xx_hal.o
@@ -5125,22 +5259,24 @@ END GROUP
  .debug_aranges
                 0x0000000000000840       0x28 ./system/src/cmsis/startup_stm32f429xx.o
  .debug_aranges
-                0x0000000000000868       0x28 ./src/main.o
+                0x0000000000000868       0x38 ./src/RTC_ds3231.o
  .debug_aranges
-                0x0000000000000890       0x20 ./src/stm32f4xx_hal_msp.o
+                0x00000000000008a0       0x28 ./src/main.o
  .debug_aranges
-                0x00000000000008b0       0x60 ./src/stm32f4xx_it.o
+                0x00000000000008c8       0x20 ./src/stm32f4xx_hal_msp.o
  .debug_aranges
-                0x0000000000000910       0xa8 ./src/syscalls.o
+                0x00000000000008e8       0x60 ./src/stm32f4xx_it.o
  .debug_aranges
-                0x00000000000009b8       0x40 ./src/system_init.o
+                0x0000000000000948       0xa8 ./src/syscalls.o
  .debug_aranges
-                0x00000000000009f8       0x28 ./src/system_stm32f4xx.o
+                0x00000000000009f0       0x40 ./src/system_init.o
+ .debug_aranges
+                0x0000000000000a30       0x28 ./src/system_stm32f4xx.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000    0x10438
+.debug_info     0x0000000000000000    0x135b0
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0xad1 ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_info    0x0000000000000ad1     0x116a ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -5158,14 +5294,15 @@ END GROUP
  .debug_info    0x000000000000b2f6      0x31d ./system/src/cortexm/_initialize_hardware.o
  .debug_info    0x000000000000b613     0x12dd ./system/src/cortexm/exception_handlers.o
  .debug_info    0x000000000000c8f0       0x22 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_info    0x000000000000c912      0x849 ./src/main.o
- .debug_info    0x000000000000d15b      0x38c ./src/stm32f4xx_hal_msp.o
- .debug_info    0x000000000000d4e7      0x218 ./src/stm32f4xx_it.o
- .debug_info    0x000000000000d6ff     0x10b4 ./src/syscalls.o
- .debug_info    0x000000000000e7b3     0x172e ./src/system_init.o
- .debug_info    0x000000000000fee1      0x557 ./src/system_stm32f4xx.o
+ .debug_info    0x000000000000c912     0x176f ./src/RTC_ds3231.o
+ .debug_info    0x000000000000e081      0xe53 ./src/main.o
+ .debug_info    0x000000000000eed4      0xd90 ./src/stm32f4xx_hal_msp.o
+ .debug_info    0x000000000000fc64      0xc1c ./src/stm32f4xx_it.o
+ .debug_info    0x0000000000010880     0x10b4 ./src/syscalls.o
+ .debug_info    0x0000000000011934     0x1725 ./src/system_init.o
+ .debug_info    0x0000000000013059      0x557 ./src/system_stm32f4xx.o
 
-.debug_abbrev   0x0000000000000000     0x2c67
+.debug_abbrev   0x0000000000000000     0x307e
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x21c ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_abbrev  0x000000000000021c      0x393 ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -5183,14 +5320,15 @@ END GROUP
  .debug_abbrev  0x0000000000001e10       0xfc ./system/src/cortexm/_initialize_hardware.o
  .debug_abbrev  0x0000000000001f0c      0x372 ./system/src/cortexm/exception_handlers.o
  .debug_abbrev  0x000000000000227e       0x12 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_abbrev  0x0000000000002290      0x1a7 ./src/main.o
- .debug_abbrev  0x0000000000002437      0x11d ./src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x0000000000002554       0xf2 ./src/stm32f4xx_it.o
- .debug_abbrev  0x0000000000002646      0x2f8 ./src/syscalls.o
- .debug_abbrev  0x000000000000293e      0x1fa ./src/system_init.o
- .debug_abbrev  0x0000000000002b38      0x12f ./src/system_stm32f4xx.o
+ .debug_abbrev  0x0000000000002290      0x2b4 ./src/RTC_ds3231.o
+ .debug_abbrev  0x0000000000002544      0x1e0 ./src/main.o
+ .debug_abbrev  0x0000000000002724      0x192 ./src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x00000000000028b6      0x1a7 ./src/stm32f4xx_it.o
+ .debug_abbrev  0x0000000000002a5d      0x2f8 ./src/syscalls.o
+ .debug_abbrev  0x0000000000002d55      0x1fa ./src/system_init.o
+ .debug_abbrev  0x0000000000002f4f      0x12f ./src/system_stm32f4xx.o
 
-.debug_line     0x0000000000000000     0xdfee
+.debug_line     0x0000000000000000     0xe730
  *(.debug_line)
  .debug_line    0x0000000000000000      0x7ac ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_line    0x00000000000007ac      0x9b9 ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -5208,14 +5346,15 @@ END GROUP
  .debug_line    0x000000000000b5bc      0x1c7 ./system/src/cortexm/_initialize_hardware.o
  .debug_line    0x000000000000b783      0x771 ./system/src/cortexm/exception_handlers.o
  .debug_line    0x000000000000bef4       0x88 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_line    0x000000000000bf7c      0x749 ./src/main.o
- .debug_line    0x000000000000c6c5      0x44a ./src/stm32f4xx_hal_msp.o
- .debug_line    0x000000000000cb0f      0x52c ./src/stm32f4xx_it.o
- .debug_line    0x000000000000d03b      0x6ba ./src/syscalls.o
- .debug_line    0x000000000000d6f5      0x6ac ./src/system_init.o
- .debug_line    0x000000000000dda1      0x24d ./src/system_stm32f4xx.o
+ .debug_line    0x000000000000bf7c      0x74b ./src/RTC_ds3231.o
+ .debug_line    0x000000000000c6c7      0x749 ./src/main.o
+ .debug_line    0x000000000000ce10      0x44a ./src/stm32f4xx_hal_msp.o
+ .debug_line    0x000000000000d25a      0x52c ./src/stm32f4xx_it.o
+ .debug_line    0x000000000000d786      0x6ba ./src/syscalls.o
+ .debug_line    0x000000000000de40      0x6a3 ./src/system_init.o
+ .debug_line    0x000000000000e4e3      0x24d ./src/system_stm32f4xx.o
 
-.debug_frame    0x0000000000000000     0x1db8
+.debug_frame    0x0000000000000000     0x1e30
  *(.debug_frame)
  .debug_frame   0x0000000000000000      0x20c ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_frame   0x000000000000020c      0x15c ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -5232,30 +5371,31 @@ END GROUP
  .debug_frame   0x0000000000001450       0x64 ./system/src/diag/trace_impl.o
  .debug_frame   0x00000000000014b4       0x40 ./system/src/cortexm/_initialize_hardware.o
  .debug_frame   0x00000000000014f4      0x158 ./system/src/cortexm/exception_handlers.o
- .debug_frame   0x000000000000164c       0x38 ./src/main.o
- .debug_frame   0x0000000000001684       0x28 ./src/stm32f4xx_hal_msp.o
- .debug_frame   0x00000000000016ac       0xa8 ./src/stm32f4xx_it.o
- .debug_frame   0x0000000000001754      0x190 ./src/syscalls.o
- .debug_frame   0x00000000000018e4       0xa8 ./src/system_init.o
- .debug_frame   0x000000000000198c       0x30 ./src/system_stm32f4xx.o
- .debug_frame   0x00000000000019bc       0x2c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00000000000019e8       0x34 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000000000001a1c       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-errno.o)
- .debug_frame   0x0000000000001a3c       0x28 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x0000000000001a64       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memset.o)
- .debug_frame   0x0000000000001a84       0x4c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
- .debug_frame   0x0000000000001ad0       0x90 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x0000000000001b60       0x60 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x0000000000001bc0       0x28 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x0000000000001be8       0x38 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x0000000000001c20       0x30 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x0000000000001c50       0x3c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x0000000000001c8c       0x2c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x0000000000001cb8       0x30 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x0000000000001ce8       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
- .debug_frame   0x0000000000001d08       0xb0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
+ .debug_frame   0x000000000000164c       0x74 ./src/RTC_ds3231.o
+ .debug_frame   0x00000000000016c0       0x38 ./src/main.o
+ .debug_frame   0x00000000000016f8       0x28 ./src/stm32f4xx_hal_msp.o
+ .debug_frame   0x0000000000001720       0xa8 ./src/stm32f4xx_it.o
+ .debug_frame   0x00000000000017c8      0x190 ./src/syscalls.o
+ .debug_frame   0x0000000000001958       0xac ./src/system_init.o
+ .debug_frame   0x0000000000001a04       0x30 ./src/system_stm32f4xx.o
+ .debug_frame   0x0000000000001a34       0x2c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000000000001a60       0x34 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x0000000000001a94       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000000000001ab4       0x28 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000001adc       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000000000001afc       0x4c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
+ .debug_frame   0x0000000000001b48       0x90 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x0000000000001bd8       0x60 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000000000001c38       0x28 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x0000000000001c60       0x38 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x0000000000001c98       0x30 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x0000000000001cc8       0x3c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x0000000000001d04       0x2c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000001d30       0x30 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000000000001d60       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x0000000000001d80       0xb0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 
-.debug_str      0x0000000000000000    0xdf933
+.debug_str      0x0000000000000000    0xdfa43
  *(.debug_str)
  .debug_str     0x0000000000000000    0xd6423 ./system/src/stm32f4xx/stm32f4xx_hal.o
                                       0xd67a8 (size before relaxing)
@@ -5289,20 +5429,22 @@ END GROUP
                                       0x97e59 (size before relaxing)
  .debug_str     0x00000000000df47a       0x38 ./system/src/cmsis/startup_stm32f429xx.o
                                          0x95 (size before relaxing)
- .debug_str     0x00000000000df4b2       0x7e ./src/main.o
-                                      0xd9923 (size before relaxing)
- .debug_str     0x00000000000df530       0x1b ./src/stm32f4xx_hal_msp.o
-                                      0xd5b98 (size before relaxing)
- .debug_str     0x00000000000df54b       0x28 ./src/stm32f4xx_it.o
-                                      0xd5b1f (size before relaxing)
- .debug_str     0x00000000000df573      0x2ea ./src/syscalls.o
+ .debug_str     0x00000000000df4b2      0x15d ./src/RTC_ds3231.o
+                                      0xd9289 (size before relaxing)
+ .debug_str     0x00000000000df60f       0x41 ./src/main.o
+                                      0xd9e6f (size before relaxing)
+ .debug_str     0x00000000000df650       0x1b ./src/stm32f4xx_hal_msp.o
+                                      0xd636c (size before relaxing)
+ .debug_str     0x00000000000df66b       0x28 ./src/stm32f4xx_it.o
+                                      0xd62f3 (size before relaxing)
+ .debug_str     0x00000000000df693      0x2ea ./src/syscalls.o
                                        0x8721 (size before relaxing)
- .debug_str     0x00000000000df85d       0x5f ./src/system_init.o
+ .debug_str     0x00000000000df97d       0x4f ./src/system_init.o
                                       0xd6ccf (size before relaxing)
- .debug_str     0x00000000000df8bc       0x77 ./src/system_stm32f4xx.o
+ .debug_str     0x00000000000df9cc       0x77 ./src/system_stm32f4xx.o
                                       0x92c3e (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x735b
+.debug_loc      0x0000000000000000     0x74a5
  *(.debug_loc)
  .debug_loc     0x0000000000000000      0x141 ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_loc     0x0000000000000141      0x744 ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -5318,8 +5460,9 @@ END GROUP
  .debug_loc     0x0000000000006822      0x118 ./system/src/diag/Trace.o
  .debug_loc     0x000000000000693a      0x194 ./system/src/diag/trace_impl.o
  .debug_loc     0x0000000000006ace      0x35c ./system/src/cortexm/exception_handlers.o
- .debug_loc     0x0000000000006e2a      0x3c5 ./src/syscalls.o
- .debug_loc     0x00000000000071ef      0x16c ./src/system_stm32f4xx.o
+ .debug_loc     0x0000000000006e2a      0x14a ./src/RTC_ds3231.o
+ .debug_loc     0x0000000000006f74      0x3c5 ./src/syscalls.o
+ .debug_loc     0x0000000000007339      0x16c ./src/system_stm32f4xx.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -5337,7 +5480,7 @@ END GROUP
  *(.debug_varnames)
 OUTPUT(Vrbanec_diplomski_rad_stm32f429.elf elf32-littlearm)
 
-.debug_ranges   0x0000000000000000      0x988
+.debug_ranges   0x0000000000000000      0x9b0
  .debug_ranges  0x0000000000000000       0xf0 ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_ranges  0x00000000000000f0       0xf8 ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
  .debug_ranges  0x00000000000001e8       0x48 ./system/src/stm32f4xx/stm32f4xx_hal_gpio.o
@@ -5354,14 +5497,15 @@ OUTPUT(Vrbanec_diplomski_rad_stm32f429.elf elf32-littlearm)
  .debug_ranges  0x0000000000000760       0x18 ./system/src/cortexm/_initialize_hardware.o
  .debug_ranges  0x0000000000000778       0x98 ./system/src/cortexm/exception_handlers.o
  .debug_ranges  0x0000000000000810       0x20 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_ranges  0x0000000000000830       0x18 ./src/main.o
- .debug_ranges  0x0000000000000848       0x10 ./src/stm32f4xx_hal_msp.o
- .debug_ranges  0x0000000000000858       0x50 ./src/stm32f4xx_it.o
- .debug_ranges  0x00000000000008a8       0x98 ./src/syscalls.o
- .debug_ranges  0x0000000000000940       0x30 ./src/system_init.o
- .debug_ranges  0x0000000000000970       0x18 ./src/system_stm32f4xx.o
+ .debug_ranges  0x0000000000000830       0x28 ./src/RTC_ds3231.o
+ .debug_ranges  0x0000000000000858       0x18 ./src/main.o
+ .debug_ranges  0x0000000000000870       0x10 ./src/stm32f4xx_hal_msp.o
+ .debug_ranges  0x0000000000000880       0x50 ./src/stm32f4xx_it.o
+ .debug_ranges  0x00000000000008d0       0x98 ./src/syscalls.o
+ .debug_ranges  0x0000000000000968       0x30 ./src/system_init.o
+ .debug_ranges  0x0000000000000998       0x18 ./src/system_stm32f4xx.o
 
-.debug_macro    0x0000000000000000    0x25036
+.debug_macro    0x0000000000000000    0x25445
  .debug_macro   0x0000000000000000      0x212 ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_macro   0x0000000000000212      0xa9c ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_macro   0x0000000000000cae      0x190 ./system/src/stm32f4xx/stm32f4xx_hal.o
@@ -5444,12 +5588,16 @@ OUTPUT(Vrbanec_diplomski_rad_stm32f429.elf elf32-littlearm)
  .debug_macro   0x0000000000023f27       0x99 ./system/src/cortexm/_initialize_hardware.o
  .debug_macro   0x0000000000023fc0      0x258 ./system/src/cortexm/exception_handlers.o
  .debug_macro   0x0000000000024218       0x10 ./system/src/cortexm/exception_handlers.o
- .debug_macro   0x0000000000024228      0x32d ./src/main.o
- .debug_macro   0x0000000000024555      0x1d4 ./src/stm32f4xx_hal_msp.o
- .debug_macro   0x0000000000024729      0x1de ./src/stm32f4xx_it.o
- .debug_macro   0x0000000000024907      0x249 ./src/syscalls.o
- .debug_macro   0x0000000000024b50      0x241 ./src/syscalls.o
- .debug_macro   0x0000000000024d91       0x1c ./src/syscalls.o
- .debug_macro   0x0000000000024dad       0x10 ./src/syscalls.o
- .debug_macro   0x0000000000024dbd      0x1d8 ./src/system_init.o
- .debug_macro   0x0000000000024f95       0xa1 ./src/system_stm32f4xx.o
+ .debug_macro   0x0000000000024228      0x2c0 ./src/RTC_ds3231.o
+ .debug_macro   0x00000000000244e8       0xd9 ./src/RTC_ds3231.o
+ .debug_macro   0x00000000000245c1       0x54 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000024615       0x22 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000024637      0x32d ./src/main.o
+ .debug_macro   0x0000000000024964      0x1d4 ./src/stm32f4xx_hal_msp.o
+ .debug_macro   0x0000000000024b38      0x1de ./src/stm32f4xx_it.o
+ .debug_macro   0x0000000000024d16      0x249 ./src/syscalls.o
+ .debug_macro   0x0000000000024f5f      0x241 ./src/syscalls.o
+ .debug_macro   0x00000000000251a0       0x1c ./src/syscalls.o
+ .debug_macro   0x00000000000251bc       0x10 ./src/syscalls.o
+ .debug_macro   0x00000000000251cc      0x1d8 ./src/system_init.o
+ .debug_macro   0x00000000000253a4       0xa1 ./src/system_stm32f4xx.o

@@ -1,4 +1,4 @@
-src/system_init.o: ../src/system_init.c ../include/system_init.h \
+src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
  ../include/main.h ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
@@ -30,7 +30,7 @@ src/system_init.o: ../src/system_init.c ../include/system_init.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
  ../include/light_mgmt.h ../include/system_init.h
 
-../include/system_init.h:
+../include/RTC_ds3231.h:
 
 ../include/main.h:
 

@@ -5,13 +5,7 @@
  *      Author: jurica
  */
 
-#include "main.h"
-#include "stm32f4xx_hal.h"
 #include "system_init.h"
-
-I2C_HandleTypeDef hi2c1;
-RTC_HandleTypeDef RTCHandle;
-RTC_AlarmTypeDef RTCAlarmA;
 
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
@@ -19,8 +13,7 @@ RTC_AlarmTypeDef RTCAlarmA;
  * @brief System Clock Configuration
  * @retval None
  */
-void
-SystemClock_Config (void)
+void SystemClock_Config (void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct =
     { 0 };
@@ -92,12 +85,8 @@ SystemClock_Config (void)
  * @param None
  * @retval None
  */
-void
-GPIO_Init (void)
+void GPIO_Init (void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct =
-    { 0 };
-
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
@@ -127,11 +116,8 @@ GPIO_Init (void)
  * @param None
  * @retval None
  */
-void
-I2C1_Init (void)
+void I2C1_Init (void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct;
-
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_I2C1_CLK_ENABLE();
 
@@ -162,8 +148,7 @@ I2C1_Init (void)
  * @param None
  * @retval None
  */
-void
-RTC_Init (void)
+void RTC_Init (void)
 {
   __HAL_RCC_RTC_ENABLE();
 
@@ -202,8 +187,7 @@ RTC_Init (void)
  * @param None
  * @retval None
  */
-void
-RTC_ALARM_IRQHandler (void)
+void RTC_ALARM_IRQHandler (void)
 {
   HAL_RTC_AlarmIRQHandler (&RTCHandle);
 }
@@ -222,9 +206,9 @@ RTC_ALARM_IRQHandler (void)
  * @retval None
  */
 /*void
-SysTick_Handler (void)
-{
-  HAL_IncTick ();
-  HAL_SYSTICK_IRQHandler ();
-}
-*/
+ SysTick_Handler (void)
+ {
+ HAL_IncTick ();
+ HAL_SYSTICK_IRQHandler ();
+ }
+ */
