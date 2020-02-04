@@ -8,7 +8,7 @@ extern "C"
 
 #include <string.h>
 
-#include "main.h"
+//#include "main.h"
 #include "stm32f4xx_hal.h"
 #include "system_init.h"
 
@@ -19,14 +19,14 @@ extern "C"
 #define DS3231_ALARM1_HOURS 0x09
 #define DS3231_CONTROLL     0x0E
 #define DS3231_MSB_TEMP     0x11
-
+/*
   char *dayOfWeek[] =
     { "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota",
       "Nedjelja"};
 
   volatile uint8_t transmissionReady = 0;
   volatile uint8_t conf_mode = 0;
-
+*/
   typedef struct
     {
       uint8_t seconds;
@@ -75,7 +75,8 @@ extern "C"
   uint8_t decToBcd(int val);
   void set_Time(uint8_t sec, uint8_t min, uint8_t  hour, uint8_t day,
                 uint8_t date, uint8_t month, uint8_t year);
-  void DS3231_ReadRawDate(DS3231_DateTypeDef* date);
+  void get_Time (void);
+ // void DS3231_ReadRawDate(DS3231_DateTypeDef* date);
 
 #ifdef __cplusplus
 }

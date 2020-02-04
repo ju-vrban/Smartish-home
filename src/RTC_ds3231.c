@@ -7,6 +7,8 @@
 
 #include "RTC_ds3231.h"
 
+
+
 uint8_t decToBcd (int val)
 {
   return (uint8_t) ((val / 10 * 16) + (val % 10));
@@ -30,7 +32,7 @@ void set_Time (uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,
   setTime[5] = decToBcd (month);
   setTime[6] = decToBcd (year);
 
-  HAL_I2C_Mem_Write (&hi2c1, DS3231_ADDRESS, 0x00, 1, setTime, 7, 50);
+  HAL_I2C_Mem_Write (&hi2c1, DS3231_ADDRESS, 0x00, 1, setTime, 7, 500);
 }
 /*
  void DS3231_ReadRawDate (DS3231_DateTypeDef *date)
@@ -45,7 +47,7 @@ void get_Time (void)
 {
   uint8_t getTime[7];
 
-  HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0x00, 1, getTime, 7, 50);
+  HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0x00, 1, getTime, 7, 500);
 
   Time.seconds = bcdToDec (getTime[0]);
   Time.minutes = bcdToDec (getTime[1]);
@@ -55,3 +57,4 @@ void get_Time (void)
   Time.month = bcdToDec (getTime[5]);
   Time.year = bcdToDec (getTime[6]);
 }
+

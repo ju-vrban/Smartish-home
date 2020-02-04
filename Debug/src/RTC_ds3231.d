@@ -1,5 +1,5 @@
 src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
- ../include/main.h ../system/include/stm32f4xx/stm32f4xx_hal.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_def.h \
@@ -28,11 +28,9 @@ src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rtc_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
- ../include/light_mgmt.h ../include/system_init.h
+ ../include/system_init.h
 
 ../include/RTC_ds3231.h:
-
-../include/main.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal.h:
 
@@ -95,7 +93,5 @@ src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
 ../system/include/stm32f4xx/stm32f4xx_hal_tim.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h:
-
-../include/light_mgmt.h:
 
 ../include/system_init.h:

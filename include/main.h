@@ -27,9 +27,14 @@ extern "C"
 #endif
 
   /* Includes ------------------------------------------------------------------*/
+#include <stdio.h>
+
 #include "stm32f4xx_hal.h"
 #include "light_mgmt.h"
 #include "system_init.h"
+#include "RTC_ds3231.h"
+#include "lcd_i2c.h"
+#include "diag/Trace.h"
 
   /* Private includes ----------------------------------------------------------*/
 

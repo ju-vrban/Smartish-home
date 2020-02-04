@@ -6,7 +6,7 @@ extern "C"
 {
 #endif
 
-#include "main.h"
+//#include "main.h"
 #include "stm32f4xx_hal.h"
 
   I2C_HandleTypeDef hi2c1;
