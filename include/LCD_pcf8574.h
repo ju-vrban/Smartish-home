@@ -1,9 +1,9 @@
 #include "stm32f4xx_hal.h"
 
 #define CLEAR_DISP 0x01
-#define SLAVE_ADDRESS_LCD 0x4E
+#define LCD_WRITE_ADDRESS 0x4E
 
-I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
+I2C_HandleTypeDef hi2c1;
 
 void LCD_Init (void);
 void LCD_SendCmd (char cmd);

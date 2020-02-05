@@ -1,4 +1,4 @@
-src/lcd_i2c.o: ../src/lcd_i2c.c ../include/lcd_i2c.h \
+src/LCD_pcf8574.o: ../src/LCD_pcf8574.c ../include/LCD_pcf8574.h \
  ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
@@ -29,7 +29,7 @@ src/lcd_i2c.o: ../src/lcd_i2c.c ../include/lcd_i2c.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h
 
-../include/lcd_i2c.h:
+../include/LCD_pcf8574.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal.h:
 

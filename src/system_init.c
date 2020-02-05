@@ -112,7 +112,10 @@ void GPIO_Init (void)
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /**
- * @brief I2C1 initialization function
+ * @brief I2C1 initialization function for the external RTC and 16x1 LCD
+ *
+ * Clock speed is 100 kHz because of the max frequency of the pcf8574
+ *
  * @param None
  * @retval None
  */

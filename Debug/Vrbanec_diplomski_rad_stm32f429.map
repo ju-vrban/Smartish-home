@@ -60,7 +60,7 @@ __lock___atexit_recursive_mutex
 __lock___arc4random_mutex
                     0x1               /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 errno               0x4               ./system/src/newlib/_syscalls.o
-hi2c1               0x54              ./src/RTC_ds3231.o
+hi2c1               0x54              ./src/LCD_pcf8574.o
 uwTick              0x4               ./system/src/stm32f4xx/stm32f4xx_hal.o
 pFlash              0x20              ./system/src/stm32f4xx/stm32f4xx_hal_flash.o
 __lock___env_recursive_mutex
@@ -3350,6 +3350,90 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./system/src/cmsis/startup_stm32f429xx.o
  .text.Reset_Handler
                 0x0000000000000000       0x50 ./system/src/cmsis/startup_stm32f429xx.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .group         0x0000000000000000        0xc ./src/LCD_pcf8574.o
+ .text          0x0000000000000000        0x0 ./src/LCD_pcf8574.o
+ .data          0x0000000000000000        0x0 ./src/LCD_pcf8574.o
+ .bss           0x0000000000000000        0x0 ./src/LCD_pcf8574.o
+ .text.LCD_Clear
+                0x0000000000000000       0x1c ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0xa9c ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x190 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x32 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x28 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x34e ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x1c ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x22 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0xdf ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000     0x102d ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x11f ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000    0x17f79 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x43 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000     0x36c2 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x174 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x5a ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0xca5 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x9fe ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x182 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x117 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x157 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x27 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x287 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x5f ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x236 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x132 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x41d ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x2e ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x1b5 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x22 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0xd6 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x11a ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0xe2 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x89 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x31a ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x405 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0xe4 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x8a0 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x47 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000      0x134 ./src/LCD_pcf8574.o
  .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
  .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
  .group         0x0000000000000000        0xc ./src/RTC_ds3231.o
@@ -3479,90 +3563,6 @@ Discarded input sections
  .comment       0x0000000000000000       0x67 ./src/_write.o
  .ARM.attributes
                 0x0000000000000000       0x33 ./src/_write.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .group         0x0000000000000000        0xc ./src/lcd_i2c.o
- .text          0x0000000000000000        0x0 ./src/lcd_i2c.o
- .data          0x0000000000000000        0x0 ./src/lcd_i2c.o
- .bss           0x0000000000000000        0x0 ./src/lcd_i2c.o
- .text.LCD_Clear
-                0x0000000000000000       0x1c ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0xa9c ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x190 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x32 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x28 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x34e ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x1c ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x22 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0xdf ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000     0x102d ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x11f ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000    0x17f79 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x43 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000     0x36c2 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x174 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x5a ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0xca5 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x9fe ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x182 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x117 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x157 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x27 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x287 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x5f ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x236 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x132 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x41d ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x2e ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x1b5 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x22 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0xd6 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x11a ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0xe2 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x89 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x31a ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x405 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0xe4 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x8a0 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000       0x47 ./src/lcd_i2c.o
- .debug_macro   0x0000000000000000      0x134 ./src/lcd_i2c.o
  .group         0x0000000000000000        0xc ./src/light_mgmt.o
  .group         0x0000000000000000        0xc ./src/light_mgmt.o
  .group         0x0000000000000000        0xc ./src/light_mgmt.o
@@ -3721,7 +3721,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./src/light_mgmt.o
  .debug_macro   0x0000000000000000       0x16 ./src/light_mgmt.o
  .debug_macro   0x0000000000000000      0x51a ./src/light_mgmt.o
- .debug_line    0x0000000000000000      0x76c ./src/light_mgmt.o
+ .debug_line    0x0000000000000000      0x770 ./src/light_mgmt.o
  .debug_str     0x0000000000000000    0xdb643 ./src/light_mgmt.o
  .comment       0x0000000000000000       0x67 ./src/light_mgmt.o
  .debug_frame   0x0000000000000000       0x28 ./src/light_mgmt.o
@@ -4764,9 +4764,9 @@ LOAD ./system/src/cortexm/_initialize_hardware.o
 LOAD ./system/src/cortexm/_reset_hardware.o
 LOAD ./system/src/cortexm/exception_handlers.o
 LOAD ./system/src/cmsis/startup_stm32f429xx.o
+LOAD ./src/LCD_pcf8574.o
 LOAD ./src/RTC_ds3231.o
 LOAD ./src/_write.o
-LOAD ./src/lcd_i2c.o
 LOAD ./src/light_mgmt.o
 LOAD ./src/main.o
 LOAD ./src/stm32f4xx_hal_msp.o
@@ -5075,29 +5075,29 @@ END GROUP
                 0x00000000080020b0                DMA2_Stream6_IRQHandler
                 0x00000000080020b0                SAI1_IRQHandler
                 0x00000000080020b0                DMA1_Stream3_IRQHandler
- .text.bcdToDec
-                0x00000000080020b2       0x10 ./src/RTC_ds3231.o
-                0x00000000080020b2                bcdToDec
- *fill*         0x00000000080020c2        0x2 
- .text.get_Time
-                0x00000000080020c4       0x74 ./src/RTC_ds3231.o
-                0x00000000080020c4                get_Time
+ *fill*         0x00000000080020b2        0x2 
  .text.LCD_SendCmd
-                0x0000000008002138       0x48 ./src/lcd_i2c.o
-                0x0000000008002138                LCD_SendCmd
+                0x00000000080020b4       0x48 ./src/LCD_pcf8574.o
+                0x00000000080020b4                LCD_SendCmd
  .text.LCD_SendData
-                0x0000000008002180       0x48 ./src/lcd_i2c.o
-                0x0000000008002180                LCD_SendData
+                0x00000000080020fc       0x48 ./src/LCD_pcf8574.o
+                0x00000000080020fc                LCD_SendData
  .text.LCD_PutCur
-                0x00000000080021c8       0x1c ./src/lcd_i2c.o
-                0x00000000080021c8                LCD_PutCur
+                0x0000000008002144       0x1c ./src/LCD_pcf8574.o
+                0x0000000008002144                LCD_PutCur
  .text.LCD_Init
-                0x00000000080021e4       0x76 ./src/lcd_i2c.o
-                0x00000000080021e4                LCD_Init
+                0x0000000008002160       0x76 ./src/LCD_pcf8574.o
+                0x0000000008002160                LCD_Init
  .text.LCD_SendString
-                0x000000000800225a       0x14 ./src/lcd_i2c.o
-                0x000000000800225a                LCD_SendString
- *fill*         0x000000000800226e        0x2 
+                0x00000000080021d6       0x14 ./src/LCD_pcf8574.o
+                0x00000000080021d6                LCD_SendString
+ .text.bcdToDec
+                0x00000000080021ea       0x10 ./src/RTC_ds3231.o
+                0x00000000080021ea                bcdToDec
+ *fill*         0x00000000080021fa        0x2 
+ .text.get_Time
+                0x00000000080021fc       0x74 ./src/RTC_ds3231.o
+                0x00000000080021fc                get_Time
  .text.main     0x0000000008002270       0x54 ./src/main.o
                 0x0000000008002270                main
  .text.Error_Handler
@@ -5344,9 +5344,10 @@ END GROUP
                 0x0000000020000114                uwTick
  COMMON         0x0000000020000118        0x4 ./system/src/newlib/_syscalls.o
                 0x0000000020000118                errno
- COMMON         0x000000002000011c       0xb8 ./src/RTC_ds3231.o
-                0x000000002000011c                RTCAlarmA
-                0x0000000020000144                hi2c1
+ COMMON         0x000000002000011c       0x54 ./src/LCD_pcf8574.o
+                0x000000002000011c                hi2c1
+ COMMON         0x0000000020000170       0x64 ./src/RTC_ds3231.o
+                0x0000000020000170                RTCAlarmA
                 0x0000000020000198                GPIO_InitStruct
                 0x00000000200001ac                Time
                 0x00000000200001b4                RTCHandle
@@ -5445,8 +5446,8 @@ END GROUP
  .comment       0x0000000000000066       0x67 ./system/src/diag/trace_impl.o
  .comment       0x0000000000000066       0x67 ./system/src/cortexm/_initialize_hardware.o
  .comment       0x0000000000000066       0x67 ./system/src/cortexm/exception_handlers.o
+ .comment       0x0000000000000066       0x67 ./src/LCD_pcf8574.o
  .comment       0x0000000000000066       0x67 ./src/RTC_ds3231.o
- .comment       0x0000000000000066       0x67 ./src/lcd_i2c.o
  .comment       0x0000000000000066       0x67 ./src/main.o
  .comment       0x0000000000000066       0x67 ./src/stm32f4xx_hal_msp.o
  .comment       0x0000000000000066       0x67 ./src/stm32f4xx_it.o
@@ -5489,9 +5490,9 @@ END GROUP
  .ARM.attributes
                 0x00000000000002b2       0x21 ./system/src/cmsis/startup_stm32f429xx.o
  .ARM.attributes
-                0x00000000000002d3       0x2e ./src/RTC_ds3231.o
+                0x00000000000002d3       0x2e ./src/LCD_pcf8574.o
  .ARM.attributes
-                0x0000000000000301       0x2e ./src/lcd_i2c.o
+                0x0000000000000301       0x2e ./src/RTC_ds3231.o
  .ARM.attributes
                 0x000000000000032f       0x2e ./src/main.o
  .ARM.attributes
@@ -5592,9 +5593,9 @@ END GROUP
  .debug_aranges
                 0x0000000000000840       0x28 ./system/src/cmsis/startup_stm32f429xx.o
  .debug_aranges
-                0x0000000000000868       0x38 ./src/RTC_ds3231.o
+                0x0000000000000868       0x48 ./src/LCD_pcf8574.o
  .debug_aranges
-                0x00000000000008a0       0x48 ./src/lcd_i2c.o
+                0x00000000000008b0       0x38 ./src/RTC_ds3231.o
  .debug_aranges
                 0x00000000000008e8       0x28 ./src/main.o
  .debug_aranges
@@ -5629,8 +5630,8 @@ END GROUP
  .debug_info    0x000000000000b2f6      0x31d ./system/src/cortexm/_initialize_hardware.o
  .debug_info    0x000000000000b613     0x12dd ./system/src/cortexm/exception_handlers.o
  .debug_info    0x000000000000c8f0       0x22 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_info    0x000000000000c912     0x1726 ./src/RTC_ds3231.o
- .debug_info    0x000000000000e038      0xa5f ./src/lcd_i2c.o
+ .debug_info    0x000000000000c912      0xa5f ./src/LCD_pcf8574.o
+ .debug_info    0x000000000000d371     0x1726 ./src/RTC_ds3231.o
  .debug_info    0x000000000000ea97     0x16d8 ./src/main.o
  .debug_info    0x000000000001016f     0x1731 ./src/stm32f4xx_hal_msp.o
  .debug_info    0x00000000000118a0     0x15bd ./src/stm32f4xx_it.o
@@ -5656,8 +5657,8 @@ END GROUP
  .debug_abbrev  0x0000000000001e10       0xfc ./system/src/cortexm/_initialize_hardware.o
  .debug_abbrev  0x0000000000001f0c      0x372 ./system/src/cortexm/exception_handlers.o
  .debug_abbrev  0x000000000000227e       0x12 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_abbrev  0x0000000000002290      0x2b4 ./src/RTC_ds3231.o
- .debug_abbrev  0x0000000000002544      0x21f ./src/lcd_i2c.o
+ .debug_abbrev  0x0000000000002290      0x21f ./src/LCD_pcf8574.o
+ .debug_abbrev  0x00000000000024af      0x2b4 ./src/RTC_ds3231.o
  .debug_abbrev  0x0000000000002763      0x28a ./src/main.o
  .debug_abbrev  0x00000000000029ed      0x23e ./src/stm32f4xx_hal_msp.o
  .debug_abbrev  0x0000000000002c2b      0x253 ./src/stm32f4xx_it.o
@@ -5665,7 +5666,7 @@ END GROUP
  .debug_abbrev  0x0000000000003176      0x214 ./src/system_init.o
  .debug_abbrev  0x000000000000338a      0x12f ./src/system_stm32f4xx.o
 
-.debug_line     0x0000000000000000     0xf327
+.debug_line     0x0000000000000000     0xf33b
  *(.debug_line)
  .debug_line    0x0000000000000000      0x7ac ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_line    0x00000000000007ac      0x9b9 ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -5683,14 +5684,14 @@ END GROUP
  .debug_line    0x000000000000b5bc      0x1c7 ./system/src/cortexm/_initialize_hardware.o
  .debug_line    0x000000000000b783      0x771 ./system/src/cortexm/exception_handlers.o
  .debug_line    0x000000000000bef4       0x88 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_line    0x000000000000bf7c      0x731 ./src/RTC_ds3231.o
- .debug_line    0x000000000000c6ad      0x579 ./src/lcd_i2c.o
- .debug_line    0x000000000000cc26      0x7b1 ./src/main.o
- .debug_line    0x000000000000d3d7      0x76f ./src/stm32f4xx_hal_msp.o
- .debug_line    0x000000000000db46      0x851 ./src/stm32f4xx_it.o
- .debug_line    0x000000000000e397      0x6ba ./src/syscalls.o
- .debug_line    0x000000000000ea51      0x689 ./src/system_init.o
- .debug_line    0x000000000000f0da      0x24d ./src/system_stm32f4xx.o
+ .debug_line    0x000000000000bf7c      0x583 ./src/LCD_pcf8574.o
+ .debug_line    0x000000000000c4ff      0x731 ./src/RTC_ds3231.o
+ .debug_line    0x000000000000cc30      0x7b3 ./src/main.o
+ .debug_line    0x000000000000d3e3      0x773 ./src/stm32f4xx_hal_msp.o
+ .debug_line    0x000000000000db56      0x855 ./src/stm32f4xx_it.o
+ .debug_line    0x000000000000e3ab      0x6ba ./src/syscalls.o
+ .debug_line    0x000000000000ea65      0x689 ./src/system_init.o
+ .debug_line    0x000000000000f0ee      0x24d ./src/system_stm32f4xx.o
 
 .debug_frame    0x0000000000000000     0x1f44
  *(.debug_frame)
@@ -5709,8 +5710,8 @@ END GROUP
  .debug_frame   0x0000000000001450       0x64 ./system/src/diag/trace_impl.o
  .debug_frame   0x00000000000014b4       0x40 ./system/src/cortexm/_initialize_hardware.o
  .debug_frame   0x00000000000014f4      0x158 ./system/src/cortexm/exception_handlers.o
- .debug_frame   0x000000000000164c       0x74 ./src/RTC_ds3231.o
- .debug_frame   0x00000000000016c0       0xa8 ./src/lcd_i2c.o
+ .debug_frame   0x000000000000164c       0xa8 ./src/LCD_pcf8574.o
+ .debug_frame   0x00000000000016f4       0x74 ./src/RTC_ds3231.o
  .debug_frame   0x0000000000001768       0x38 ./src/main.o
  .debug_frame   0x00000000000017a0       0x28 ./src/stm32f4xx_hal_msp.o
  .debug_frame   0x00000000000017c8       0xa8 ./src/stm32f4xx_it.o
@@ -5735,7 +5736,7 @@ END GROUP
  .debug_frame   0x0000000000001e74       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
  .debug_frame   0x0000000000001e94       0xb0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
 
-.debug_str      0x0000000000000000    0xdfad1
+.debug_str      0x0000000000000000    0xdfad8
  *(.debug_str)
  .debug_str     0x0000000000000000    0xd641b ./system/src/stm32f4xx/stm32f4xx_hal.o
                                       0xd67a8 (size before relaxing)
@@ -5769,21 +5770,21 @@ END GROUP
                                       0x97e59 (size before relaxing)
  .debug_str     0x00000000000df469       0x38 ./system/src/cmsis/startup_stm32f429xx.o
                                          0x95 (size before relaxing)
- .debug_str     0x00000000000df4a1      0x11d ./src/RTC_ds3231.o
+ .debug_str     0x00000000000df4a1       0x9d ./src/LCD_pcf8574.o
+                                      0xd5fe6 (size before relaxing)
+ .debug_str     0x00000000000df53e      0x117 ./src/RTC_ds3231.o
                                       0xd9249 (size before relaxing)
- .debug_str     0x00000000000df5be       0x93 ./src/lcd_i2c.o
-                                      0xd5fe2 (size before relaxing)
- .debug_str     0x00000000000df651       0x98 ./src/main.o
-                                      0xdb6b4 (size before relaxing)
- .debug_str     0x00000000000df6e9       0x1b ./src/stm32f4xx_hal_msp.o
+ .debug_str     0x00000000000df655       0x9b ./src/main.o
+                                      0xdb6b7 (size before relaxing)
+ .debug_str     0x00000000000df6f0       0x1b ./src/stm32f4xx_hal_msp.o
                                       0xdb716 (size before relaxing)
- .debug_str     0x00000000000df704       0x28 ./src/stm32f4xx_it.o
+ .debug_str     0x00000000000df70b       0x28 ./src/stm32f4xx_it.o
                                       0xdb69d (size before relaxing)
- .debug_str     0x00000000000df72c      0x2df ./src/syscalls.o
+ .debug_str     0x00000000000df733      0x2df ./src/syscalls.o
                                        0x8721 (size before relaxing)
- .debug_str     0x00000000000dfa0b       0x4f ./src/system_init.o
+ .debug_str     0x00000000000dfa12       0x4f ./src/system_init.o
                                       0xd6cb5 (size before relaxing)
- .debug_str     0x00000000000dfa5a       0x77 ./src/system_stm32f4xx.o
+ .debug_str     0x00000000000dfa61       0x77 ./src/system_stm32f4xx.o
                                       0x92c3e (size before relaxing)
 
 .debug_loc      0x0000000000000000     0x75dc
@@ -5802,8 +5803,8 @@ END GROUP
  .debug_loc     0x0000000000006822      0x118 ./system/src/diag/Trace.o
  .debug_loc     0x000000000000693a      0x194 ./system/src/diag/trace_impl.o
  .debug_loc     0x0000000000006ace      0x35c ./system/src/cortexm/exception_handlers.o
- .debug_loc     0x0000000000006e2a      0x14a ./src/RTC_ds3231.o
- .debug_loc     0x0000000000006f74      0x137 ./src/lcd_i2c.o
+ .debug_loc     0x0000000000006e2a      0x137 ./src/LCD_pcf8574.o
+ .debug_loc     0x0000000000006f61      0x14a ./src/RTC_ds3231.o
  .debug_loc     0x00000000000070ab      0x3c5 ./src/syscalls.o
  .debug_loc     0x0000000000007470      0x16c ./src/system_stm32f4xx.o
 
@@ -5840,8 +5841,8 @@ OUTPUT(Vrbanec_diplomski_rad_stm32f429.elf elf32-littlearm)
  .debug_ranges  0x0000000000000760       0x18 ./system/src/cortexm/_initialize_hardware.o
  .debug_ranges  0x0000000000000778       0x98 ./system/src/cortexm/exception_handlers.o
  .debug_ranges  0x0000000000000810       0x20 ./system/src/cmsis/startup_stm32f429xx.o
- .debug_ranges  0x0000000000000830       0x28 ./src/RTC_ds3231.o
- .debug_ranges  0x0000000000000858       0x38 ./src/lcd_i2c.o
+ .debug_ranges  0x0000000000000830       0x38 ./src/LCD_pcf8574.o
+ .debug_ranges  0x0000000000000868       0x28 ./src/RTC_ds3231.o
  .debug_ranges  0x0000000000000890       0x18 ./src/main.o
  .debug_ranges  0x00000000000008a8       0x10 ./src/stm32f4xx_hal_msp.o
  .debug_ranges  0x00000000000008b8       0x50 ./src/stm32f4xx_it.o
@@ -5932,12 +5933,12 @@ OUTPUT(Vrbanec_diplomski_rad_stm32f429.elf elf32-littlearm)
  .debug_macro   0x0000000000023f27       0x99 ./system/src/cortexm/_initialize_hardware.o
  .debug_macro   0x0000000000023fc0      0x258 ./system/src/cortexm/exception_handlers.o
  .debug_macro   0x0000000000024218       0x10 ./system/src/cortexm/exception_handlers.o
- .debug_macro   0x0000000000024228      0x2a8 ./src/RTC_ds3231.o
- .debug_macro   0x00000000000244d0       0xd9 ./src/RTC_ds3231.o
- .debug_macro   0x00000000000245a9       0x54 ./src/RTC_ds3231.o
- .debug_macro   0x00000000000245fd       0x22 ./src/RTC_ds3231.o
- .debug_macro   0x000000000002461f      0x1bb ./src/lcd_i2c.o
- .debug_macro   0x00000000000247da       0x10 ./src/lcd_i2c.o
+ .debug_macro   0x0000000000024228      0x1bb ./src/LCD_pcf8574.o
+ .debug_macro   0x00000000000243e3       0x10 ./src/LCD_pcf8574.o
+ .debug_macro   0x00000000000243f3      0x2a8 ./src/RTC_ds3231.o
+ .debug_macro   0x000000000002469b       0xd9 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000024774       0x54 ./src/RTC_ds3231.o
+ .debug_macro   0x00000000000247c8       0x22 ./src/RTC_ds3231.o
  .debug_macro   0x00000000000247ea      0x3c2 ./src/main.o
  .debug_macro   0x0000000000024bac      0x3c2 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x0000000000024f6e      0x3cc ./src/stm32f4xx_it.o

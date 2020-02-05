@@ -7,18 +7,32 @@
 
 #include "RTC_ds3231.h"
 
-
-
+/**
+ * @brief Transforms the decimal value to the binary coded decimal (bcd)
+ *        time and date
+ * @param val is the decimal value format
+ * @return Bcd of the transformed date and time
+ */
 uint8_t decToBcd (int val)
 {
   return (uint8_t) ((val / 10 * 16) + (val % 10));
 }
 
+/**
+ * @brief Transforms the binary coded decimal (bcd) time and date to decimal
+ * @param val is the bcd value format
+ * @return Integer decimal value of the transformed date and time
+ */
 int bcdToDec (uint8_t val)
 {
   return (int) ((val / 16 * 10) + (val % 16));
 }
 
+/**
+ * @brief Sets the time in the DS3231 RTC
+ * @param Inputs secounds, minutes, hour, day of the week, date month and year
+ * @return None
+ */
 void set_Time (uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,
                uint8_t date, uint8_t month, uint8_t year)
 {
@@ -34,14 +48,11 @@ void set_Time (uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,
 
   HAL_I2C_Mem_Write (&hi2c1, DS3231_ADDRESS, 0x00, 1, setTime, 7, 500);
 }
-/*
- void DS3231_ReadRawDate (DS3231_DateTypeDef *date)
- {
- uint8_t dataBuffer[7];
 
- HAL_I2C_Master_Transmit (&hi2c1, DS3231_ADDRESS, dataBuffer, 1, 50);
- HAL_I2C_Master_Receive (&hi2c1, DS3231_ADDRESS, dataBuffer, 7, 50);
- }
+/**
+ * @brief Reads the time the DS3231 RTC outputs
+ * @param None
+ * @return None
  */
 void get_Time (void)
 {

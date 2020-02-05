@@ -13,20 +13,19 @@ extern "C"
 #include "system_init.h"
 
 #define DS3231_ADDRESS      0xD0  /** I2C 7-bit slave address
-                                   *  shifted for 1 bit to the left
+                                   *  shifted 1 bit to the left
                                    */
 #define DS3231_SECONDS      0x00
 #define DS3231_ALARM1_HOURS 0x09
 #define DS3231_CONTROLL     0x0E
 #define DS3231_MSB_TEMP     0x11
-/*
-  char *dayOfWeek[] =
-    { "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota",
-      "Nedjelja"};
 
-  volatile uint8_t transmissionReady = 0;
-  volatile uint8_t conf_mode = 0;
-*/
+  /*
+   char *dayOfWeek[] =
+   { "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota",
+   "Nedjelja"};
+   */
+
   typedef struct
     {
       uint8_t seconds;
@@ -45,8 +44,7 @@ extern "C"
       uint8_t alarm1_minutes;
       uint8_t alarm1_hours;
       uint8_t alarm1_day;
-      uint8_t alarm1_date;
-      uint8_t alarm2_seconds;
+      uint8_t alarm1_date;uint8_t alarm2_seconds;
       uint8_t alarm2_minutes;
       uint8_t alarm2_hours;
       uint8_t alarm2_day;
@@ -73,10 +71,10 @@ extern "C"
 
   int bcdToBin(uint8_t val);
   uint8_t decToBcd(int val);
-  void set_Time(uint8_t sec, uint8_t min, uint8_t  hour, uint8_t day,
-                uint8_t date, uint8_t month, uint8_t year);
+  void set_Time(uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,
+       uint8_t date, uint8_t month, uint8_t year);
   void get_Time (void);
- // void DS3231_ReadRawDate(DS3231_DateTypeDef* date);
+
 
 #ifdef __cplusplus
 }

@@ -5,8 +5,13 @@
  *      Author: jurica
  */
 
-#include <lcd_i2c.h>
+#include <LCD_pcf8574.h>
 
+/**
+ * @brief Send a command to the LCD
+ * @param cmd command to send to the LCD
+ * @return None
+ */
 void LCD_SendCmd (char cmd)
 {
   char data_u, data_l;
@@ -17,10 +22,15 @@ void LCD_SendCmd (char cmd)
   data_t[1] = data_u | 0x08;  //en=0, rs=0
   data_t[2] = data_l | 0x0C;  //en=1, rs=0
   data_t[3] = data_l | 0x08;  //en=0, rs=0
-  HAL_I2C_Master_Transmit (&hi2c1, SLAVE_ADDRESS_LCD, (uint8_t*) data_t, 4,
+  HAL_I2C_Master_Transmit (&hi2c1, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
                            100);
 }
 
+/**
+ * @brief Send data to the LCD
+ * @param data represents the data to be sent
+ * @return None
+ */
 void LCD_SendData (char data)
 {
   char data_u, data_l;
@@ -31,10 +41,15 @@ void LCD_SendData (char data)
   data_t[1] = data_u | 0x09;  //en=0, rs=1
   data_t[2] = data_l | 0x0D;  //en=1, rs=1
   data_t[3] = data_l | 0x09;  //en=0, rs=1
-  HAL_I2C_Master_Transmit (&hi2c1, SLAVE_ADDRESS_LCD, (uint8_t*) data_t, 4,
+  HAL_I2C_Master_Transmit (&hi2c1, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
                            100);
 }
 
+/**
+ * @brief Sends to the LCD an empty character to be displayed
+ * @param None
+ * @return None
+ */
 void LCD_Clear (void)
 {
   LCD_SendCmd (0x80);
@@ -44,6 +59,11 @@ void LCD_Clear (void)
     }
 }
 
+/**
+ * @brief Puts the cursor at the entered position
+ * @param row, col are the row and column of the display
+ * @return None
+ */
 void LCD_PutCur (int row, int col)
 {
   switch (row)
@@ -59,6 +79,11 @@ void LCD_PutCur (int row, int col)
   LCD_SendCmd (col);
 }
 
+/**
+ * @brief Sets the time in the DS3231 RTC
+ * @param Inputs secounds, minutes, hour, day of the week, date month and year
+ * @return None
+ */
 void LCD_Init (void)
 {
   // 4 bit initialisation
@@ -85,6 +110,11 @@ void LCD_Init (void)
   LCD_SendCmd (0x0C); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
 }
 
+/**
+ * @brief Sets the time in the DS3231 RTC
+ * @param Inputs secounds, minutes, hour, day of the week, date month and year
+ * @return None
+ */
 void LCD_SendString (char *str)
 {
   while (*str)

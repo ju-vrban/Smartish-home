@@ -36,55 +36,33 @@ int main (void)
   SystemClock_Config ();
 
   /* Initialize all configured peripherals */
-
   GPIO_Init ();
   I2C1_Init ();
   RTC_Init ();
   LCD_Init ();
-  /*
-   setTime.Hours = 23;
-   setTime.Minutes = 59;
-   setTime.Seconds = 45;
-   HAL_RTC_SetTime (&RTCHandle, &setTime, RTC_FORMAT_BIN);
 
-   setDate.Date = 31;
-   setDate.Month = RTC_MONTH_JANUARY;
-   setDate.Year = 20;
-   setDate.WeekDay = RTC_WEEKDAY_FRIDAY;
-   HAL_RTC_SetDate (&RTCHandle, &setDate, RTC_FORMAT_BIN);
-   */
-  char charBuffer[10];
+  char LCDCharBuffer[10];
+
   //set_Time (30, 13, 18, 3, 4, 2, 20);
 
   while (1)
     {
       get_Time ();
-      sprintf (charBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
+      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);
-    //  trace_printf ("\n%02d:%02d:%02d", Time.hours, Time.minutes,
-    //                Time.seconds);
+      //  trace_printf ("\n%02d:%02d:%02d", Time.hours, Time.minutes,
+      //                Time.seconds);
       LCD_PutCur (0, 0);
-      LCD_SendString (charBuffer);
+      LCD_SendString (LCDCharBuffer);
 
-  //    sprintf (charBuffer, "%02d-%02d-%02d", Time.date, Time.month,
-   //            Time.year);
- //     trace_printf ("\n%02d-%02d-%02d", Time.date, Time.month,
- //                    Time.year);
- //     LCD_PutCur (0, 0);
- //   LCD_SendString (charBuffer);
+      //    sprintf (charBuffer, "%02d-%02d-%02d", Time.date, Time.month,
+      //            Time.year);
+      //     trace_printf ("\n%02d-%02d-%02d", Time.date, Time.month,
+      //                    Time.year);
+      //     LCD_PutCur (0, 0);
+      //   LCD_SendString (charBuffer);
       HAL_Delay (1000);
-      /*
-       HAL_RTC_SetTime (&RTCHandle, &setTime, RTC_FORMAT_BIN);
-       HAL_RTC_SetDate (&RTCHandle, &setDate, RTC_FORMAT_BIN);
-       HAL_Delay (400);
-       HAL_GPIO_TogglePin (GPIOD, GPIO_PIN_11);
 
-
-       mainEntranceLight(0x01);
-       HAL_Delay(500);
-       mainEntranceLight(0x00);
-       HAL_Delay(500);
-       */
     }
 
 }

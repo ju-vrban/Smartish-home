@@ -33,7 +33,7 @@ extern "C"
 #include "light_mgmt.h"
 #include "system_init.h"
 #include "RTC_ds3231.h"
-#include "lcd_i2c.h"
+#include "LCD_pcf8574.h"
 #include "diag/Trace.h"
 
   /* Private includes ----------------------------------------------------------*/

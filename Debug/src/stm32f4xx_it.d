@@ -29,7 +29,7 @@ src/stm32f4xx_it.o: ../src/stm32f4xx_it.c ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
  ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
- ../include/RTC_ds3231.h ../include/lcd_i2c.h \
+ ../include/RTC_ds3231.h ../include/LCD_pcf8574.h \
  ../system/include/diag/Trace.h ../include/stm32f4xx_it.h
 
 ../include/main.h:
@@ -104,7 +104,7 @@ src/stm32f4xx_it.o: ../src/stm32f4xx_it.c ../include/main.h \
 
 ../include/RTC_ds3231.h:
 
-../include/lcd_i2c.h:
+../include/LCD_pcf8574.h:
 
 ../system/include/diag/Trace.h:
 

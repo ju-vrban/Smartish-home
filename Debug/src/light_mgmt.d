@@ -28,7 +28,8 @@ src/light_mgmt.o: ../src/light_mgmt.c ../system/include/cmsis/stm32f4xx.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
  ../include/light_mgmt.h ../include/system_init.h ../include/RTC_ds3231.h \
- ../include/lcd_i2c.h ../system/include/diag/Trace.h ../include/main.h
+ ../include/LCD_pcf8574.h ../system/include/diag/Trace.h \
+ ../include/main.h
 
 ../system/include/cmsis/stm32f4xx.h:
 
@@ -102,7 +103,7 @@ src/light_mgmt.o: ../src/light_mgmt.c ../system/include/cmsis/stm32f4xx.h \
 
 ../include/RTC_ds3231.h:
 
-../include/lcd_i2c.h:
+../include/LCD_pcf8574.h:
 
 ../system/include/diag/Trace.h:
 

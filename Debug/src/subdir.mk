@@ -4,9 +4,9 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/LCD_pcf8574.c \
 ../src/RTC_ds3231.c \
 ../src/_write.c \
-../src/lcd_i2c.c \
 ../src/light_mgmt.c \
 ../src/main.c \
 ../src/stm32f4xx_hal_msp.c \
@@ -16,9 +16,9 @@ C_SRCS += \
 ../src/system_stm32f4xx.c 
 
 OBJS += \
+./src/LCD_pcf8574.o \
 ./src/RTC_ds3231.o \
 ./src/_write.o \
-./src/lcd_i2c.o \
 ./src/light_mgmt.o \
 ./src/main.o \
 ./src/stm32f4xx_hal_msp.o \
@@ -28,9 +28,9 @@ OBJS += \
 ./src/system_stm32f4xx.o 
 
 C_DEPS += \
+./src/LCD_pcf8574.d \
 ./src/RTC_ds3231.d \
 ./src/_write.d \
-./src/lcd_i2c.d \
 ./src/light_mgmt.d \
 ./src/main.d \
 ./src/stm32f4xx_hal_msp.d \
