@@ -12,7 +12,7 @@
  * @param cmd command to send to the LCD
  * @return None
  */
-void LCD_SendCmd (char cmd)
+void LCD_Send_Cmd (char cmd)
 {
   char data_u, data_l;
   uint8_t data_t[4];
@@ -31,10 +31,10 @@ void LCD_SendCmd (char cmd)
  * @param data represents the data to be sent
  * @return None
  */
-void LCD_SendData (char data)
+void LCD_Send_Data (char data)
 {
   char data_u, data_l;
-  uint8_t data_t[4];
+  uint8_t data_t[2];
   data_u = (data & 0xf0);
   data_l = ((data << 4) & 0xf0);
   data_t[0] = data_u | 0x0D;  //en=1, rs=1
@@ -52,21 +52,23 @@ void LCD_SendData (char data)
  */
 void LCD_Clear (void)
 {
-  LCD_SendCmd (0x80);
+  LCD_Send_Cmd (0x80);
   for (int i = 0; i < 70; i++)
     {
-      LCD_SendData (' ');
+      LCD_Send_Data (' ');
     }
 }
 
 /**
  * @brief Puts the cursor at the entered position
- * @param row, col are the row and column of the display
+ * @param leftRightHalf, col are the left (0) or right (1) side of the LCD
+ *        panel and column of the display
  * @return None
  */
-void LCD_PutCur (int row, int col)
+void LCD_Put_Cur (int leftRightHalf, int col)
 {
-  switch (row)
+
+  switch (leftRightHalf)
     {
     case 0:
       col |= 0x80;
@@ -76,7 +78,7 @@ void LCD_PutCur (int row, int col)
       break;
     }
 
-  LCD_SendCmd (col);
+  LCD_Send_Cmd (col);
 }
 
 /**
@@ -88,26 +90,26 @@ void LCD_Init (void)
 {
   // 4 bit initialisation
   HAL_Delay (50);  // wait for >40ms
-  LCD_SendCmd (0x30);
+  LCD_Send_Cmd (0x30);
   HAL_Delay (5);  // wait for >4.1ms
-  LCD_SendCmd (0x30);
+  LCD_Send_Cmd (0x30);
   HAL_Delay (1);  // wait for >100us
-  LCD_SendCmd (0x30);
+  LCD_Send_Cmd (0x30);
   HAL_Delay (10);
-  LCD_SendCmd (0x20);  // 4bit mode
+  LCD_Send_Cmd (0x20);  // 4bit mode
   HAL_Delay (10);
 
   // dislay initialisation
-  LCD_SendCmd (0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
+  LCD_Send_Cmd (0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
   HAL_Delay (1);
-  LCD_SendCmd (0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
+  LCD_Send_Cmd (0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
   HAL_Delay (1);
-  LCD_SendCmd (0x01);  // clear display
+  LCD_Send_Cmd (0x01);  // clear display
   HAL_Delay (1);
   HAL_Delay (1);
-  LCD_SendCmd (0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
+  LCD_Send_Cmd (0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
   HAL_Delay (1);
-  LCD_SendCmd (0x0C); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
+  LCD_Send_Cmd (0x0C); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
 }
 
 /**
@@ -115,8 +117,8 @@ void LCD_Init (void)
  * @param Inputs secounds, minutes, hour, day of the week, date month and year
  * @return None
  */
-void LCD_SendString (char *str)
+void LCD_Send_String (char *str)
 {
   while (*str)
-    LCD_SendData (*str++);
+    LCD_Send_Data (*str++);
 }

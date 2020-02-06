@@ -6,8 +6,8 @@
 I2C_HandleTypeDef hi2c1;
 
 void LCD_Init (void);
-void LCD_SendCmd (char cmd);
-void LCD_SendData (char data);
-void LCD_SendString (char *str);
-void LCD_PutCur (int row, int col); // put cursor at the entered position row (0), col (0-15);
+void LCD_Send_Cmd (char cmd);
+void LCD_Send_Data (char data);
+void LCD_Send_String (char *str);
+void LCD_Put_Cur (int leftRightHalf, int col); // put cursor at the entered position row (0), col (0-15);
 void LCD_Clear (void);

@@ -41,6 +41,7 @@ int main (void)
   RTC_Init ();
   LCD_Init ();
 
+  float RTCTempSens;
   char LCDCharBuffer[10];
 
   //set_Time (30, 13, 18, 3, 4, 2, 20);
@@ -52,16 +53,24 @@ int main (void)
                Time.seconds);
       //  trace_printf ("\n%02d:%02d:%02d", Time.hours, Time.minutes,
       //                Time.seconds);
-      LCD_PutCur (0, 0);
-      LCD_SendString (LCDCharBuffer);
-
-      //    sprintf (charBuffer, "%02d-%02d-%02d", Time.date, Time.month,
-      //            Time.year);
-      //     trace_printf ("\n%02d-%02d-%02d", Time.date, Time.month,
+      LCD_Put_Cur (0,0);
+      LCD_Send_String (LCDCharBuffer);
+/*
+      sprintf (LCDCharBuffer, "%02d-%02d-%02d", Time.date, Time.month,
+               Time.year);
+      //    trace_printf ("\n%02d-%02d-%02d", Time.date, Time.month,
       //                    Time.year);
-      //     LCD_PutCur (0, 0);
-      //   LCD_SendString (charBuffer);
-      HAL_Delay (1000);
+      LCD_Put_Cur (0,0);
+      LCD_Send_String (LCDCharBuffer);
+  */
+       force_Temp_Conversion ();
+       RTCTempSens = get_RTC_Temp ();
+
+       sprintf (LCDCharBuffer, "%.2f C", RTCTempSens);
+       LCD_Put_Cur (1, 1);
+       LCD_Send_String (LCDCharBuffer);
+
+      HAL_Delay (500);
 
     }
 

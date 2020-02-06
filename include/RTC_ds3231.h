@@ -69,12 +69,13 @@ extern "C"
 
   DS3231_DateTypeDef Time;
 
-  int bcdToBin(uint8_t val);
-  uint8_t decToBcd(int val);
+  int bcd_To_Bin(uint8_t val);
+  uint8_t dec_To_Bcd(int val);
   void set_Time(uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,
        uint8_t date, uint8_t month, uint8_t year);
   void get_Time (void);
-
+  float get_RTC_Temp (void);
+  void force_Temp_Conversion(void);
 
 #ifdef __cplusplus
 }
