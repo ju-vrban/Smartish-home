@@ -122,3 +122,6 @@ void LCD_Send_String (char *str)
   while (*str)
     LCD_Send_Data (*str++);
 }
+
+
+

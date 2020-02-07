@@ -38,7 +38,6 @@ int main (void)
   /* Initialize all configured peripherals */
   GPIO_Init ();
   I2C1_Init ();
-  RTC_Init ();
   LCD_Init ();
 
   float RTCTempSens;

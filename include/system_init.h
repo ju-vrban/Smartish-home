@@ -17,9 +17,6 @@ extern "C"
   void SystemClock_Config (void);
   void GPIO_Init (void);
   void I2C1_Init (void);
-  void RTC_Init (void);
-  void TC_ALARM_IRQHandler (void);
-  void SysTick_Handler (void);
 
 #ifdef __cplusplus
 }

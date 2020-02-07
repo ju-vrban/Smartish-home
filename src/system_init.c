@@ -121,8 +121,12 @@ void GPIO_Init (void)
  */
 void I2C1_Init (void)
 {
+  static DMA_HandleTypeDef hdma_tx;
+  static DMA_HandleTypeDef hdma_rx;
+
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_I2C1_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
 
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
@@ -137,62 +141,11 @@ void I2C1_Init (void)
   GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_9;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
   HAL_I2C_Init (&hi2c1);
-}
-
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/**
- * @brief RTC configuration and alarm initialization function
- * @param None
- * @retval None
- */
-void RTC_Init (void)
-{
-  __HAL_RCC_RTC_ENABLE();
-
-  /* RTC configuration */
-  RTCHandle.Instance = RTC;
-  RTCHandle.Init.HourFormat = RTC_HOURFORMAT_24;
-  RTCHandle.Init.AsynchPrediv = 127;
-  RTCHandle.Init.SynchPrediv = 255;
-  RTCHandle.Init.OutPut = RTC_OUTPUT_DISABLE;
-  HAL_RTC_Init (&RTCHandle);
-
-  /* RTC alarm configuration */
-  RTCAlarmA.Alarm = RTC_ALARM_A;
-  RTCAlarmA.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-  RTCAlarmA.AlarmTime.Hours = 0;
-  RTCAlarmA.AlarmTime.Minutes = 0;
-  RTCAlarmA.AlarmTime.Seconds = 10;
-  RTCAlarmA.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
-  RTCAlarmA.AlarmDateWeekDay = 1;
-  HAL_RTC_SetAlarm_IT (&RTCHandle, &RTCAlarmA, RTC_FORMAT_BIN);
-
-  HAL_NVIC_SetPriority (RTC_Alarm_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ (RTC_Alarm_IRQn);
-}
-
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/**
- * @brief RTC alarm interrupt handler.
- *
- * This function is called because the HAL IRQ handler exists in the separate
- * stm32f4xx_hal_rtc source file, but is not linked to by the
- * startup_stm32f429xx.S file. In it's stead this function is called so we
- * need to link them together.
- *
- * @param None
- * @retval None
- */
-void RTC_ALARM_IRQHandler (void)
-{
-  HAL_RTC_AlarmIRQHandler (&RTCHandle);
 }
 
 /*----------------------------------------------------------------------------*/
