@@ -112,7 +112,8 @@ void GPIO_Init (void)
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /**
- * @brief I2C1 initialization function for the external RTC and 16x1 LCD
+ * @brief I2C1 in DMA mode initialization function for the
+ *        external RTC and 16x1 LCD
  *
  * Clock speed is 100 kHz because of the max frequency of the pcf8574
  *
@@ -146,6 +147,8 @@ void I2C1_Init (void)
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
   HAL_I2C_Init (&hi2c1);
+
+  hdma_tx.Instance = DMA1_Stream6_IRQn;
 }
 
 /*----------------------------------------------------------------------------*/
