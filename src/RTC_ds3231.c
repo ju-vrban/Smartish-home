@@ -46,7 +46,7 @@ void set_Time (uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,
   setTime[5] = dec_To_Bcd (month);
   setTime[6] = dec_To_Bcd (year);
 
-  HAL_I2C_Mem_Write (&hi2c1, DS3231_ADDRESS, 0x00, 1, setTime, 7, 500);
+  HAL_I2C_Mem_Write (&hi2c1, DS3231_ADDRESS, 0x00, 1, setTime, 7, 1000);
 }
 
 /**
@@ -58,7 +58,7 @@ void get_Time (void)
 {
   uint8_t getTime[7];
 
-  HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0x00, 1, getTime, 7, 500);
+  HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0x00, 1, getTime, 7, 1000);
 
   Time.seconds = bcd_To_Dec (getTime[0]);
   Time.minutes = bcd_To_Dec (getTime[1]);
@@ -73,7 +73,7 @@ float get_RTC_Temp (void)
 {
   uint8_t temp[2];
 
-  HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0x11, 1, temp, 2, 500);
+  HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0x11, 1, temp, 2, 1000);
 
   return ((temp[0]) + (temp[1] >> 6) / 4.0);
 }
@@ -89,9 +89,35 @@ void force_Temp_Conversion (void)
     {
       HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0X0E, 1, &control, 1, 100);
       HAL_I2C_Mem_Write (&hi2c1, DS3231_ADDRESS, 0X0E, 1,
-                         (uint8_t *)(control|(0x20)), 1, 100);
-
+                         (uint8_t*) (control | (0x20)), 1, 100);
     }
+}
+
+void set_Alarm1 (uint8_t sec, uint8_t min, uint8_t hour)
+{
+  uint8_t setAlarm1[3];
+
+
+ setAlarm1[0] = dec_To_Bcd(sec);
+ setAlarm1[0] = dec_To_Bcd(min);
+ setAlarm1[0] = dec_To_Bcd(hour);
+
+
+ HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS, 0x07, 1, setAlarm1, 3, 100);
 
 }
 
+void activate_Alarm1 (void)
+{
+  uint8_t status = 0;
+  uint8_t control = 0;
+
+  HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0X0F, 1, &status, 1, 100);
+
+  if (!(status & 0x04))
+      {
+        HAL_I2C_Mem_Read (&hi2c1, DS3231_ADDRESS, 0X0E, 1, &control, 1, 100);
+        HAL_I2C_Mem_Write (&hi2c1, DS3231_ADDRESS, 0X0E, 1,
+                           (uint8_t*) (control | (0x05)), 1, 100);
+      }
+}

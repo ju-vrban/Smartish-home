@@ -76,6 +76,8 @@ extern "C"
   void get_Time (void);
   float get_RTC_Temp (void);
   void force_Temp_Conversion(void);
+  void set_Alarm1 (uint8_t sec, uint8_t min, uint8_t hour);
+  void activate_Alarm1 (void);
 
 #ifdef __cplusplus
 }

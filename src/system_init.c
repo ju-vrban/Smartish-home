@@ -122,13 +122,11 @@ void GPIO_Init (void)
  */
 void I2C1_Init (void)
 {
-  static DMA_HandleTypeDef hdma_tx;
-  static DMA_HandleTypeDef hdma_rx;
-
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_I2C1_CLK_ENABLE();
   __HAL_RCC_DMA1_CLK_ENABLE();
 
+  /* I2C1 initialization */
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
@@ -139,6 +137,7 @@ void I2C1_Init (void)
   hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
+  /* Tx and Rx pin configuration */
   GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_9;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -147,8 +146,6 @@ void I2C1_Init (void)
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
   HAL_I2C_Init (&hi2c1);
-
-  hdma_tx.Instance = DMA1_Stream6_IRQn;
 }
 
 /*----------------------------------------------------------------------------*/

@@ -2,18 +2,14 @@
 #define __LIGHT_MGMT_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #include "main.h"
 
-void mainEntranceLight(uint8_t entrancePIR);
-
-
-
-
-
-
+  int calculate_Dusk_Time (void);
+  void mainEntranceLight(uint8_t entrancePIR);
 
 
 #ifdef __cplusplus

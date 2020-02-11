@@ -123,5 +123,3 @@ void LCD_Send_String (char *str)
     LCD_Send_Data (*str++);
 }
 
-
-

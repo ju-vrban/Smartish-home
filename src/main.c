@@ -28,7 +28,7 @@ RTC_DateTypeDef setDate;
  */
 int main (void)
 {
-
+  HAL_GetTick ();
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init ();
 
@@ -42,37 +42,41 @@ int main (void)
 
   float RTCTempSens;
   char LCDCharBuffer[10];
-
+  uint32_t lastConversion = 0;
+  uint8_t todaysDate[3] =
+    { 01, 01, 00 };
   //set_Time (30, 13, 18, 3, 4, 2, 20);
+  //set_Alarm1(30,30,16);
+  activate_Alarm1();
 
   while (1)
     {
       get_Time ();
-      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
-               Time.seconds);
-      //  trace_printf ("\n%02d:%02d:%02d", Time.hours, Time.minutes,
-      //                Time.seconds);
-      LCD_Put_Cur (0,0);
-      LCD_Send_String (LCDCharBuffer);
-/*
-      sprintf (LCDCharBuffer, "%02d-%02d-%02d", Time.date, Time.month,
-               Time.year);
-      //    trace_printf ("\n%02d-%02d-%02d", Time.date, Time.month,
-      //                    Time.year);
-      LCD_Put_Cur (0,0);
-      LCD_Send_String (LCDCharBuffer);
-  */
-       force_Temp_Conversion ();
-       RTCTempSens = get_RTC_Temp ();
 
-       sprintf (LCDCharBuffer, "%.2f C", RTCTempSens);
-       LCD_Put_Cur (1, 1);
-       LCD_Send_String (LCDCharBuffer);
 
-      HAL_Delay (500);
+      if (HAL_GetTick () - lastConversion > 500L)
+        {
+          lastConversion = HAL_GetTick ();
+          HAL_GPIO_TogglePin (GPIOD, GPIO_PIN_11);
 
+          sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
+                   Time.seconds);
+          LCD_Put_Cur (0, 0);
+          LCD_Send_String (LCDCharBuffer);
+          /*
+           sprintf (LCDCharBuffer, "%02d-%02d-%02d", Time.date, Time.month,
+           Time.year);
+           LCD_Put_Cur (0,0);
+           LCD_Send_String (LCDCharBuffer);
+
+          force_Temp_Conversion ();
+          RTCTempSens = get_RTC_Temp ();
+
+          sprintf (LCDCharBuffer, "%.2f C", RTCTempSens);
+          LCD_Put_Cur (1, 1);
+          LCD_Send_String (LCDCharBuffer);*/
+        }
     }
-
 }
 
 /**
