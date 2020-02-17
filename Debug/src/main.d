@@ -30,7 +30,7 @@ src/main.o: ../src/main.c ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
  ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
  ../include/RTC_ds3231.h ../include/LCD_pcf8574.h \
- ../system/include/diag/Trace.h
+ ../system/include/diag/Trace.h ../include/misc.h
 
 ../include/main.h:
 
@@ -107,3 +107,5 @@ src/main.o: ../src/main.c ../include/main.h \
 ../include/LCD_pcf8574.h:
 
 ../system/include/diag/Trace.h:
+
+../include/misc.h:

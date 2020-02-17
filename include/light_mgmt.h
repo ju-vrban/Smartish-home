@@ -8,9 +8,8 @@ extern "C"
 
 #include "main.h"
 
-  int calculate_Dusk_Time (void);
+  float calculate_Dusk_Time (void);
   void mainEntranceLight(uint8_t entrancePIR);
-
 
 #ifdef __cplusplus
 }

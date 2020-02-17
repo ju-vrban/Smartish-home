@@ -7,9 +7,9 @@ extern "C"
 #endif
 
 #include "main.h"
-#include "stm32f4xx_hal.h"
 
   I2C_HandleTypeDef hi2c1;
+  I2C_HandleTypeDef hi2c2;
   RTC_HandleTypeDef RTCHandle;
   RTC_AlarmTypeDef RTCAlarmA;
   GPIO_InitTypeDef GPIO_InitStruct;
@@ -17,6 +17,7 @@ extern "C"
   void SystemClock_Config (void);
   void GPIO_Init (void);
   void I2C1_Init (void);
+  void I2C2_Init (void);
 
 #ifdef __cplusplus
 }

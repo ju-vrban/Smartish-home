@@ -5,7 +5,7 @@
  *      Author: jurica
  */
 
-#include <LCD_pcf8574.h>
+#include "LCD_pcf8574.h"
 
 /**
  * @brief Send a command to the LCD
@@ -22,7 +22,7 @@ void LCD_Send_Cmd (char cmd)
   data_t[1] = data_u | 0x08;  //en=0, rs=0
   data_t[2] = data_l | 0x0C;  //en=1, rs=0
   data_t[3] = data_l | 0x08;  //en=0, rs=0
-  HAL_I2C_Master_Transmit (&hi2c1, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
+  HAL_I2C_Master_Transmit (&hi2c2, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
                            100);
 }
 
@@ -41,7 +41,7 @@ void LCD_Send_Data (char data)
   data_t[1] = data_u | 0x09;  //en=0, rs=1
   data_t[2] = data_l | 0x0D;  //en=1, rs=1
   data_t[3] = data_l | 0x09;  //en=0, rs=1
-  HAL_I2C_Master_Transmit (&hi2c1, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
+  HAL_I2C_Master_Transmit (&hi2c2, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
                            100);
 }
 

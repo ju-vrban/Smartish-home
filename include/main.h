@@ -28,13 +28,19 @@ extern "C"
 
   /* Includes ------------------------------------------------------------------*/
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
 
 #include "stm32f4xx_hal.h"
+#include "stm32f4xx.h"
 #include "light_mgmt.h"
 #include "system_init.h"
 #include "RTC_ds3231.h"
 #include "LCD_pcf8574.h"
 #include "diag/Trace.h"
+#include "misc.h"
 
   /* Private includes ----------------------------------------------------------*/
 

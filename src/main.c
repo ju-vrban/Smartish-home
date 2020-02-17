@@ -18,17 +18,12 @@
 
 #include "main.h"
 
-RTC_HandleTypeDef RTCHandle;
-RTC_TimeTypeDef setTime;
-RTC_DateTypeDef setDate;
-
 /**
  * @brief  The application entry point.
  * @retval int
  */
 int main (void)
 {
-  HAL_GetTick ();
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init ();
 
@@ -38,44 +33,64 @@ int main (void)
   /* Initialize all configured peripherals */
   GPIO_Init ();
   I2C1_Init ();
+  I2C2_Init ();
   LCD_Init ();
 
   float RTCTempSens;
   char LCDCharBuffer[10];
-  uint32_t lastConversion = 0;
-  uint8_t todaysDate[3] =
-    { 01, 01, 00 };
-  //set_Time (30, 13, 18, 3, 4, 2, 20);
-  //set_Alarm1(30,30,16);
-  activate_Alarm1();
+  int timeOfUpdate[3] =
+    { 03, 00, 00 };
+  int *duskTime = 0;
+  float dusk = 0;
+  int sysRestart = 1;
+  int currentTime;
+  float entranceTimeValue = 0;
+
+  //set_Time (30, 33, 16, 5, 13, 2, 20);
+
+  //clear_Alarm1 ();
+  //HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
 
   while (1)
     {
       get_Time ();
 
-
-      if (HAL_GetTick () - lastConversion > 500L)
+      if ((Time.hours == timeOfUpdate[0] && Time.minutes == timeOfUpdate[1]
+          && Time.seconds == timeOfUpdate[3]) || sysRestart == 1)
         {
-          lastConversion = HAL_GetTick ();
-          HAL_GPIO_TogglePin (GPIOD, GPIO_PIN_11);
-
-          sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
-                   Time.seconds);
-          LCD_Put_Cur (0, 0);
-          LCD_Send_String (LCDCharBuffer);
-          /*
-           sprintf (LCDCharBuffer, "%02d-%02d-%02d", Time.date, Time.month,
-           Time.year);
-           LCD_Put_Cur (0,0);
-           LCD_Send_String (LCDCharBuffer);
-
-          force_Temp_Conversion ();
-          RTCTempSens = get_RTC_Temp ();
-
-          sprintf (LCDCharBuffer, "%.2f C", RTCTempSens);
-          LCD_Put_Cur (1, 1);
-          LCD_Send_String (LCDCharBuffer);*/
+          dusk = calculate_Dusk_Time ();
+          sysRestart = 0;
         }
+
+      entranceTimeValue = (float) Time.hours + ((float) Time.minutes / 100);
+
+      if ((entranceTimeValue >= dusk)
+          && HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_10) == GPIO_PIN_SET)
+        {
+          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
+        }
+      else if((entranceTimeValue >= dusk)
+          && HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_10) == GPIO_PIN_RESET)
+        {
+          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
+        }
+
+      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
+               Time.seconds);
+      LCD_Put_Cur (0, 0);
+      LCD_Send_String (LCDCharBuffer);
+
+      //  if (HAL_GetTick () - lastConversion > 500L)
+      //    {
+      //     lastConversion = HAL_GetTick ();
+      //HAL_GPIO_TogglePin (GPIOD, GPIO_PIN_11);
+      /*
+       force_Temp_Conversion ();
+       RTCTempSens = get_RTC_Temp ();
+
+       sprintf (LCDCharBuffer, "%.2f C", RTCTempSens);
+       LCD_Put_Cur (1, 1);
+       LCD_Send_String (LCDCharBuffer);*/
     }
 }
 

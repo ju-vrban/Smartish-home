@@ -90,6 +90,7 @@ void GPIO_Init (void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
@@ -107,8 +108,27 @@ void GPIO_Init (void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PD10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init (GPIOC, &GPIO_InitStruct);
 }
+/*
+ void EXTI9_5_IRQHandler_Config (void)
+ {
+ __HAL_RCC_GPIOC_CLK_ENABLE();
 
+
+ GPIO_InitStruct.Pin = GPIO_PIN_5;
+ GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+ GPIO_InitStruct.Pull = GPIO_NOPULL;
+ HAL_GPIO_Init (GPIOC, &GPIO_InitStruct);
+
+ HAL_NVIC_SetPriority (EXTI9_5_IRQn, 2, 0);
+ HAL_NVIC_EnableIRQ (EXTI9_5_IRQn);
+ }
+ */
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /**
@@ -124,12 +144,11 @@ void I2C1_Init (void)
 {
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_I2C1_CLK_ENABLE();
-  __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* I2C1 initialization */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 100000;
-  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.ClockSpeed = 400000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_16_9;
   hi2c1.Init.OwnAddress1 = 0x0;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -148,23 +167,30 @@ void I2C1_Init (void)
   HAL_I2C_Init (&hi2c1);
 }
 
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/**
- * @brief SysTick incrementing and interrupt handler.
- *
- * This function is called to increment the SysTick and because the HAL IRQ
- * handler exists in the separate stm32f4xx_hal_coretex source file, but is
- * not linked to by the startup_stm32f429xx.S file. In it's stead this function
- * is called so we need to link them together.
- *
- * @param None
- * @retval None
- */
-/*void
- SysTick_Handler (void)
- {
- HAL_IncTick ();
- HAL_SYSTICK_IRQHandler ();
- }
- */
+void I2C2_Init (void)
+{
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_I2C2_CLK_ENABLE();
+
+  /* I2C1 initialization */
+  hi2c2.Instance = I2C2;
+  hi2c2.Init.ClockSpeed = 100000;
+  hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c2.Init.OwnAddress1 = 0x0;
+  hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c2.Init.OwnAddress2 = 0;
+  hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+
+  /* Tx and Rx pin configuration */
+  GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
+  GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
+
+  HAL_I2C_Init (&hi2c2);
+}
+

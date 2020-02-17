@@ -6,25 +6,43 @@ extern "C"
 {
 #endif
 
-#include <string.h>
-
-//#include "main.h"
-#include "stm32f4xx_hal.h"
-#include "system_init.h"
+#include "main.h"
 
 #define DS3231_ADDRESS      0xD0  /** I2C 7-bit slave address
                                    *  shifted 1 bit to the left
                                    */
-#define DS3231_SECONDS      0x00
-#define DS3231_ALARM1_HOURS 0x09
-#define DS3231_CONTROLL     0x0E
-#define DS3231_MSB_TEMP     0x11
+#define DS3231_CONTROL_REG 0x0E
+#define DS3231_STATUS_REG   0x0F
 
-  /*
-   char *dayOfWeek[] =
-   { "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota",
-   "Nedjelja"};
-   */
+#define DS3231_A1F_STATUS_BIT 0x01
+#define DS3231_A1IE_CONTROL_BIT 0x01
+
+  typedef enum
+    {
+      Monday = 1,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday,
+      Saturday,
+      Sunday
+    }day;
+
+  typedef enum
+    {
+      January = 1,
+      February,
+      March,
+      April,
+      May,
+      June,
+      July,
+      August,
+      September,
+      October,
+      November,
+      December
+    }month;
 
   typedef struct
     {
@@ -39,45 +57,28 @@ extern "C"
 
   typedef struct
     {
-      DS3231_DateTypeDef date;
       uint8_t alarm1_seconds;
       uint8_t alarm1_minutes;
       uint8_t alarm1_hours;
       uint8_t alarm1_day;
-      uint8_t alarm1_date;uint8_t alarm2_seconds;
-      uint8_t alarm2_minutes;
-      uint8_t alarm2_hours;
-      uint8_t alarm2_day;
-      uint8_t alarm2_date;
-      uint8_t control;
-      uint8_t status;
-      uint8_t aging_offset;
-      uint8_t MSB_of_temp;
-      uint8_t LSB_of_temp;
+      uint8_t alarm1_date;
     }DS3231_RegistersTypeDef;
 
-  typedef struct
-    {
-      uint8_t Seconds;
-      uint8_t Minutes;
-      uint8_t Hours;
-      uint8_t Day;
-      uint8_t Date;
-      uint8_t Year;
-      uint8_t dayOfWeek;
-    }DS3231_HumanReadableFormat_TypeDef;
-
+  DS3231_RegistersTypeDef AlarmTime;
   DS3231_DateTypeDef Time;
 
-  int bcd_To_Bin(uint8_t val);
-  uint8_t dec_To_Bcd(int val);
+  uint8_t dec_To_Bcd (int decimal);
+  int bcd_To_Dec (uint8_t bcd);
   void set_Time(uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,
-       uint8_t date, uint8_t month, uint8_t year);
+      uint8_t date, uint8_t month, uint8_t year);
   void get_Time (void);
   float get_RTC_Temp (void);
   void force_Temp_Conversion(void);
-  void set_Alarm1 (uint8_t sec, uint8_t min, uint8_t hour);
-  void activate_Alarm1 (void);
+  void set_Alarm1 (uint8_t sec, uint8_t min, uint8_t hour, uint8_t date);
+  void clear_Alarm1 (void);
+  void get_Alarm1_Time (void);
+  void read_DS3231_Register(uint8_t regAddr, uint8_t *value);
+  void write_DS3231_Register (uint8_t regAddr, uint8_t value);
 
 #ifdef __cplusplus
 }

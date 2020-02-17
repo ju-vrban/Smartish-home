@@ -9,6 +9,7 @@ C_SRCS += \
 ../src/_write.c \
 ../src/light_mgmt.c \
 ../src/main.c \
+../src/misc.c \
 ../src/stm32f4xx_hal_msp.c \
 ../src/stm32f4xx_it.c \
 ../src/syscalls.c \
@@ -21,6 +22,7 @@ OBJS += \
 ./src/_write.o \
 ./src/light_mgmt.o \
 ./src/main.o \
+./src/misc.o \
 ./src/stm32f4xx_hal_msp.o \
 ./src/stm32f4xx_it.o \
 ./src/syscalls.o \
@@ -33,6 +35,7 @@ C_DEPS += \
 ./src/_write.d \
 ./src/light_mgmt.d \
 ./src/main.d \
+./src/misc.d \
 ./src/stm32f4xx_hal_msp.d \
 ./src/stm32f4xx_it.d \
 ./src/syscalls.d \

@@ -1,5 +1,5 @@
-src/LCD_pcf8574.o: ../src/LCD_pcf8574.c ../include/LCD_pcf8574.h \
- ../include/main.h ../system/include/stm32f4xx/stm32f4xx_hal.h \
+src/misc.o: ../src/misc.c ../include/misc.h ../include/main.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_def.h \
@@ -32,7 +32,7 @@ src/LCD_pcf8574.o: ../src/LCD_pcf8574.c ../include/LCD_pcf8574.h \
  ../include/LCD_pcf8574.h ../system/include/diag/Trace.h \
  ../include/misc.h
 
-../include/LCD_pcf8574.h:
+../include/misc.h:
 
 ../include/main.h:
 
