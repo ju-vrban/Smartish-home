@@ -164,28 +164,70 @@ float calculate_Dusk_Time (void)
   return dusk;
 }
 
-/*
- uint8_t main_Entrance_Light (uint8_t entrancePIR)
- {
- int min, hour, date, month;
+int laserTripSwitch = 0; //place inside main()
+/* Could use the other sensor and possibly without laser trip switch */
+void bathroom_Light (void)
+{
+  int isTripped = 0;  //place inside main
+  if(HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_3, GPIO_PIN_RESET)
+    && isTripped == 0)
+    {
+      isTripped = 1;
+      laserTripSwitch += 1;
+    }
+  else if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_3, GPIO_PIN_SET)
+    && isTripped == 1)
+    {
+      isTripped = 0;
+    }
 
- get_Time ();
- min = Time.minutes;
- hour = Time.hours;
- date = Time.date;
- month = Time.month;
+  int isOccupied = 0; // place in header as global
+  int currentTime = 0; 
 
- uint8_t PIRInput = 0;
- uint8_t returnPIR;
- uint32_t currentTime;
+/* Sensor */
+  if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_5, GPIO_PIN_SET)
+    && isOccupied == 0)
+    {
+      isOccupied = 1;
+      HAL_GPIO_WritePin (GPIOD, GPIO_PIN_4, GPIO_PIN_SET);
+    }
+  else if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_5, GPIO_PIN_RESET)
+    && isOccupied == 1)
+    {
+      if (HAL_GetTick() - currentTime >= 500L)
+        {
+          currentTime = HAL_GetTick();
+          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_4, GPIO_PIN_RESET);
+        }
+    }
+}
 
- if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_10) == PIRInput)
- {
- HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
- }
- else
- {
- HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
- }
- }
- */
+
+
+
+void bathroom_Light2 (void)
+{
+  int isTripped = 0;  //place inside main
+  if(HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_3, GPIO_PIN_RESET)
+    && isTripped == 0)
+    {
+      isTripped = 1;
+      laserTripSwitch += 1;
+    }
+  else if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_3, GPIO_PIN_SET)
+    && isTripped == 1)
+    {
+      isTripped = 0;
+    }
+
+  int isEven = 0;
+  isEven = laserTripSwitch % 2;
+
+/* PIR and laser trip switch input */
+  if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_5, GPIO_PIN_SET) //PIR
+    && isEven == 0 && isOccupied == 1)
+    {
+      isOccupied = 1;
+      HAL_GPIO_WritePin (GPIOD, GPIO_PIN_4);
+    }
+}
