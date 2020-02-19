@@ -204,13 +204,13 @@ void bathroom_Light (void)
 
 
 /* Ovo staviti u misc.c */
-int automatic_Mode(void)
+bool automatic_Mode(void)
 {
   int automaticMode;
   if (GPIO_ReadPin(GPIOD, GPIO_AUTOMATIC_MODE) == GPIO_PIN_SET)
-    return automaticMode = ON;
+    return automaticMode = true;
   else
-    return automaticMode = OFF;
+    return automaticMode = false;
 }
 /* misc.c ---------------*/
 
@@ -232,7 +232,7 @@ void living_Room_Light (float dusk, float currentTime)
 #define OFF 0
 /*-----------------------*/
 
-  int automaticMode;
+  bool automaticMode;
   automatciMode = automatic_Mode();
   
 if (atomaticMode == ON )
@@ -263,5 +263,27 @@ else if (automaticMode == OFF)
 /* Vjerojatno negdje u main, s onim tim encoder modeom*/
   Tim_DutyCycle(htim3, livingRoomEncoderDuty);
 /*--------------------------*/
+}
+
+
+/*  Pokrenuti tim4 rcc u main */
+
+/* Nema senzora ali se more prek aplikacije ili ručno upravljati pwm */
+void bedroom_Light (float dusk, float currentTime)
+{
+  bool automaticMode = automatic_Mode();
+  int bedroomEncoderSwitch = GPIO_ReadPin();
+  if ( automaticMode == ON) // vjerojatno ne treba automstic  mode
+    {
+      if(bedroomEncoderSwitch == ON)
+        {
+          TIM_Start_PWM(htim4);
+          TIM_DutyCycle(htim4, dutyCycle);
+        }
+      else
+        {
+          TIM_Stop_PWM(htim4);
+        }
+    }
 }
 
