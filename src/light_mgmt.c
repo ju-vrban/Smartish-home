@@ -159,130 +159,123 @@ float calculate_Dusk_Time (void)
   numOfDays = 0;
 
   float dusk;
-  dusk = (float) duskTime[0] + ((float)duskTime[1])/100;
+  dusk = (float) duskTime[0] + ((float) duskTime[1]) / 100;
 
   return dusk;
 }
 
-int laserTripSwitch = 0; //place inside main()
-/* Could use the other sensor and possibly without laser trip switch */
+void entrance_Light (float dusk, float entranceTimeValue)
+{
+  if ((entranceTimeValue >= dusk)
+      && HAL_GPIO_ReadPin (GPIOD, GPIO_MAIN_ENTRANCE_PIR) == GPIO_PIN_SET)
+    {
+      HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT, GPIO_PIN_SET);
+    }
+  else if ((entranceTimeValue >= dusk)
+      && HAL_GPIO_ReadPin (GPIOD, GPIO_MAIN_ENTRANCE_PIR) == GPIO_PIN_RESET)
+    {
+      HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT, GPIO_PIN_RESET);
+    }
+
+}
+
 void bathroom_Light (void)
 {
-  int isTripped = 0;  //place inside main
-  if(HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_3, GPIO_PIN_RESET)
-    && isTripped == 0)
-    {
-      isTripped = 1;
-      laserTripSwitch += 1;
-    }
-  else if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_3, GPIO_PIN_SET)
-    && isTripped == 1)
-    {
-      isTripped = 0;
-    }
+  static int isOccupied = 0;
+  static int currentTime = 0;
 
-  int isOccupied = 0; // place in header as global
-  int currentTime = 0; 
-
-/* Sensor */
-  if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_5, GPIO_PIN_SET)
-    && isOccupied == 0)
+  /* Sensor */
+  if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_SET
+      && isOccupied == 0)
     {
       isOccupied = 1;
-      HAL_GPIO_WritePin (GPIOD, GPIO_PIN_4, GPIO_PIN_SET);
+      HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_SET); // PRomijeniti pin
     }
-  else if (HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_5, GPIO_PIN_RESET)
-    && isOccupied == 1)
+  else if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_RESET
+      && isOccupied == 1)
     {
-      if (HAL_GetTick() - currentTime >= 500L)
+      if (HAL_GetTick () - currentTime >= 500L)
         {
-          currentTime = HAL_GetTick();
-          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_4, GPIO_PIN_RESET);
+          currentTime = HAL_GetTick ();
+          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
         }
     }
 }
-
-
-/* Ovo staviti u misc.c */
-bool automatic_Mode(void)
-{
-  int automaticMode;
-  if (GPIO_ReadPin(GPIOD, GPIO_AUTOMATIC_MODE) == GPIO_PIN_SET)
-    return automaticMode = true;
-  else
-    return automaticMode = false;
-}
-/* misc.c ---------------*/
-
 
 /* U automatic nacinu duty racunati pomocu aplikacije */
 void living_Room_Light (float dusk, float currentTime)
 {
-/* Vjerojtno bolje u mainu to racunati*/
-  get_Time();
-
-  float currentTime = 0;
-  currentTime = (float) Time.hours + (float) Time.minutes/100;
-/*------------------------------------*/ 
-
   static int lightActive = 0;
 
-/*U header--------------*/
-#define ON  1
-#define OFF 0
-/*-----------------------*/
-
   bool automaticMode;
-  automatciMode = automatic_Mode();
-  
-if (atomaticMode == ON )
-{
-  if ((currentTime >= dusk && currentTime <= MIDNIGHT)
-    && lightActive == 0) //put inside main before function to not waste processor time
+  automaticMode = automatic_Mode ();
+
+  if (automaticMode == ON)
     {
-      lightActive = 1;
-      TIM_Start_PWM (htim3);
+      if ((currentTime >= dusk && currentTime <= BEFORE_MIDNIGHT)
+          && lightActive == 0) //put inside main before function to not waste processor time
+        {
+          lightActive = 1;
+          HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
+        }
+      else if ((currentTime <= dusk && currentTime >= AFTER_MIDNIGHT)
+          && lightActive == 1)
+        {
+          lightActive = 0;
+          HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_1); //PROVJERITI KANAL I INICIJALIZIRATI
+        }
     }
-  else if ((currentTime <= dusk && currentTime >= MIDNIGHT)
-    && lightActive == 1)
+  else if (automaticMode == OFF)
     {
-      lightActive = 0;
-      TIM_Stop_PWM (htim3);
+      bool livingRoomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD,
+      GPIO_LIVING_ROOM_ENCODER_SW);
+
+      if (livingRoomEncoderSwitch == ON)
+        HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
+      else
+        HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_1);
     }
-}
-else if (automaticMode == OFF)
-{
-  bool livingRoomEncoderSwitch = GPIO_ReadPin();
 
-  if (livingRoomEncoderSwitch == ON)
-    TIM_Start_PWM(htim3);
-  else
-    TIM_Stop_PWM(htim3);
+  /* Vjerojatno negdje u main, s onim tim encoder modeom*/
+  //Tim_DutyCycle (htim3, livingRoomEncoderDuty);
+  /*--------------------------*/
 }
-
-/* Vjerojatno negdje u main, s onim tim encoder modeom*/
-  Tim_DutyCycle(htim3, livingRoomEncoderDuty);
-/*--------------------------*/
-}
-
 
 /*  Pokrenuti tim4 rcc u main */
 
 /* Nema senzora ali se more prek aplikacije ili ručno upravljati pwm */
-void bedroom_Light (float dusk, float currentTime)
+void bedroom_Light (float currentTime)
 {
-  bool automaticMode = automatic_Mode();
-  int bedroomEncoderSwitch = GPIO_ReadPin();
-  if ( automaticMode == ON) // vjerojatno ne treba automstic  mode
+  bool automaticMode = automatic_Mode ();
+  int bedroomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD, GPIO_BEDROOM_ENCODER_SW);
+  static long int currentSystemTime;
+
+  if (automaticMode == OFF) // vjerojatno ne treba automstic  mode
     {
-      if(bedroomEncoderSwitch == ON)
+      if (bedroomEncoderSwitch == ON)
         {
-          TIM_Start_PWM(htim4);
-          TIM_DutyCycle(htim4, dutyCycle);
+          HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_2);
+          //TIM_DutyCycle (htim4, dutyCycle);
         }
       else
         {
-          TIM_Stop_PWM(htim4);
+          HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_2);
+        }
+    }
+  else
+    {
+      if (HAL_TIM_PWM_GetState (&htim3) == ON && currentTime >= AFTER_MIDNIGHT
+          && currentTime <= DAWN)
+        {
+          if (HAL_GetTick () - currentSystemTime >= MINS_60)
+            {
+              currentSystemTime = HAL_GetTick ();
+              HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_2);
+            }
+        }
+      else
+        {
+          //HAL_uart_();
         }
     }
 }

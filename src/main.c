@@ -35,6 +35,7 @@ int main (void)
   I2C1_Init ();
   I2C2_Init ();
   LCD_Init ();
+  TIM3_Init ();
 
   float RTCTempSens;
   char LCDCharBuffer[10];
@@ -43,8 +44,7 @@ int main (void)
   int *duskTime = 0;
   float dusk = 0;
   int sysRestart = 1;
-  int currentTime;
-  float entranceTimeValue = 0;
+  float currentTime = 0;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
@@ -62,18 +62,15 @@ int main (void)
           sysRestart = 0;
         }
 
-      entranceTimeValue = (float) Time.hours + ((float) Time.minutes / 100);
+      currentTime = (float) Time.hours + ((float) Time.minutes / 100);
 
-      if ((entranceTimeValue >= dusk)
-          && HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_10) == GPIO_PIN_SET)
-        {
-          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
-        }
-      else if((entranceTimeValue >= dusk)
-          && HAL_GPIO_ReadPin (GPIOD, GPIO_PIN_10) == GPIO_PIN_RESET)
-        {
-          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
-        }
+      entrance_Light (dusk, currentTime);
+
+      bathroom_Light ();
+
+      living_Room_Light(dusk, currentTime);
+
+      bedroom_Light(currentTime);
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);

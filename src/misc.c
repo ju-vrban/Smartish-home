@@ -10,22 +10,16 @@
 int concatenate (int x, int y)
 {
   int power = 10;
-  if (y < 10)
-    y = '0' + y;
   while (y >= power)
     power *= 10;
-  int result;
-  result=power;
   return x * power + y;
 }
 
-int concat (int x, int y)
+bool automatic_Mode(void)
 {
-  int temp = y;
-  while (y != 0)
-    {
-      x *= 10;
-      y /= 10;
-    }
-  return x + temp;
+  bool automaticMode = HAL_GPIO_ReadPin(GPIOD, GPIO_AUTOMATIC_MODE);
+  if (automaticMode == true)
+    return true;
+  else
+    return false;
 }

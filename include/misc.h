@@ -10,7 +10,7 @@ extern "C"
 
 
   int concatenate (int x, int y);
-  int concat(int x, int y);
+  bool automatic_Mode (void);
 
 
 #ifdef __cplusplus

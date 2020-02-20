@@ -8,8 +8,18 @@ extern "C"
 
 #include "main.h"
 
+#define DAWN              6.00f
+#define BEFORE_MIDNIGHT   23.599f
+#define AFTER_MIDNIGHT    00.00f
+#define MINS_60           3600000L
+
+
   float calculate_Dusk_Time (void);
   void mainEntranceLight(uint8_t entrancePIR);
+  void entrance_Light (float dusk, float entranceTimeValue);
+  void bathroom_Light (void);
+  void living_Room_Light (float dusk, float currentTime);
+  void bedroom_Light (float currentTime);
 
 #ifdef __cplusplus
 }
