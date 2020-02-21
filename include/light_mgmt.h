@@ -18,7 +18,7 @@ extern "C"
   void mainEntranceLight(uint8_t entrancePIR);
   void entrance_Light (float dusk, float entranceTimeValue);
   void bathroom_Light (void);
-  void living_Room_Light (float dusk, float currentTime);
+  void living_Room_Kitchen_Light (float dusk, float currentTime);
   void bedroom_Light (float currentTime);
 
 #ifdef __cplusplus

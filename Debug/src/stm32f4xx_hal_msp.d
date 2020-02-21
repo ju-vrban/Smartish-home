@@ -28,6 +28,8 @@ src/stm32f4xx_hal_msp.o: ../src/stm32f4xx_hal_msp.c ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rtc_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_uart.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_usart.h \
  ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
  ../include/RTC_ds3231.h ../include/LCD_pcf8574.h \
  ../system/include/diag/Trace.h ../include/misc.h
@@ -95,6 +97,10 @@ src/stm32f4xx_hal_msp.o: ../src/stm32f4xx_hal_msp.c ../include/main.h \
 ../system/include/stm32f4xx/stm32f4xx_hal_tim.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_uart.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_usart.h:
 
 ../include/light_mgmt.h:
 

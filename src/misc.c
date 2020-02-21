@@ -15,9 +15,9 @@ int concatenate (int x, int y)
   return x * power + y;
 }
 
-bool automatic_Mode(void)
+bool automatic_Mode (void)
 {
-  bool automaticMode = HAL_GPIO_ReadPin(GPIOD, GPIO_AUTOMATIC_MODE);
+  bool automaticMode = HAL_GPIO_ReadPin (GPIOD, GPIO_AUTOMATIC_MODE);
   if (automaticMode == true)
     return true;
   else

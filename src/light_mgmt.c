@@ -189,7 +189,7 @@ void bathroom_Light (void)
       && isOccupied == 0)
     {
       isOccupied = 1;
-      HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_SET); // PRomijeniti pin
+      HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_SET); // PRomijeniti pin
     }
   else if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_RESET
       && isOccupied == 1)
@@ -197,15 +197,15 @@ void bathroom_Light (void)
       if (HAL_GetTick () - currentTime >= 500L)
         {
           currentTime = HAL_GetTick ();
-          HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
+          HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_RESET);
         }
     }
 }
 
 /* U automatic nacinu duty racunati pomocu aplikacije */
-void living_Room_Light (float dusk, float currentTime)
+void living_Room_Kitchen_Light (float dusk, float currentTime)
 {
-  static int lightActive = 0;
+  static int lightState = OFF;
 
   bool automaticMode;
   automaticMode = automatic_Mode ();
@@ -213,27 +213,36 @@ void living_Room_Light (float dusk, float currentTime)
   if (automaticMode == ON)
     {
       if ((currentTime >= dusk && currentTime <= BEFORE_MIDNIGHT)
-          && lightActive == 0) //put inside main before function to not waste processor time
+          && lightState == OFF) //put inside main before function to not waste processor time
         {
-          lightActive = 1;
+          lightState = ON;
           HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
+          htim3.Instance->CCR1 = 50;
         }
       else if ((currentTime <= dusk && currentTime >= AFTER_MIDNIGHT)
-          && lightActive == 1)
+          && lightState == ON)
         {
-          lightActive = 0;
+          lightState = OFF;
           HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_1); //PROVJERITI KANAL I INICIJALIZIRATI
         }
     }
   else if (automaticMode == OFF)
     {
-      bool livingRoomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD,
+      static int switchState = OFF;
+      int livingRoomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD,
       GPIO_LIVING_ROOM_ENCODER_SW);
 
-      if (livingRoomEncoderSwitch == ON)
-        HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
-      else
-        HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_1);
+      if (livingRoomEncoderSwitch == ON && switchState == OFF)
+        {
+          switchState = ON;
+          HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
+          htim3.Instance->CCR1 = 50;
+        }
+      else if (switchState == ON && livingRoomEncoderSwitch == ON)
+        {
+          switchState = OFF;
+          HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_1);
+        }
     }
 
   /* Vjerojatno negdje u main, s onim tim encoder modeom*/
@@ -255,6 +264,7 @@ void bedroom_Light (float currentTime)
       if (bedroomEncoderSwitch == ON)
         {
           HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_2);
+          htim3.Instance->CCR1 = 50;
           //TIM_DutyCycle (htim4, dutyCycle);
         }
       else

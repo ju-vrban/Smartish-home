@@ -25,6 +25,7 @@ void SystemClock_Config (void)
   /** Configure the main internal regulator output voltage
    */
   __HAL_RCC_PWR_CLK_ENABLE();
+  //__HAL_RCC_SYSCFG_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   /** Initializes the CPU, AHB and APB busses clocks
    */
@@ -37,15 +38,13 @@ void SystemClock_Config (void)
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 4;
   if (HAL_RCC_OscConfig (&RCC_OscInitStruct) != HAL_OK)
-    {
-      Error_Handler ();
-    }
+    Error_Handler ();
+
   /** Activate the Over-Drive mode
    */
   if (HAL_PWREx_EnableOverDrive () != HAL_OK)
-    {
-      Error_Handler ();
-    }
+    Error_Handler ();
+
   /** Initializes the CPU, AHB and APB busses clocks
    */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
@@ -56,16 +55,15 @@ void SystemClock_Config (void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
   if (HAL_RCC_ClockConfig (&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
-    {
-      Error_Handler ();
-    }
+    Error_Handler ();
+
   /** RTC clock initialization
    */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
   HAL_RCCEx_PeriphCLKConfig (&PeriphClkInitStruct);
 
-  /** COnfigure the Systick interrupt timer
+  /** Configure the Systick interrupt timer
    */
   HAL_SYSTICK_Config (HAL_RCC_GetHCLKFreq () / 1000);
 
@@ -92,23 +90,69 @@ void GPIO_Init (void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
-
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PD10 PD14 */
-  GPIO_InitStruct.Pin = GPIO_MAIN_ENTRANCE_PIR | GPIO_AUTOMATIC_MODE;
+  /**GPIO input configuration
+   PD5      ------> GPIO_BATHROOM_PIR
+   PD6      ------> GPIO_LIVING_ROOM_ENCODER_SW
+   PD7      ------> GPIO_BEDROOM_ENCODER_SW
+   PD10     ------> GPIO_MAIN_ENTRANCE_PIR
+   PD14     ------> GPIO_AUTOMATIC_MODE
+   */
+  GPIO_InitStruct.Pin = GPIO_BATHROOM_PIR | GPIO_LIVING_ROOM_ENCODER_SW
+      | GPIO_BEDROOM_ENCODER_SW | GPIO_MAIN_ENTRANCE_PIR | GPIO_AUTOMATIC_MODE;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PD11 */
-  GPIO_InitStruct.Pin = GPIO_MAIN_ENTRANCE_LIGHT;
+  /**GPIO output configuration
+   PD11     ------> GPIO_MAIN_ENTRANCE_LIGHT
+   PD12     ------> GPIO_LIVING_ROOM_KITCHEN_LIGHT
+   PD13     ------> GPIO_BATHROOM_LIGHT
+   PD14     ------> GPIO_BEDROOM_LIGHT
+   */
+  GPIO_InitStruct.Pin = GPIO_MAIN_ENTRANCE_LIGHT
+      | GPIO_LIVING_ROOM_KITCHEN_LIGHT | GPIO_BATHROOM_LIGHT
+      | GPIO_BEDROOM_LIGHT;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
 
+  /**TIM3 encoder GPIO configuration
+   PB4     ------> TIM3_LIVING_ROOM_ENCODER_CH1
+   PB5     ------> TIM3_LIVING_ROOM_ENCODER_CH2
+   */
+  GPIO_InitStruct.Pin = TIM3_LIVING_ROOM_ENCODER_CH1
+      | TIM3_LIVING_ROOM_ENCODER_CH2;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
+  HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
+
+  /**TIM4 encoder GPIO configuration
+   PB6     ------> TIM4_BEDROOM_ENCODER_CH1
+   PB7     ------> TIM4_BEDROOM_ENCODER_CH2
+   */
+  GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH1 | TIM4_BEDROOM_ENCODER_CH2;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF2_TIM4;
+  HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
+
+  /**TIM12 PWM GPIO Configuration
+   PB14     ------> TIM12_PWM_CH1
+   PB15     ------> TIM12_PWM_CH2
+   */
+  GPIO_InitStruct.Pin = TIM12_PWM_CH1 | TIM12_PWM_CH2;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF9_TIM12;
+  HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -122,9 +166,8 @@ void GPIO_Init (void)
  * @param None
  * @retval None
  */
-void I2C1_Init (void)
+void I2C1_RTC_Init (void)
 {
-  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_I2C1_CLK_ENABLE();
 
   /* I2C1 initialization */
@@ -149,7 +192,14 @@ void I2C1_Init (void)
   HAL_I2C_Init (&hi2c1);
 }
 
-void I2C2_Init (void)
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief I2C1 initialization function for the external RTC
+ * @param None
+ * @retval None
+ */
+void I2C2_LCD_Init (void)
 {
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_I2C2_CLK_ENABLE();
@@ -176,89 +226,129 @@ void I2C2_Init (void)
   HAL_I2C_Init (&hi2c2);
 }
 
-void TIM3_Init(void)
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief Initialization function for TIM3 in encoder mode
+ * @param None
+ * @retval None
+ */
+void TIM3_Encoder_Living_Room_Init (void)
 {
+  __HAL_RCC_TIM3_CLK_ENABLE();
 
-  /* USER CODE BEGIN TIM3_Init 0 */
+  TIM_Encoder_InitTypeDef Encoder =
+    { 0 };
+  TIM_MasterConfigTypeDef MasterConfig =
+    { 0 };
 
-  /* USER CODE END TIM3_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-
-  /* USER CODE BEGIN TIM3_Init 1 */
-
-  /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 4499;
+  htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 49;
+  htim3.Init.Period = 65535;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM3_Init 2 */
 
-  /* USER CODE END TIM3_Init 2 */
-  TIM_PostInit(&htim3);
+  Encoder.EncoderMode = TIM_ENCODERMODE_TI1;
+  Encoder.IC1Polarity = TIM_ICPOLARITY_RISING;
+  Encoder.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  Encoder.IC1Prescaler = TIM_ICPSC_DIV1;
+  Encoder.IC1Filter = 0;
+  Encoder.IC2Polarity = TIM_ICPOLARITY_RISING;
+  Encoder.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  Encoder.IC2Prescaler = TIM_ICPSC_DIV1;
+  Encoder.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init (&htim3, &Encoder) != HAL_OK)
+    Error_Handler ();
 
+  MasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  MasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization (&htim3, &MasterConfig) != HAL_OK)
+    Error_Handler ();
 }
 
-void TIM_PostInit(TIM_HandleTypeDef* htim)
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief Initialization function for TIM4 in encoder mode
+ * @param None
+ * @retval None
+ */
+void TIM4_Encoder_Bedroom_Init (void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(htim->Instance==TIM3)
-  {
-  /* USER CODE BEGIN TIM3_MspPostInit 0 */
+  __HAL_RCC_TIM4_CLK_ENABLE();
 
-  /* USER CODE END TIM3_MspPostInit 0 */
+  TIM_Encoder_InitTypeDef Encoder =
+    { 0 };
+  TIM_MasterConfigTypeDef MasterConfig =
+    { 0 };
 
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**TIM3 GPIO Configuration
-    PB4     ------> TIM3_CH1
-    PB5     ------> TIM3_CH2
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 0;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 65535;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 
-  /* USER CODE BEGIN TIM3_MspPostInit 1 */
+  Encoder.EncoderMode = TIM_ENCODERMODE_TI1;
+  Encoder.IC1Polarity = TIM_ICPOLARITY_RISING;
+  Encoder.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  Encoder.IC1Prescaler = TIM_ICPSC_DIV1;
+  Encoder.IC1Filter = 0;
+  Encoder.IC2Polarity = TIM_ICPOLARITY_RISING;
+  Encoder.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  Encoder.IC2Prescaler = TIM_ICPSC_DIV1;
+  Encoder.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init (&htim4, &Encoder) != HAL_OK)
+    Error_Handler ();
 
-  /* USER CODE END TIM3_MspPostInit 1 */
-  }
+  MasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  MasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization (&htim4, &MasterConfig) != HAL_OK)
+    Error_Handler ();
+}
 
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief Initialization function for TIM12 in PWM mode for channels 1 and 2
+ *        with a frequency of 200 Hz
+ * @param None
+ * @retval None
+ */
+void TIM12_PWM_Living_Bedroom_Init (void)
+{
+  __HAL_RCC_TIM12_CLK_ENABLE();
+
+  TIM_ClockConfigTypeDef ClockSourceConfig =
+    { 0 };
+  TIM_OC_InitTypeDef ConfigOC =
+    { 0 };
+
+  htim12.Instance = TIM12;
+  htim12.Init.Prescaler = 449;
+  htim12.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim12.Init.Period = 499;
+  htim12.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim12.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init (&htim12) != HAL_OK)
+    Error_Handler ();
+
+  ClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource (&htim12, &ClockSourceConfig) != HAL_OK)
+    Error_Handler ();
+
+  if (HAL_TIM_PWM_Init (&htim12) != HAL_OK)
+    Error_Handler ();
+
+  ConfigOC.OCMode = TIM_OCMODE_PWM1;
+  ConfigOC.Pulse = 0;
+  ConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  ConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel (&htim12, &ConfigOC, TIM_CHANNEL_1) != HAL_OK)
+    Error_Handler ();
+
+  if (HAL_TIM_PWM_ConfigChannel (&htim12, &ConfigOC, TIM_CHANNEL_2) != HAL_OK)
+    Error_Handler ();
 }
 

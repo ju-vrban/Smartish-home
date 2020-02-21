@@ -32,24 +32,27 @@ int main (void)
 
   /* Initialize all configured peripherals */
   GPIO_Init ();
-  I2C1_Init ();
-  I2C2_Init ();
+  I2C1_RTC_Init ();
+  I2C2_LCD_Init ();
   LCD_Init ();
-  TIM3_Init ();
+  TIM3_Encoder_Living_Room_Init ();
+  TIM4_Encoder_Bedroom_Init();
+  TIM12_PWM_Living_Bedroom_Init();
 
-  float RTCTempSens;
+  //float RTCTempSens;
   char LCDCharBuffer[10];
   int timeOfUpdate[3] =
     { 03, 00, 00 };
-  int *duskTime = 0;
   float dusk = 0;
   int sysRestart = 1;
   float currentTime = 0;
+  int a;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
   //clear_Alarm1 ();
   //HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
+  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
 
   while (1)
     {
@@ -61,6 +64,8 @@ int main (void)
           dusk = calculate_Dusk_Time ();
           sysRestart = 0;
         }
+      a = HAL_TIM_Encoder_GetState(&htim3);
+      trace_printf("[ %d ]\n",a );
 
       currentTime = (float) Time.hours + ((float) Time.minutes / 100);
 
@@ -68,7 +73,7 @@ int main (void)
 
       bathroom_Light ();
 
-      living_Room_Light(dusk, currentTime);
+      living_Room_Kitchen_Light(dusk, currentTime);
 
       bedroom_Light(currentTime);
 
