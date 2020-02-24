@@ -176,7 +176,6 @@ void entrance_Light (float dusk, float entranceTimeValue)
     {
       HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT, GPIO_PIN_RESET);
     }
-
 }
 
 void bathroom_Light (void)
@@ -184,19 +183,36 @@ void bathroom_Light (void)
   static int isOccupied = 0;
   static int currentTime = 0;
 
-  /* Sensor */
-  if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_SET
-      && isOccupied == 0)
+  bool automaticMode;
+  automaticMode = automatic_Mode ();
+
+  if (automaticMode == ON)
     {
-      isOccupied = 1;
-      HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_SET); // PRomijeniti pin
-    }
-  else if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_RESET
-      && isOccupied == 1)
-    {
-      if (HAL_GetTick () - currentTime >= 500L)
+      /* Sensor */
+      if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_SET
+          && isOccupied == 0)
         {
-          currentTime = HAL_GetTick ();
+          isOccupied = 1;
+          HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_SET); // PRomijeniti pin
+        }
+      else if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_RESET
+          && isOccupied == 1)
+        {
+          if (HAL_GetTick () - currentTime >= 500L)
+            {
+              currentTime = HAL_GetTick ();
+              HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_RESET);
+            }
+        }
+    }
+  else
+    {
+      if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_SWITCH) == GPIO_PIN_SET)
+        {
+          HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_SET);
+        }
+      else if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_SWITCH) == GPIO_PIN_RESET)
+        {
           HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_RESET);
         }
     }
@@ -206,6 +222,9 @@ void bathroom_Light (void)
 void living_Room_Kitchen_Light (float dusk, float currentTime)
 {
   static int lightState = OFF;
+  static int encoderDuty = 0;
+  static int livingRoomEncoderSwitch;
+  static int switchState = OFF;
 
   bool automaticMode;
   automaticMode = automatic_Mode ();
@@ -217,6 +236,7 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
         {
           lightState = ON;
           HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
+
           htim3.Instance->CCR1 = 50;
         }
       else if ((currentTime <= dusk && currentTime >= AFTER_MIDNIGHT)
@@ -228,15 +248,15 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
     }
   else if (automaticMode == OFF)
     {
-      static int switchState = OFF;
-      int livingRoomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD,
+      livingRoomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD,
       GPIO_LIVING_ROOM_ENCODER_SW);
 
       if (livingRoomEncoderSwitch == ON && switchState == OFF)
         {
           switchState = ON;
           HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
-          htim3.Instance->CCR1 = 50;
+          encoderDuty = __HAL_TIM_GET_COUNTER(&htim3);
+          htim3.Instance->CCR1 = encoderDuty;
         }
       else if (switchState == ON && livingRoomEncoderSwitch == ON)
         {
@@ -257,18 +277,24 @@ void bedroom_Light (float currentTime)
 {
   bool automaticMode = automatic_Mode ();
   int bedroomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD, GPIO_BEDROOM_ENCODER_SW);
+
+  static int switchState = OFF;
   static long int currentSystemTime;
+  static uint8_t encoderDuty;
 
   if (automaticMode == OFF) // vjerojatno ne treba automstic  mode
     {
-      if (bedroomEncoderSwitch == ON)
+      if (bedroomEncoderSwitch == ON && switchState == OFF)
         {
+          switchState = ON;
+          /* start PWM and set duty cycle with rotary encoder */
           HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_2);
-          htim3.Instance->CCR1 = 50;
-          //TIM_DutyCycle (htim4, dutyCycle);
+          encoderDuty = __HAL_TIM_GET_COUNTER(&htim4);
+          htim3.Instance->CCR1 = encoderDuty;
         }
-      else
+      else if (bedroomEncoderSwitch == ON && switchState == ON)
         {
+          switchState = OFF;
           HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_2);
         }
     }

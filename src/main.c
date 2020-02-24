@@ -46,13 +46,11 @@ int main (void)
   float dusk = 0;
   int sysRestart = 1;
   float currentTime = 0;
-  int a;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
   //clear_Alarm1 ();
   //HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
-  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
 
   while (1)
     {
@@ -64,8 +62,6 @@ int main (void)
           dusk = calculate_Dusk_Time ();
           sysRestart = 0;
         }
-      a = HAL_TIM_Encoder_GetState(&htim3);
-      trace_printf("[ %d ]\n",a );
 
       currentTime = (float) Time.hours + ((float) Time.minutes / 100);
 

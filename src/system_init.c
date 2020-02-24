@@ -97,11 +97,13 @@ void GPIO_Init (void)
    PD5      ------> GPIO_BATHROOM_PIR
    PD6      ------> GPIO_LIVING_ROOM_ENCODER_SW
    PD7      ------> GPIO_BEDROOM_ENCODER_SW
+   PD9      ------> GPIO_BATHROOM_SWITCH
    PD10     ------> GPIO_MAIN_ENTRANCE_PIR
-   PD14     ------> GPIO_AUTOMATIC_MODE
+   PD15     ------> GPIO_AUTOMATIC_MODE
    */
   GPIO_InitStruct.Pin = GPIO_BATHROOM_PIR | GPIO_LIVING_ROOM_ENCODER_SW
-      | GPIO_BEDROOM_ENCODER_SW | GPIO_MAIN_ENTRANCE_PIR | GPIO_AUTOMATIC_MODE;
+      | GPIO_BEDROOM_ENCODER_SW | GPIO_MAIN_ENTRANCE_PIR | GPIO_AUTOMATIC_MODE
+      | GPIO_BATHROOM_SWITCH;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
@@ -245,7 +247,7 @@ void TIM3_Encoder_Living_Room_Init (void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
+  htim3.Init.Period = 100;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 
@@ -265,6 +267,8 @@ void TIM3_Encoder_Living_Room_Init (void)
   MasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization (&htim3, &MasterConfig) != HAL_OK)
     Error_Handler ();
+
+  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -306,6 +310,8 @@ void TIM4_Encoder_Bedroom_Init (void)
   MasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization (&htim4, &MasterConfig) != HAL_OK)
     Error_Handler ();
+
+  HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
 }
 
 /*----------------------------------------------------------------------------*/
