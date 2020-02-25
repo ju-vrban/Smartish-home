@@ -36,8 +36,8 @@ int main (void)
   I2C2_LCD_Init ();
   LCD_Init ();
   TIM3_Encoder_Living_Room_Init ();
-  TIM4_Encoder_Bedroom_Init();
-  TIM12_PWM_Living_Bedroom_Init();
+  TIM4_Encoder_Bedroom_Init ();
+  TIM12_PWM_Living_Bedroom_Init ();
 
   //float RTCTempSens;
   char LCDCharBuffer[10];
@@ -46,6 +46,7 @@ int main (void)
   float dusk = 0;
   int sysRestart = 1;
   float currentTime = 0;
+  int blindsState;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
@@ -69,12 +70,17 @@ int main (void)
 
       bathroom_Light ();
 
-      living_Room_Kitchen_Light(dusk, currentTime);
+      living_Room_Kitchen_Light (dusk, currentTime);
 
-      bedroom_Light(currentTime);
+      bedroom_Light (currentTime);
+
+      blinds_Living_Room (dusk, currentTime);
+
+      blinds_Bedroom (dusk, currentTime);
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);
+
       LCD_Put_Cur (0, 0);
       LCD_Send_String (LCDCharBuffer);
 

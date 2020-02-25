@@ -41,19 +41,12 @@ extern "C"
 #include "LCD_pcf8574.h"
 #include "diag/Trace.h"
 #include "misc.h"
+#include "blinds.h"
+#include "ventilation.h"
 
-  /* Private includes ----------------------------------------------------------*/
 
-  /* Exported types ------------------------------------------------------------*/
+  void  Error_Handler(void);
 
-  /* Exported constants --------------------------------------------------------*/
-
-  /* Exported macro ------------------------------------------------------------*/
-
-  /* Exported functions prototypes ---------------------------------------------*/
-void  Error_Handler(void);
-
-  /* Private defines -----------------------------------------------------------*/
 
 #ifdef __cplusplus
 }

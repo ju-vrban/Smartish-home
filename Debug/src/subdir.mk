@@ -7,6 +7,7 @@ C_SRCS += \
 ../src/LCD_pcf8574.c \
 ../src/RTC_ds3231.c \
 ../src/_write.c \
+../src/blinds.c \
 ../src/light_mgmt.c \
 ../src/main.c \
 ../src/misc.c \
@@ -14,12 +15,14 @@ C_SRCS += \
 ../src/stm32f4xx_it.c \
 ../src/syscalls.c \
 ../src/system_init.c \
-../src/system_stm32f4xx.c 
+../src/system_stm32f4xx.c \
+../src/ventilation.c 
 
 OBJS += \
 ./src/LCD_pcf8574.o \
 ./src/RTC_ds3231.o \
 ./src/_write.o \
+./src/blinds.o \
 ./src/light_mgmt.o \
 ./src/main.o \
 ./src/misc.o \
@@ -27,12 +30,14 @@ OBJS += \
 ./src/stm32f4xx_it.o \
 ./src/syscalls.o \
 ./src/system_init.o \
-./src/system_stm32f4xx.o 
+./src/system_stm32f4xx.o \
+./src/ventilation.o 
 
 C_DEPS += \
 ./src/LCD_pcf8574.d \
 ./src/RTC_ds3231.d \
 ./src/_write.d \
+./src/blinds.d \
 ./src/light_mgmt.d \
 ./src/main.d \
 ./src/misc.d \
@@ -40,7 +45,8 @@ C_DEPS += \
 ./src/stm32f4xx_it.d \
 ./src/syscalls.d \
 ./src/system_init.d \
-./src/system_stm32f4xx.d 
+./src/system_stm32f4xx.d \
+./src/ventilation.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

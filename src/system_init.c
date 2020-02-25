@@ -86,9 +86,11 @@ void SystemClock_Config (void)
 void GPIO_Init (void)
 {
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT, GPIO_PIN_RESET);
@@ -155,6 +157,54 @@ void GPIO_Init (void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF9_TIM12;
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
+
+  /**GPIO stepper motor output configuration
+   PG1      ------> GPIO_ELECTROMAGNET_FOUR_BED
+   PG10     ------> GPIO_ELECTROMAGNET_TWO_LIVING
+   PG11     ------> GPIO_ELECTROMAGNET_FOUR_LIVING
+   PG13     ------> GPIO_ELECTROMAGNET_THREE_LIVING
+   PG15     ------> GPIO_ELECTROMAGNET_ONE_LIVING
+   */
+  GPIO_InitStruct.Pin = GPIO_ELECTROMAGNET_ONE_LIVING
+      | GPIO_ELECTROMAGNET_TWO_LIVING | GPIO_ELECTROMAGNET_THREE_LIVING
+      | GPIO_ELECTROMAGNET_FOUR_LIVING | GPIO_ELECTROMAGNET_FOUR_BED;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
+
+  /**GPIO stepper motor output configuration
+   PF2      ------> GPIO_ELECTROMAGNET_ONE_BED
+   PF8      ------> GPIO_ELECTROMAGNET_TWO_BED
+   PF9      ------> GPIO_ELECTROMAGNET_THREE_BED
+   */
+  GPIO_InitStruct.Pin = GPIO_ELECTROMAGNET_ONE_BED | GPIO_ELECTROMAGNET_TWO_BED
+      | GPIO_ELECTROMAGNET_THREE_BED;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
+
+  /**GPIO blinds switch input configuration
+   PF11     ------> GPIO_LIVING_ROOM_SWITCH_RAISE
+   PF12     ------> GPIO_BEDROOM_SWITCH_RAISE
+   PF13     ------> GPIO_BEDROOM_SWITCH_LOWER
+   PF15     ------> GPIO_LIVING_ROOM_SWITCH_LOWER
+   */
+  GPIO_InitStruct.Pin = GPIO_LIVING_ROOM_SWITCH_RAISE
+      | GPIO_BEDROOM_SWITCH_RAISE | GPIO_BEDROOM_SWITCH_LOWER
+      | GPIO_LIVING_ROOM_SWITCH_LOWER;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
+
+  /**GPIO blinds switch input configuration
+     PG12     ------> GPIO_DANGEROUS_GASES
+     */
+    GPIO_InitStruct.Pin = GPIO_DANGEROUS_GASES;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+    HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -268,7 +318,7 @@ void TIM3_Encoder_Living_Room_Init (void)
   if (HAL_TIMEx_MasterConfigSynchronization (&htim3, &MasterConfig) != HAL_OK)
     Error_Handler ();
 
-  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+  HAL_TIM_Encoder_Start (&htim3, TIM_CHANNEL_ALL);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -311,7 +361,7 @@ void TIM4_Encoder_Bedroom_Init (void)
   if (HAL_TIMEx_MasterConfigSynchronization (&htim4, &MasterConfig) != HAL_OK)
     Error_Handler ();
 
-  HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
+  HAL_TIM_Encoder_Start (&htim4, TIM_CHANNEL_ALL);
 }
 
 /*----------------------------------------------------------------------------*/
