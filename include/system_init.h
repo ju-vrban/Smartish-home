@@ -18,9 +18,9 @@ extern "C"
 
   /*GPIO light macros */
 #define GPIO_MAIN_ENTRANCE_LIGHT          GPIO_PIN_11
-#define GPIO_LIVING_ROOM_KITCHEN_LIGHT    GPIO_PIN_12
+#define GPIO_LIVING_ROOM_KITCHEN_LIGHT    GPIO_PIN_12    // IS NOT USED
 #define GPIO_BATHROOM_LIGHT               GPIO_PIN_13
-#define GPIO_BEDROOM_LIGHT                GPIO_PIN_14
+#define GPIO_BEDROOM_LIGHT                GPIO_PIN_14   // IS NOT USED
 
   /* Timer macros */
 #define TIM3_LIVING_ROOM_ENCODER_CH1      GPIO_PIN_4
@@ -44,13 +44,16 @@ extern "C"
 #define GPIO_BEDROOM_SWITCH_RAISE         GPIO_PIN_12
 #define GPIO_BEDROOM_SWITCH_LOWER         GPIO_PIN_13
 
-/* Ventilation macros */
+  /* Ventilation and fire detection macros */
 #define GPIO_DANGEROUS_GASES              GPIO_PIN_12
+#define GPIO_INTAKE_FAN                   GPIO_PIN_2
+#define GPIO_EXHAUST_FAN                  GPIO_PIN_6
+#define GPIO_FIRE_IR_SENSOR               GPIO_PIN_5
 
 #define ON  1
 #define OFF 0
 
-  I2C_HandleTypeDef hi2c1;
+  I2C_HandleTypeDef  hi2c1;
   I2C_HandleTypeDef hi2c2;
   GPIO_InitTypeDef GPIO_InitStruct;
   TIM_HandleTypeDef htim3;

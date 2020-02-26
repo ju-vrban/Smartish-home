@@ -34,16 +34,74 @@ bool check_For_Gases (void)
  */
 void emergency_Ventilation (void)
 {
-
+  static int gasesPresent = 0;
+  static long int lastConversion = 0;
+  if (check_For_Gases () == true && gasesPresent == 0)
+    {
+      gasesPresent = 1;
+      HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_FAN, GPIO_PIN_SET);
+      HAL_GPIO_WritePin (GPIOE, GPIO_EXHAUST_FAN, GPIO_PIN_SET);
+    }
+  else if ((check_For_Gases () == false) && gasesPresent == 1)
+    {
+      if (HAL_GetTick () - lastConversion >= 10000L)
+        {
+          gasesPresent = 0;
+          HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_FAN, GPIO_PIN_RESET);
+          HAL_GPIO_WritePin (GPIOE, GPIO_EXHAUST_FAN, GPIO_PIN_RESET);
+        }
+    }
 }
 
 /**
- * @brief if fire is present, returns a true value
+ * @brief If IR sensor returns high value, the function returns a true value
  *
  * @param None
  * @retval true or false
  */
 bool check_For_Fire (void)
 {
+  if (HAL_GPIO_ReadPin (GPIOG, GPIO_DANGEROUS_GASES) == GPIO_PIN_SET)
+    return true;
+  else
+    return false;
+}
 
+void fire_Alarm (void)
+{
+  if (check_For_Fire () == true)
+    {
+      raise_Blinds_Living ();
+      raise_Blinds_Bedroom ();
+
+      static long int lastConversion = 0L;
+      static int statusFlag1 = 0;
+      static int statusFlag2 = 0;
+
+      while (check_For_Fire ())
+        {
+          if ((HAL_GetTick () - lastConversion >= 1000L)
+              && (HAL_GetTick () - lastConversion <= 2000L) && statusFlag1 == 0)
+            {
+              statusFlag1 = 1;
+              HAL_TIM_PWM_Start (&htim12, TIM12_PWM_CH1);
+              htim12.Instance->CCR1 = 100;
+              HAL_TIM_PWM_Start (&htim12, TIM12_PWM_CH2);
+              htim12.Instance->CCR2 = 100;
+            }
+          else if ((HAL_GetTick () - lastConversion >= 2000L)
+              && (HAL_GetTick () - lastConversion <= 2050L) && statusFlag2 == 0)
+            {
+              statusFlag2 = 1;
+              HAL_TIM_PWM_Stop (&htim12, TIM12_PWM_CH1);
+              HAL_TIM_PWM_Stop (&htim12, TIM12_PWM_CH2);
+            }
+          else if (HAL_GetTick () - lastConversion >= 2050L)
+            {
+              lastConversion = HAL_GetTick ();
+              statusFlag1 = 0;
+              statusFlag1 = 0;
+            }
+        }
+    }
 }

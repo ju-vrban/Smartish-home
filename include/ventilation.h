@@ -8,9 +8,11 @@ extern "C"
 
 #include "main.h"
 
+
   bool check_For_Gases (void);
   void emergency_Ventilation(void);
   bool check_For_Fire (void);
+  void fire_Alarm(void);
 
 
 #ifdef __cplusplus

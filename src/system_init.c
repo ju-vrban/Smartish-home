@@ -88,14 +88,35 @@ void GPIO_Init (void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin (
+      GPIOD,
+      GPIO_MAIN_ENTRANCE_LIGHT | GPIO_LIVING_ROOM_KITCHEN_LIGHT
+          | GPIO_BATHROOM_LIGHT | GPIO_BEDROOM_LIGHT,
+      GPIO_PIN_RESET);
 
-  /**GPIO input configuration
+  HAL_GPIO_WritePin (
+      GPIOG,
+      GPIO_ELECTROMAGNET_ONE_LIVING | GPIO_ELECTROMAGNET_TWO_LIVING
+          | GPIO_ELECTROMAGNET_THREE_LIVING | GPIO_ELECTROMAGNET_FOUR_LIVING
+          | GPIO_ELECTROMAGNET_FOUR_BED,
+      GPIO_PIN_RESET);
+
+  HAL_GPIO_WritePin (
+      GPIOF,
+      GPIO_ELECTROMAGNET_ONE_BED | GPIO_ELECTROMAGNET_TWO_BED
+          | GPIO_ELECTROMAGNET_THREE_BED,
+      GPIO_PIN_RESET);
+
+  HAL_GPIO_WritePin (GPIOE, GPIO_EXHAUST_FAN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_FAN, GPIO_PIN_RESET);
+
+  /**GPIO PIR/switch input configuration
    PD5      ------> GPIO_BATHROOM_PIR
    PD6      ------> GPIO_LIVING_ROOM_ENCODER_SW
    PD7      ------> GPIO_BEDROOM_ENCODER_SW
@@ -110,7 +131,7 @@ void GPIO_Init (void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
 
-  /**GPIO output configuration
+  /**GPIO light output configuration
    PD11     ------> GPIO_MAIN_ENTRANCE_LIGHT
    PD12     ------> GPIO_LIVING_ROOM_KITCHEN_LIGHT
    PD13     ------> GPIO_BATHROOM_LIGHT
@@ -199,12 +220,38 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
 
   /**GPIO blinds switch input configuration
-     PG12     ------> GPIO_DANGEROUS_GASES
-     */
-    GPIO_InitStruct.Pin = GPIO_DANGEROUS_GASES;
-    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-    GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-    HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
+   PG12     ------> GPIO_DANGEROUS_GASES
+   */
+  GPIO_InitStruct.Pin = GPIO_DANGEROUS_GASES;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
+
+  /**GPIO exhaust fan output configuration
+   PE6      ------> GPIO_EXHAUST_FAN
+   */
+  GPIO_InitStruct.Pin = GPIO_EXHAUST_FAN;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
+
+  /**GPIO intake fan output configuration
+   PH2      ------> GPIO_INTAKE_FAN
+   */
+  GPIO_InitStruct.Pin = GPIO_INTAKE_FAN;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init (GPIOH, &GPIO_InitStruct);
+
+  /**GPIO IR fire sensor input configuration
+   PE5      ------> GPIO_FIRE_IR_SENSOR
+   */
+  GPIO_InitStruct.Pin = GPIO_FIRE_IR_SENSOR;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -368,7 +415,7 @@ void TIM4_Encoder_Bedroom_Init (void)
 /*----------------------------------------------------------------------------*/
 /**
  * @brief Initialization function for TIM12 in PWM mode for channels 1 and 2
- *        with a frequency of 200 Hz
+ *        with a frequency of 200 Hz for the living room and bedroom lightning
  * @param None
  * @retval None
  */

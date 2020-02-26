@@ -235,7 +235,7 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
           && lightState == OFF) //put inside main before function to not waste processor time
         {
           lightState = ON;
-          HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
+          HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_1);
 
           htim3.Instance->CCR1 = 50;
         }
@@ -243,7 +243,7 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
           && lightState == ON)
         {
           lightState = OFF;
-          HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_1); //PROVJERITI KANAL I INICIJALIZIRATI
+          HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_1); //PROVJERITI KANAL I INICIJALIZIRATI
         }
     }
   else if (automaticMode == OFF)
@@ -254,14 +254,14 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
       if (livingRoomEncoderSwitch == ON && switchState == OFF)
         {
           switchState = ON;
-          HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_1);
+          HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_1);
           encoderDuty = __HAL_TIM_GET_COUNTER(&htim3);
-          htim3.Instance->CCR1 = encoderDuty;
+          htim12.Instance->CCR1 = encoderDuty;
         }
       else if (switchState == ON && livingRoomEncoderSwitch == ON)
         {
           switchState = OFF;
-          HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_1);
+          HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_1);
         }
     }
 
@@ -288,25 +288,25 @@ void bedroom_Light (float currentTime)
         {
           switchState = ON;
           /* start PWM and set duty cycle with rotary encoder */
-          HAL_TIM_PWM_Start (&htim3, TIM_CHANNEL_2);
+          HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_2);
           encoderDuty = __HAL_TIM_GET_COUNTER(&htim4);
-          htim3.Instance->CCR1 = encoderDuty;
+          htim12.Instance->CCR2 = encoderDuty;
         }
       else if (bedroomEncoderSwitch == ON && switchState == ON)
         {
           switchState = OFF;
-          HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_2);
+          HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_2);
         }
     }
   else
     {
-      if (HAL_TIM_PWM_GetState (&htim3) == ON && currentTime >= AFTER_MIDNIGHT
+      if (HAL_TIM_PWM_GetState (&htim12) == ON && currentTime >= AFTER_MIDNIGHT
           && currentTime <= DAWN)
         {
           if (HAL_GetTick () - currentSystemTime >= MINS_60)
             {
               currentSystemTime = HAL_GetTick ();
-              HAL_TIM_PWM_Stop (&htim3, TIM_CHANNEL_2);
+              HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_2);
             }
         }
       else

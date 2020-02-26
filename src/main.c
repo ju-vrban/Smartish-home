@@ -46,7 +46,6 @@ int main (void)
   float dusk = 0;
   int sysRestart = 1;
   float currentTime = 0;
-  int blindsState;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
