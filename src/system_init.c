@@ -1,4 +1,4 @@
-/*
+/**
  * system_init.c
  *
  *  Created on: Jan 29, 2020
@@ -453,5 +453,76 @@ void TIM12_PWM_Living_Bedroom_Init (void)
 
   if (HAL_TIM_PWM_ConfigChannel (&htim12, &ConfigOC, TIM_CHANNEL_2) != HAL_OK)
     Error_Handler ();
+}
+
+/**
+ * @brief DAC Initialization Function
+ * @param None
+ * @retval None
+ */
+void DAC_Init (void)
+{
+  DAC_ChannelConfTypeDef Config =
+    { 0 };
+
+  /** DAC Initialization
+   */
+  hdac.Instance = DAC;
+  if (HAL_DAC_Init (&hdac) != HAL_OK)
+    Error_Handler ();
+
+  /** DAC channel OUT1 config
+   */
+  Config.DAC_Trigger = DAC_TRIGGER_T2_TRGO;
+  Config.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  if (HAL_DAC_ConfigChannel (&hdac, &Config, DAC_CHANNEL_1) != HAL_OK)
+    Error_Handler ();
+
+}
+
+/**
+ * @brief TIM2 Initialization Function
+ * @param None
+ * @retval None
+ */
+void TIM2_dac_Init (void)
+{
+  TIM_ClockConfigTypeDef ClockSourceConfig =
+    { 0 };
+  TIM_MasterConfigTypeDef MasterConfig =
+    { 0 };
+
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 89;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 399;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init (&htim2) != HAL_OK)
+    Error_Handler ();
+
+  ClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource (&htim2, &ClockSourceConfig) != HAL_OK)
+    Error_Handler ();
+
+  MasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  MasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization (&htim2, &MasterConfig) != HAL_OK)
+    Error_Handler ();
+}
+
+/**
+ * Enable DMA controller clock
+ */
+void DMA_Init (void)
+{
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream5_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority (DMA1_Stream5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ (DMA1_Stream5_IRQn);
+
 }
 

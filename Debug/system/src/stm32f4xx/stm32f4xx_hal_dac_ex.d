@@ -1,5 +1,5 @@
-system/src/stm32f4xx/stm32f4xx_hal_rtc.o: \
- ../system/src/stm32f4xx/stm32f4xx_hal_rtc.c \
+system/src/stm32f4xx/stm32f4xx_hal_dac_ex.o: \
+ ../system/src/stm32f4xx/stm32f4xx_hal_dac_ex.c \
  ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \

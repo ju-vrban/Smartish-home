@@ -197,10 +197,12 @@ void SysTick_Handler (void)
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
-/* USER CODE BEGIN 1
-void EXTI9_5_IRQHandler (void)
+/**
+  * @brief This function handles DMA1 stream5 global interrupt.
+  */
+void DMA1_Stream5_IRQHandler(void)
 {
-  Alarm1_GPIO_EXTI_Callback (GPIO_PIN_5);
-}*/
+  HAL_DMA_IRQHandler(&hdma_dac1);
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

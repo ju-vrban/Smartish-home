@@ -17,6 +17,8 @@ src/misc.o: ../src/misc.c ../include/misc.h ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_dma.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_dma_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_cortex.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_dac.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal_dac_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_flash_ramfunc.h \
@@ -77,6 +79,10 @@ src/misc.o: ../src/misc.c ../include/misc.h ../include/main.h \
 ../system/include/stm32f4xx/stm32f4xx_hal_dma_ex.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_cortex.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_dac.h:
+
+../system/include/stm32f4xx/stm32f4xx_hal_dac_ex.h:
 
 ../system/include/stm32f4xx/stm32f4xx_hal_flash.h:
 

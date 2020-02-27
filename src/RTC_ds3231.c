@@ -1,4 +1,4 @@
-/*
+/**
  * RTC_ds3231.c
  *
  *  Created on: Feb 3, 2020

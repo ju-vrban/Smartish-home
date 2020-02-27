@@ -1,13 +1,12 @@
-/*
- * ventilation.c
- *
- *  Created on: Feb 25, 2020
- *      Author: jurica
- */
-
 /**
- * @brief Source file for handling the ventilation of the house in case of
- * the presence of dangerous gases and detection of fires.
+ *  Created on: Feb 25, 2020
+ *  Author    : jurica
+ *
+ ******************************************************************************
+ * @file  : ventilation.c
+ * @brief : Source file for handling the ventilation of the house in case of
+ * the presence of dangerous gases and detection and handling of fires.
+ ******************************************************************************
  */
 
 #include "ventilation.h"
@@ -67,12 +66,20 @@ bool check_For_Fire (void)
     return false;
 }
 
+/**
+ * @brief Raises the blinds, starts the alarm, and starts blinking the light
+ *        at 1 Hz to make inhabitants aware of the fire
+ *
+ * @param None
+ * @retval None
+ */
 void fire_Alarm (void)
 {
   if (check_For_Fire () == true)
     {
       raise_Blinds_Living ();
       raise_Blinds_Bedroom ();
+      gnerate_Sine_Wave ();
 
       static long int lastConversion = 0L;
       static int statusFlag1 = 0;
@@ -80,8 +87,8 @@ void fire_Alarm (void)
 
       while (check_For_Fire ())
         {
-          if ((HAL_GetTick () - lastConversion >= 1000L)
-              && (HAL_GetTick () - lastConversion <= 2000L) && statusFlag1 == 0)
+          if ((HAL_GetTick () - lastConversion >= 500L)
+              && (HAL_GetTick () - lastConversion <= 1000L) && statusFlag1 == 0)
             {
               statusFlag1 = 1;
               HAL_TIM_PWM_Start (&htim12, TIM12_PWM_CH1);
@@ -89,14 +96,14 @@ void fire_Alarm (void)
               HAL_TIM_PWM_Start (&htim12, TIM12_PWM_CH2);
               htim12.Instance->CCR2 = 100;
             }
-          else if ((HAL_GetTick () - lastConversion >= 2000L)
-              && (HAL_GetTick () - lastConversion <= 2050L) && statusFlag2 == 0)
+          else if ((HAL_GetTick () - lastConversion >= 1000L)
+              && (HAL_GetTick () - lastConversion <= 1015L) && statusFlag2 == 0)
             {
               statusFlag2 = 1;
               HAL_TIM_PWM_Stop (&htim12, TIM12_PWM_CH1);
               HAL_TIM_PWM_Stop (&htim12, TIM12_PWM_CH2);
             }
-          else if (HAL_GetTick () - lastConversion >= 2050L)
+          else if (HAL_GetTick () - lastConversion >= 1015L)
             {
               lastConversion = HAL_GetTick ();
               statusFlag1 = 0;

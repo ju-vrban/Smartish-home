@@ -1,4 +1,4 @@
-/*
+/**
  * light_mgmt.c
  *
  *  Created on: Jan 27, 2020

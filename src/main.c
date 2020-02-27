@@ -37,7 +37,10 @@ int main (void)
   LCD_Init ();
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
-  TIM12_PWM_Living_Bedroom_Init ();
+  TIM12_PWM_Living_Bedroom_Init ();\
+  DMA_Init ();
+  DAC_Init ();
+  TIM2_dac_Init ();
 
   //float RTCTempSens;
   char LCDCharBuffer[10];
@@ -76,6 +79,12 @@ int main (void)
       blinds_Living_Room (dusk, currentTime);
 
       blinds_Bedroom (dusk, currentTime);
+
+      gnerate_Sine_Wave ();      // PROBA
+
+      fire_Alarm ();
+
+      emergency_Ventilation ();
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);

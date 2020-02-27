@@ -56,9 +56,13 @@ extern "C"
   I2C_HandleTypeDef  hi2c1;
   I2C_HandleTypeDef hi2c2;
   GPIO_InitTypeDef GPIO_InitStruct;
+  TIM_HandleTypeDef htim2;
   TIM_HandleTypeDef htim3;
   TIM_HandleTypeDef htim4;
   TIM_HandleTypeDef htim12;
+  DAC_HandleTypeDef hdac;
+  DMA_HandleTypeDef hdma_dac1;
+
 
   void SystemClock_Config (void);
   void GPIO_Init (void);
@@ -68,6 +72,9 @@ extern "C"
   void TIM3_Encoder_Living_Room_Init(void);
   void TIM4_Encoder_Bedroom_Init (void);
   void TIM12_PWM_Living_Bedroom_Init(void);
+  void DAC_Init(void);
+  void TIM2_dac_Init(void);
+  void DMA_Init (void);
 
 #ifdef __cplusplus
 }
