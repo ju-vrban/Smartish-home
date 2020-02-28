@@ -37,7 +37,8 @@ int main (void)
   LCD_Init ();
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
-  TIM12_PWM_Living_Bedroom_Init ();\
+  TIM12_PWM_Living_Bedroom_Init ();
+
   DMA_Init ();
   DAC_Init ();
   TIM2_dac_Init ();
@@ -50,13 +51,14 @@ int main (void)
   float dusk = 0;
   int sysRestart = 1;
   float currentTime = 0;
+  long int lastConversion = 0;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
   //clear_Alarm1 ();
   //HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
 
-  HAL_TIM_Base_Start(&htim9);
+  HAL_TIM_Base_Start (&htim9);
 
   while (1)
     {
@@ -72,27 +74,33 @@ int main (void)
       currentTime = (float) Time.hours + ((float) Time.minutes / 100);
 
       entrance_Light (dusk, currentTime);
-
       bathroom_Light ();
-
       living_Room_Kitchen_Light (dusk, currentTime);
-
       bedroom_Light (currentTime);
 
       blinds_Living_Room (dusk, currentTime);
-
       blinds_Bedroom (dusk, currentTime);
 
       gnerate_Sine_Wave ();      // PROBA
-
       fire_Alarm ();
-
       emergency_Ventilation ();
 
-      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
-               Time.seconds);
+      if (HAL_GetTick () - lastConversion >= 1000L)
+        {
+          DHT11_Data_Transfer ();
+        }
 
+//      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
+//               Time.seconds);
+      sprintf (LCDCharBuffer, "TEMP %fC",
+               (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
       LCD_Put_Cur (0, 0);
+      LCD_Send_String (LCDCharBuffer);
+
+      sprintf (
+          LCDCharBuffer, "HUM %d%",
+          (((dht11.humidity / 10) + 48) + ((dht11.humidity_dec % 10) + 48)));
+      LCD_Put_Cur (1, 0);
       LCD_Send_String (LCDCharBuffer);
 
       //  if (HAL_GetTick () - lastConversion > 500L)
@@ -128,7 +136,7 @@ void Error_Handler (void)
  */
 void assert_failed (uint8_t *file, uint32_t line)
 {
-  printf("Wrong parameters value: file %s on line %lu\r\n", file, line);
+  printf ("Wrong parameters value: file %s on line %lu\r\n", file, line);
 }
 #endif /* USE_FULL_ASSERT */
 

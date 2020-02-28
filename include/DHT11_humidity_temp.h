@@ -10,6 +10,9 @@ extern "C"
 
 #define DHT11_SERIAL_PIN    GPIO_PIN_0
 
+#define DHT11_CHECKSUM_ERR  -1
+#define DHT11_OK            1
+
   typedef struct
     {
       uint8_t humidity;
@@ -21,12 +24,12 @@ extern "C"
 
   DHT11 dht11;
 
-  void GPIO_Serial_Input(void);
+  void GPIO_Serial_Input (void);
   void GPIO_Serial_Output (void);
   void DHT11_Start (void);
   uint8_t DHT11_Check_Response (void);
   uint8_t DHT11_Read (void);
-  void DHT11_Data_Transfer(void);
+  int DHT11_Data_Transfer(void);
 
 #ifdef __cplusplus
 }

@@ -48,8 +48,7 @@ uint8_t DHT11_Check_Response (void)
   if (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_RESET)
     {
       delay_us (80);
-      if (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN)
-          == GPIO_PIN_SET)
+      if (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_SET)
         Response = 1;
       else
         Response = -1;
@@ -68,14 +67,13 @@ uint8_t DHT11_Read (void)
 
   for (j = 0; j < 8; j++)
     {
-      while (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN)
-          == GPIO_PIN_RESET)
+      while (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_RESET)
         {
         }
 
       delay_us (40);
 
-      if (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN)== GPIO_PIN_RESET)
+      if (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_RESET)
 
         i &= ~(1 << (7 - j));   // write 0
 
@@ -88,4 +86,22 @@ uint8_t DHT11_Read (void)
     }
 
   return i;
+}
+
+int DHT11_Data_Transfer (void)
+{
+  DHT11_Start ();
+  DHT11_Check_Response ();
+
+  dht11.humidity = DHT11_Read ();
+  dht11.humidity_dec = DHT11_Read ();
+  dht11.temp = DHT11_Read ();
+  dht11.temp_dec = DHT11_Read ();
+  dht11.err_checksum = DHT11_Read ();
+
+  if (!(dht11.err_checksum
+      == dht11.humidity + dht11.humidity_dec + dht11.temp + dht11.temp_dec))
+    return DHT11_CHECKSUM_ERR;
+  else
+    return DHT11_OK;
 }
