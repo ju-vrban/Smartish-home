@@ -1,5 +1,6 @@
-src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
- ../include/main.h ../system/include/stm32f4xx/stm32f4xx_hal.h \
+src/DHT11_humidity_temp.o: ../src/DHT11_humidity_temp.c \
+ ../include/DHT11_humidity_temp.h ../include/main.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_def.h \
@@ -37,7 +38,7 @@ src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
  ../include/misc.h ../include/blinds.h ../include/ventilation.h \
  ../include/DHT11_humidity_temp.h
 
-../include/RTC_ds3231.h:
+../include/DHT11_humidity_temp.h:
 
 ../include/main.h:
 

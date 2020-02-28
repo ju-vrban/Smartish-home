@@ -15,7 +15,7 @@
  *        to get the upper 4 bits, then it takes the modulo  of the decimal
  *        value as the the last 4 bits.
  * @param decimal is the decimal value format
- * @return Bcd of the transformed date and time
+ * @return bcd of the transformed date and time
  */
 uint8_t dec_To_Bcd (int decimal)
 {
@@ -38,7 +38,7 @@ int bcd_To_Dec (uint8_t bcd)
 
 /**
  * @brief Sets the time in the DS3231 RTC
- * @param Inputs secounds, minutes, hour, day of the week, date month and year
+ * @param Inputs seconds, minutes, hour, day of the week, date month and year
  * @return None
  */
 void set_Time (uint8_t sec, uint8_t min, uint8_t hour, uint8_t day,

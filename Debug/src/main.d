@@ -35,7 +35,7 @@ src/main.o: ../src/main.c ../include/main.h \
  ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
  ../include/RTC_ds3231.h ../include/LCD_pcf8574.h \
  ../system/include/diag/Trace.h ../include/misc.h ../include/blinds.h \
- ../include/ventilation.h
+ ../include/ventilation.h ../include/DHT11_humidity_temp.h
 
 ../include/main.h:
 
@@ -126,3 +126,5 @@ src/main.o: ../src/main.c ../include/main.h \
 ../include/blinds.h:
 
 ../include/ventilation.h:
+
+../include/DHT11_humidity_temp.h:

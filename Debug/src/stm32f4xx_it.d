@@ -35,7 +35,8 @@ src/stm32f4xx_it.o: ../src/stm32f4xx_it.c ../include/main.h \
  ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
  ../include/RTC_ds3231.h ../include/LCD_pcf8574.h \
  ../system/include/diag/Trace.h ../include/misc.h ../include/blinds.h \
- ../include/ventilation.h ../include/stm32f4xx_it.h
+ ../include/ventilation.h ../include/DHT11_humidity_temp.h \
+ ../include/stm32f4xx_it.h
 
 ../include/main.h:
 
@@ -126,5 +127,7 @@ src/stm32f4xx_it.o: ../src/stm32f4xx_it.c ../include/main.h \
 ../include/blinds.h:
 
 ../include/ventilation.h:
+
+../include/DHT11_humidity_temp.h:
 
 ../include/stm32f4xx_it.h:

@@ -526,3 +526,21 @@ void DMA_Init (void)
 
 }
 
+void TIM9_us_delay_Init (void)
+{
+  TIM_ClockConfigTypeDef sClockSourceConfig =
+    { 0 };
+
+  htim9.Instance = TIM9;
+  htim9.Init.Prescaler = 180 - 1;
+  htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim9.Init.Period = 0xffff - 1;
+  htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim9.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init (&htim9) != HAL_OK)
+    Error_Handler ();
+
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource (&htim9, &sClockSourceConfig) != HAL_OK)
+    Error_Handler ();
+}

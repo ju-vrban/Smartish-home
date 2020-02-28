@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/DHT11_humidity_temp.c \
 ../src/LCD_pcf8574.c \
 ../src/RTC_ds3231.c \
 ../src/_write.c \
@@ -19,6 +20,7 @@ C_SRCS += \
 ../src/ventilation.c 
 
 OBJS += \
+./src/DHT11_humidity_temp.o \
 ./src/LCD_pcf8574.o \
 ./src/RTC_ds3231.o \
 ./src/_write.o \
@@ -34,6 +36,7 @@ OBJS += \
 ./src/ventilation.o 
 
 C_DEPS += \
+./src/DHT11_humidity_temp.d \
 ./src/LCD_pcf8574.d \
 ./src/RTC_ds3231.d \
 ./src/_write.d \

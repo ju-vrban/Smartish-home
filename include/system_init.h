@@ -59,6 +59,7 @@ extern "C"
   TIM_HandleTypeDef htim2;
   TIM_HandleTypeDef htim3;
   TIM_HandleTypeDef htim4;
+  TIM_HandleTypeDef htim9;
   TIM_HandleTypeDef htim12;
   DAC_HandleTypeDef hdac;
   DMA_HandleTypeDef hdma_dac1;
@@ -75,6 +76,7 @@ extern "C"
   void DAC_Init(void);
   void TIM2_dac_Init(void);
   void DMA_Init (void);
+  void TIM9_us_delay_Init(void);
 
 #ifdef __cplusplus
 }

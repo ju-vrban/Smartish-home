@@ -43,6 +43,7 @@ extern "C"
 #include "misc.h"
 #include "blinds.h"
 #include "ventilation.h"
+#include "DHT11_humidity_temp.h"
 
 
   void  Error_Handler(void);

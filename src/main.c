@@ -41,6 +41,7 @@ int main (void)
   DMA_Init ();
   DAC_Init ();
   TIM2_dac_Init ();
+  TIM9_us_delay_Init ();
 
   //float RTCTempSens;
   char LCDCharBuffer[10];
@@ -54,6 +55,8 @@ int main (void)
 
   //clear_Alarm1 ();
   //HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
+
+  HAL_TIM_Base_Start(&htim9);
 
   while (1)
     {
@@ -117,16 +120,15 @@ void Error_Handler (void)
 
 #ifdef  USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{ 
-  /* User can add his own implementation to report the file name and line number,
-     tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
+void assert_failed (uint8_t *file, uint32_t line)
+{
+  printf("Wrong parameters value: file %s on line %lu\r\n", file, line);
 }
 #endif /* USE_FULL_ASSERT */
 

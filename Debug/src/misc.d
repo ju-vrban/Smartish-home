@@ -34,7 +34,8 @@ src/misc.o: ../src/misc.c ../include/misc.h ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_usart.h \
  ../include/light_mgmt.h ../include/system_init.h ../include/RTC_ds3231.h \
  ../include/LCD_pcf8574.h ../system/include/diag/Trace.h \
- ../include/misc.h ../include/blinds.h ../include/ventilation.h
+ ../include/misc.h ../include/blinds.h ../include/ventilation.h \
+ ../include/DHT11_humidity_temp.h
 
 ../include/misc.h:
 
@@ -125,3 +126,5 @@ src/misc.o: ../src/misc.c ../include/misc.h ../include/main.h \
 ../include/blinds.h:
 
 ../include/ventilation.h:
+
+../include/DHT11_humidity_temp.h:
