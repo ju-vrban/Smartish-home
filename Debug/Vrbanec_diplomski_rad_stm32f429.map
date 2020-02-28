@@ -4940,6 +4940,201 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x51a ./src/blinds.o
  .debug_macro   0x0000000000000000       0x10 ./src/blinds.o
  .debug_macro   0x0000000000000000       0x1c ./src/blinds.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .group         0x0000000000000000        0xc ./src/boiler.o
+ .text          0x0000000000000000        0x0 ./src/boiler.o
+ .data          0x0000000000000000        0x0 ./src/boiler.o
+ .bss           0x0000000000000000        0x0 ./src/boiler.o
+ .text.check_Boiler_Temp
+                0x0000000000000000        0x2 ./src/boiler.o
+ .text.set_Boiler_Temp
+                0x0000000000000000        0x2 ./src/boiler.o
+ .debug_info    0x0000000000000000     0x16bc ./src/boiler.o
+ .debug_abbrev  0x0000000000000000      0x24a ./src/boiler.o
+ .debug_aranges
+                0x0000000000000000       0x28 ./src/boiler.o
+ .debug_ranges  0x0000000000000000       0x18 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x46c ./src/boiler.o
+ .debug_macro   0x0000000000000000      0xa9c ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x22 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x5e ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x18 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x94 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x35 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x34 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x57 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x97 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x339 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xfd ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x10 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x58 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x1f ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x43 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x20 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x18e ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x10 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x6a ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x1c ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x52 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x40 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x10 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x40 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xd7 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x1c ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x3d ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x16f ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x22 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x35 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x29 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x34e ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x1e1 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x1a9 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x32 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x28 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x1c ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x22 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xd9 ./src/boiler.o
+ .debug_macro   0x0000000000000000     0x102d ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x11f ./src/boiler.o
+ .debug_macro   0x0000000000000000    0x17f79 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x43 ./src/boiler.o
+ .debug_macro   0x0000000000000000     0x36c2 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x54 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0xca5 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x9fe ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x182 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x117 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x157 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x27 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x287 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x5f ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x236 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xea ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xa0 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x3c ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x132 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x41d ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x2e ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x1b5 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x22 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xd6 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x11a ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xe2 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x89 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x31a ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x405 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xe4 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x8a0 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x47 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x287 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x217 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x134 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x1c ./src/boiler.o
+ .debug_macro   0x0000000000000000       0xd6 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x28 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000      0x51a ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x10 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x1c ./src/boiler.o
+ .debug_line    0x0000000000000000      0x851 ./src/boiler.o
+ .debug_str     0x0000000000000000    0xe0fb4 ./src/boiler.o
+ .comment       0x0000000000000000       0x67 ./src/boiler.o
+ .debug_frame   0x0000000000000000       0x30 ./src/boiler.o
+ .ARM.attributes
+                0x0000000000000000       0x2e ./src/boiler.o
  .group         0x0000000000000000        0xc ./src/light_mgmt.o
  .group         0x0000000000000000        0xc ./src/light_mgmt.o
  .group         0x0000000000000000        0xc ./src/light_mgmt.o
@@ -6895,6 +7090,7 @@ LOAD ./src/LCD_pcf8574.o
 LOAD ./src/RTC_ds3231.o
 LOAD ./src/_write.o
 LOAD ./src/blinds.o
+LOAD ./src/boiler.o
 LOAD ./src/light_mgmt.o
 LOAD ./src/main.o
 LOAD ./src/misc.o

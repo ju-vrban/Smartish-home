@@ -9,6 +9,7 @@ C_SRCS += \
 ../src/RTC_ds3231.c \
 ../src/_write.c \
 ../src/blinds.c \
+../src/boiler.c \
 ../src/light_mgmt.c \
 ../src/main.c \
 ../src/misc.c \
@@ -25,6 +26,7 @@ OBJS += \
 ./src/RTC_ds3231.o \
 ./src/_write.o \
 ./src/blinds.o \
+./src/boiler.o \
 ./src/light_mgmt.o \
 ./src/main.o \
 ./src/misc.o \
@@ -41,6 +43,7 @@ C_DEPS += \
 ./src/RTC_ds3231.d \
 ./src/_write.d \
 ./src/blinds.d \
+./src/boiler.d \
 ./src/light_mgmt.d \
 ./src/main.d \
 ./src/misc.d \
