@@ -5,9 +5,11 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/DHT11_humidity_temp.c \
+../src/DS18B20_water_temp.c \
 ../src/LCD_pcf8574.c \
 ../src/RTC_ds3231.c \
 ../src/_write.c \
+../src/alarms_and_security.c \
 ../src/blinds.c \
 ../src/boiler.c \
 ../src/light_mgmt.c \
@@ -18,13 +20,15 @@ C_SRCS += \
 ../src/syscalls.c \
 ../src/system_init.c \
 ../src/system_stm32f4xx.c \
-../src/ventilation.c 
+../src/ventilation_and_heating.c 
 
 OBJS += \
 ./src/DHT11_humidity_temp.o \
+./src/DS18B20_water_temp.o \
 ./src/LCD_pcf8574.o \
 ./src/RTC_ds3231.o \
 ./src/_write.o \
+./src/alarms_and_security.o \
 ./src/blinds.o \
 ./src/boiler.o \
 ./src/light_mgmt.o \
@@ -35,13 +39,15 @@ OBJS += \
 ./src/syscalls.o \
 ./src/system_init.o \
 ./src/system_stm32f4xx.o \
-./src/ventilation.o 
+./src/ventilation_and_heating.o 
 
 C_DEPS += \
 ./src/DHT11_humidity_temp.d \
+./src/DS18B20_water_temp.d \
 ./src/LCD_pcf8574.d \
 ./src/RTC_ds3231.d \
 ./src/_write.d \
+./src/alarms_and_security.d \
 ./src/blinds.d \
 ./src/boiler.d \
 ./src/light_mgmt.d \
@@ -52,7 +58,7 @@ C_DEPS += \
 ./src/syscalls.d \
 ./src/system_init.d \
 ./src/system_stm32f4xx.d \
-./src/ventilation.d 
+./src/ventilation_and_heating.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

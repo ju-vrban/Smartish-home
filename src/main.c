@@ -90,16 +90,21 @@ int main (void)
           DHT11_Data_Transfer ();
         }
 
+
+
 //      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
 //               Time.seconds);
-      sprintf (LCDCharBuffer, "TEMP %fC",
-               (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
+      sprintf (
+          LCDCharBuffer, "T: %fC",
+          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
       LCD_Put_Cur (0, 0);
       LCD_Send_String (LCDCharBuffer);
 
       sprintf (
-          LCDCharBuffer, "HUM %d%",
-          (((dht11.humidity / 10) + 48) + ((dht11.humidity_dec % 10) + 48)));
+          LCDCharBuffer,
+          " H: %f",
+          (float) (((dht11.humidity / 10) + 48)
+              + ((dht11.humidity_dec % 10) + 48)));
       LCD_Put_Cur (1, 0);
       LCD_Send_String (LCDCharBuffer);
 

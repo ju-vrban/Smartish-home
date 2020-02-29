@@ -1,4 +1,4 @@
-/*
+/**
  * DHT11_humidity_temp.c
  *
  *  Created on: Feb 28, 2020
@@ -7,7 +7,7 @@
 
 #include "DHT11_humidity_temp.h"
 
-void GPIO_serial_input (void)
+void GPIO_DHT11_serial_input (void)
 {
   GPIO_InitStruct.Pin = DHT11_SERIAL_PIN;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -15,7 +15,7 @@ void GPIO_serial_input (void)
   HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
 }
 
-void GPIO_serial_output (void)
+void GPIO_DHT11_serial_output (void)
 {
   GPIO_InitStruct.Pin = DHT11_SERIAL_PIN;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -24,18 +24,18 @@ void GPIO_serial_output (void)
   HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
 }
 
-void DHT11_Start (void)
+void DHT11_Init (void)
 {
   static long int lastConversion = 0;
 
-  GPIO_serial_output ();
+  GPIO_DHT11_serial_output ();
 
   HAL_GPIO_WritePin (GPIOE, DHT11_SERIAL_PIN, 0);
 
   if (HAL_GetTick () - lastConversion >= 18L)
     {
       lastConversion = HAL_GetTick ();
-      GPIO_serial_input ();
+      GPIO_DHT11_serial_input ();
     }
 }
 
@@ -90,7 +90,7 @@ uint8_t DHT11_Read (void)
 
 int DHT11_Data_Transfer (void)
 {
-  DHT11_Start ();
+  DHT11_Init ();
   DHT11_Check_Response ();
 
   dht11.humidity = DHT11_Read ();

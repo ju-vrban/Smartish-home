@@ -42,8 +42,10 @@ extern "C"
 #include "diag/Trace.h"
 #include "misc.h"
 #include "blinds.h"
-#include "ventilation.h"
+#include "ventilation_and_heating.h"
 #include "DHT11_humidity_temp.h"
+#include "DS18B20_water_temp.h"
+#include "alarms_and_security.h"
 
 
   void  Error_Handler(void);

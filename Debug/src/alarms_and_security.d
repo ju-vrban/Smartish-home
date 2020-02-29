@@ -1,5 +1,6 @@
-src/LCD_pcf8574.o: ../src/LCD_pcf8574.c ../include/LCD_pcf8574.h \
- ../include/main.h ../system/include/stm32f4xx/stm32f4xx_hal.h \
+src/alarms_and_security.o: ../src/alarms_and_security.c \
+ ../include/alarms_and_security.h ../include/main.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_def.h \
@@ -38,7 +39,7 @@ src/LCD_pcf8574.o: ../src/LCD_pcf8574.c ../include/LCD_pcf8574.h \
  ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
  ../include/DS18B20_water_temp.h ../include/alarms_and_security.h
 
-../include/LCD_pcf8574.h:
+../include/alarms_and_security.h:
 
 ../include/main.h:
 

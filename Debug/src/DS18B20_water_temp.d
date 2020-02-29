@@ -1,5 +1,6 @@
-src/ventilation.o: ../src/ventilation.c ../include/ventilation.h \
- ../include/main.h ../system/include/stm32f4xx/stm32f4xx_hal.h \
+src/DS18B20_water_temp.o: ../src/DS18B20_water_temp.c \
+ ../include/DS18B20_water_temp.h ../include/main.h \
+ ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_def.h \
@@ -34,10 +35,11 @@ src/ventilation.o: ../src/ventilation.c ../include/ventilation.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_usart.h \
  ../include/light_mgmt.h ../include/system_init.h ../include/RTC_ds3231.h \
  ../include/LCD_pcf8574.h ../system/include/diag/Trace.h \
- ../include/misc.h ../include/blinds.h ../include/ventilation.h \
- ../include/DHT11_humidity_temp.h
+ ../include/misc.h ../include/blinds.h \
+ ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
+ ../include/DS18B20_water_temp.h ../include/alarms_and_security.h
 
-../include/ventilation.h:
+../include/DS18B20_water_temp.h:
 
 ../include/main.h:
 
@@ -125,6 +127,10 @@ src/ventilation.o: ../src/ventilation.c ../include/ventilation.h \
 
 ../include/blinds.h:
 
-../include/ventilation.h:
+../include/ventilation_and_heating.h:
 
 ../include/DHT11_humidity_temp.h:
+
+../include/DS18B20_water_temp.h:
+
+../include/alarms_and_security.h:
