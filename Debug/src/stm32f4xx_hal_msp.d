@@ -36,7 +36,8 @@ src/stm32f4xx_hal_msp.o: ../src/stm32f4xx_hal_msp.c ../include/main.h \
  ../include/RTC_ds3231.h ../include/LCD_pcf8574.h \
  ../system/include/diag/Trace.h ../include/misc.h ../include/blinds.h \
  ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
- ../include/DS18B20_water_temp.h ../include/alarms_and_security.h
+ ../include/DS18B20_water_temp.h ../include/alarms_and_security.h \
+ ../include/boiler.h ../include/esp8266.h
 
 ../include/main.h:
 
@@ -133,3 +134,7 @@ src/stm32f4xx_hal_msp.o: ../src/stm32f4xx_hal_msp.c ../include/main.h \
 ../include/DS18B20_water_temp.h:
 
 ../include/alarms_and_security.h:
+
+../include/boiler.h:
+
+../include/esp8266.h:

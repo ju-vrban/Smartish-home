@@ -12,6 +12,7 @@ C_SRCS += \
 ../src/alarms_and_security.c \
 ../src/blinds.c \
 ../src/boiler.c \
+../src/esp8266.c \
 ../src/light_mgmt.c \
 ../src/main.c \
 ../src/misc.c \
@@ -31,6 +32,7 @@ OBJS += \
 ./src/alarms_and_security.o \
 ./src/blinds.o \
 ./src/boiler.o \
+./src/esp8266.o \
 ./src/light_mgmt.o \
 ./src/main.o \
 ./src/misc.o \
@@ -50,6 +52,7 @@ C_DEPS += \
 ./src/alarms_and_security.d \
 ./src/blinds.d \
 ./src/boiler.d \
+./src/esp8266.d \
 ./src/light_mgmt.d \
 ./src/main.d \
 ./src/misc.d \

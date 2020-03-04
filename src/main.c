@@ -22,6 +22,7 @@
  * @brief  The application entry point.
  * @retval int
  */
+
 int main (void)
 {
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -34,6 +35,7 @@ int main (void)
   GPIO_Init ();
   I2C1_RTC_Init ();
   I2C2_LCD_Init ();
+  I2C3_ESP8266_Init();
   LCD_Init ();
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
@@ -53,6 +55,9 @@ int main (void)
   float currentTime = 0;
   long int lastConversion = 0;
 
+  uint8_t aTxBuffer[] = "*";
+  uint8_t aRxBuffer[RXBUFFERSIZE];
+
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
   //clear_Alarm1 ();
@@ -60,6 +65,12 @@ int main (void)
 
   HAL_TIM_Base_Start (&htim9);
 
+  HAL_I2C_Slave_Receive_DMA(&hi2c3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
+/*
+  while (HAL_I2C_GetState(&hi2c3) != HAL_I2C_STATE_READY)
+  {
+  }
+*/
   while (1)
     {
       get_Time ();
@@ -91,7 +102,6 @@ int main (void)
         }
 
 
-
 //      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
 //               Time.seconds);
       sprintf (
@@ -121,6 +131,15 @@ int main (void)
        LCD_Send_String (LCDCharBuffer);*/
     }
 }
+
+
+
+void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c3)
+{
+  trace_printf("success \n");
+}
+
+
 
 /**
  * @brief  This function is executed in case of error occurrence.

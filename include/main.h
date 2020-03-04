@@ -46,6 +46,8 @@ extern "C"
 #include "DHT11_humidity_temp.h"
 #include "DS18B20_water_temp.h"
 #include "alarms_and_security.h"
+#include "boiler.h"
+#include "esp8266.h"
 
 
   void  Error_Handler(void);

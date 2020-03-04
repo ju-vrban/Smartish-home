@@ -1,5 +1,4 @@
-src/alarms_and_security.o: ../src/alarms_and_security.c \
- ../include/alarms_and_security.h ../include/main.h \
+src/esp8266.o: ../src/esp8266.c ../include/esp8266.h ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
@@ -40,7 +39,7 @@ src/alarms_and_security.o: ../src/alarms_and_security.c \
  ../include/DS18B20_water_temp.h ../include/alarms_and_security.h \
  ../include/boiler.h ../include/esp8266.h
 
-../include/alarms_and_security.h:
+../include/esp8266.h:
 
 ../include/main.h:
 

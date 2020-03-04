@@ -36,7 +36,8 @@ src/LCD_pcf8574.o: ../src/LCD_pcf8574.c ../include/LCD_pcf8574.h \
  ../include/LCD_pcf8574.h ../system/include/diag/Trace.h \
  ../include/misc.h ../include/blinds.h \
  ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
- ../include/DS18B20_water_temp.h ../include/alarms_and_security.h
+ ../include/DS18B20_water_temp.h ../include/alarms_and_security.h \
+ ../include/boiler.h ../include/esp8266.h
 
 ../include/LCD_pcf8574.h:
 
@@ -133,3 +134,7 @@ src/LCD_pcf8574.o: ../src/LCD_pcf8574.c ../include/LCD_pcf8574.h \
 ../include/DS18B20_water_temp.h:
 
 ../include/alarms_and_security.h:
+
+../include/boiler.h:
+
+../include/esp8266.h:

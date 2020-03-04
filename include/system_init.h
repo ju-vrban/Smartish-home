@@ -53,8 +53,11 @@ extern "C"
 #define ON  1
 #define OFF 0
 
-  I2C_HandleTypeDef  hi2c1;
+  I2C_HandleTypeDef hi2c1;
   I2C_HandleTypeDef hi2c2;
+  I2C_HandleTypeDef hi2c3;
+  DMA_HandleTypeDef hdma_i2c3_rx;
+  DMA_HandleTypeDef hdma_i2c3_tx;
   GPIO_InitTypeDef GPIO_InitStruct;
   TIM_HandleTypeDef htim2;
   TIM_HandleTypeDef htim3;
@@ -69,14 +72,15 @@ extern "C"
   void GPIO_Init (void);
   void I2C1_RTC_Init (void);
   void I2C2_LCD_Init (void);
+  void I2C3_ESP8266_Init (void);
   void TIM3_Init(void);
-  void TIM3_Encoder_Living_Room_Init(void);
+  void TIM3_Encoder_Living_Room_Init (void);
   void TIM4_Encoder_Bedroom_Init (void);
-  void TIM12_PWM_Living_Bedroom_Init(void);
-  void DAC_Init(void);
-  void TIM2_dac_Init(void);
+  void TIM12_PWM_Living_Bedroom_Init (void);
+  void DAC_Init (void);
+  void TIM2_dac_Init (void);
   void DMA_Init (void);
-  void TIM9_us_delay_Init(void);
+  void TIM9_us_delay_Init (void);
 
 #ifdef __cplusplus
 }
