@@ -35,7 +35,6 @@ int main (void)
   GPIO_Init ();
   I2C1_RTC_Init ();
   I2C2_LCD_Init ();
-  I2C3_ESP8266_Init();
   LCD_Init ();
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
@@ -45,6 +44,8 @@ int main (void)
   DAC_Init ();
   TIM2_dac_Init ();
   TIM9_us_delay_Init ();
+  GPIO_ESP8266_Control_Input ();
+  GPIO_ESP8266_Data_Input ();
 
   //float RTCTempSens;
   char LCDCharBuffer[10];
@@ -54,9 +55,7 @@ int main (void)
   int sysRestart = 1;
   float currentTime = 0;
   long int lastConversion = 0;
-
-  uint8_t aTxBuffer[] = "*";
-  uint8_t aRxBuffer[RXBUFFERSIZE];
+  int a;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
@@ -65,12 +64,6 @@ int main (void)
 
   HAL_TIM_Base_Start (&htim9);
 
-  HAL_I2C_Slave_Receive_DMA(&hi2c3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
-/*
-  while (HAL_I2C_GetState(&hi2c3) != HAL_I2C_STATE_READY)
-  {
-  }
-*/
   while (1)
     {
       get_Time ();
@@ -95,21 +88,24 @@ int main (void)
       gnerate_Sine_Wave ();      // PROBA
       fire_Alarm ();
       emergency_Ventilation ();
-
+/*
       if (HAL_GetTick () - lastConversion >= 1000L)
         {
           DHT11_Data_Transfer ();
         }
+*/
+       a=ESP8266_Read_Data ();
+       trace_printf("a = %d\n", a);
 
 
-//      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
-//               Time.seconds);
-      sprintf (
-          LCDCharBuffer, "T: %fC",
-          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
+      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
+               Time.seconds);
+//      sprintf (
+//          LCDCharBuffer, "T: %fC",
+//          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
       LCD_Put_Cur (0, 0);
       LCD_Send_String (LCDCharBuffer);
-
+/*
       sprintf (
           LCDCharBuffer,
           " H: %f",
@@ -117,7 +113,7 @@ int main (void)
               + ((dht11.humidity_dec % 10) + 48)));
       LCD_Put_Cur (1, 0);
       LCD_Send_String (LCDCharBuffer);
-
+*/
       //  if (HAL_GetTick () - lastConversion > 500L)
       //    {
       //     lastConversion = HAL_GetTick ();
@@ -131,15 +127,6 @@ int main (void)
        LCD_Send_String (LCDCharBuffer);*/
     }
 }
-
-
-
-void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c3)
-{
-  trace_printf("success \n");
-}
-
-
 
 /**
  * @brief  This function is executed in case of error occurrence.

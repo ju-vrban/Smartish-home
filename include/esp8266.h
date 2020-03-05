@@ -7,12 +7,45 @@ extern "C" {
 
 #include "main.h"
 
-#define ESP8266_ADDR  0x60000d00
+#define ESP8266_ADDR              0x60000d00
 
-#define TXBUFFERSIZE  (COUNTOF(aTxBuffer) - 1)
-#define RXBUFFERSIZE  TXBUFFERSIZE
+#define ESP8266_CONTROL_PIN       GPIO_PIN_2
+#define ESP8266_DATA_PIN          GPIO_PIN_3
 
-#define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
+  typedef enum {
+    LivingRoomLightON = 1,
+    LivingRoomLightOFF,
+    LivingRoomHeatingON,
+    LivingRoomHeatingOFF,
+    LivingRoomBlindsDown,
+    LivingRoomBlindsUp,
+    BedroomLightON,
+    BedroomLightOFF,
+    BedroomBlindsDown,
+    BedroomBlindsUp,
+    BathroomLightON,
+    BathroomLightOFF,
+    BathroomHeatingON,
+    BathroomHeatingOFF,
+    WaterHeaterON,
+    WaterHeaterOFF,
+    AutomaticModeON,
+    AutomaticaModeOFF,
+  }ESP8266;
+
+  typedef struct
+  {
+    int ESP8266InputData;
+  }ESP8266Input;
+
+  ESP8266Input esp8266input;
+
+  void GPIO_ESP8266_Control_Input (void);
+  void GPIO_ESP8266_Data_Input (void);
+  int ESP8266_Read_Data (void);
+  void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+
+
 
 #ifdef __cplusplus
 }

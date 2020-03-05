@@ -21,8 +21,6 @@
 #include "main.h"
 #include "stm32f4xx_it.h"
 
-extern DMA_HandleTypeDef hdma_i2c3_rx;
-extern DMA_HandleTypeDef hdma_i2c3_tx;
 
 /******************************************************************************/
 /*           Cortex-M4 Processor Interruption and Exception Handlers          */
@@ -161,27 +159,17 @@ void SysTick_Handler (void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles DMA1 stream2 global interrupt.
-  */
-void DMA1_Stream2_IRQHandler(void)
-{
-  HAL_DMA_IRQHandler(&hdma_i2c3_rx);
-}
-
-/**
-  * @brief This function handles DMA1 stream4 global interrupt.
-  */
-void DMA1_Stream4_IRQHandler(void)
-{
-  HAL_DMA_IRQHandler(&hdma_i2c3_tx);
-}
-
-/**
   * @brief This function handles DMA1 stream5 global interrupt.
   */
 void DMA1_Stream5_IRQHandler(void)
 {
   HAL_DMA_IRQHandler(&hdma_dac1);
+}
+
+void EXTI2_IRQHandler(void)
+{
+
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
 }
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

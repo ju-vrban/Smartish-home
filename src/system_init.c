@@ -328,42 +328,6 @@ void I2C2_LCD_Init (void)
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /**
- * @brief I2C3 initialization function for the external RTC
- * @param None
- * @retval None
- */
-void I2C3_ESP8266_Init (void)
-{
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_I2C2_CLK_ENABLE();
-
-  /* I2C1 initialization */
-  hi2c3.Instance = I2C3;
-  hi2c3.Init.ClockSpeed = 100000;
-  hi2c3.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c3.Init.OwnAddress1 = 0;
-  hi2c3.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c3.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c3.Init.OwnAddress2 = 0;
-  hi2c3.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c3.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c3) != HAL_OK)
-    Error_Handler();
-
-  /** Configure Analogue filter
-  */
-  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c3, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
-    Error_Handler();
-
-  /** Configure Digital filter
-  */
-  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c3, 0) != HAL_OK)
-    Error_Handler();
-}
-
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/**
  * @brief Initialization function for TIM3 in encoder mode
  * @param None
  * @retval None
@@ -555,14 +519,6 @@ void DMA_Init (void)
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
 
-  HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 1, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
-
-  /* DMA1_Stream4_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
-
-  /* DMA interrupt init */
   /* DMA1_Stream5_IRQn interrupt configuration */
   HAL_NVIC_SetPriority (DMA1_Stream5_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ (DMA1_Stream5_IRQn);
