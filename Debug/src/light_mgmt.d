@@ -37,7 +37,7 @@ src/light_mgmt.o: ../src/light_mgmt.c ../include/light_mgmt.h \
  ../include/misc.h ../include/blinds.h \
  ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
  ../include/DS18B20_water_temp.h ../include/alarms_and_security.h \
- ../include/boiler.h ../include/esp8266.h
+ ../include/boiler.h ../include/esp8266.h ../include/dwt_delay.h
 
 ../include/light_mgmt.h:
 
@@ -138,3 +138,5 @@ src/light_mgmt.o: ../src/light_mgmt.c ../include/light_mgmt.h \
 ../include/boiler.h:
 
 ../include/esp8266.h:
+
+../include/dwt_delay.h:

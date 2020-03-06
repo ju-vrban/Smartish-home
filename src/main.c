@@ -39,13 +39,13 @@ int main (void)
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
   TIM12_PWM_Living_Bedroom_Init ();
-
   DMA_Init ();
   DAC_Init ();
   TIM2_dac_Init ();
   TIM9_us_delay_Init ();
-  GPIO_ESP8266_Control_Input ();
-  GPIO_ESP8266_Data_Input ();
+  UART4_ESP8266_Init ();
+  GPIO_ESP8266_Serial_Input ();
+  DWT_Init ();
 
   //float RTCTempSens;
   char LCDCharBuffer[10];
@@ -93,9 +93,9 @@ int main (void)
         {
           DHT11_Data_Transfer ();
         }
-*/
-       a=ESP8266_Read_Data ();
-       trace_printf("a = %d\n", a);
+
+       a=ESP8266_Read_Data ();*/
+       trace_printf("a = %d\n", esp8266input.ESP8266InputData);
 
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,

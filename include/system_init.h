@@ -63,6 +63,7 @@ extern "C"
   TIM_HandleTypeDef htim12;
   DAC_HandleTypeDef hdac;
   DMA_HandleTypeDef hdma_dac1;
+  UART_HandleTypeDef huart4;
 
 
   void SystemClock_Config (void);
@@ -77,6 +78,7 @@ extern "C"
   void TIM2_dac_Init (void);
   void DMA_Init (void);
   void TIM9_us_delay_Init (void);
+  void UART4_ESP8266_Init (void);
 
 #ifdef __cplusplus
 }

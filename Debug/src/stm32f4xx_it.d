@@ -37,7 +37,8 @@ src/stm32f4xx_it.o: ../src/stm32f4xx_it.c ../include/main.h \
  ../system/include/diag/Trace.h ../include/misc.h ../include/blinds.h \
  ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
  ../include/DS18B20_water_temp.h ../include/alarms_and_security.h \
- ../include/boiler.h ../include/esp8266.h ../include/stm32f4xx_it.h
+ ../include/boiler.h ../include/esp8266.h ../include/dwt_delay.h \
+ ../include/stm32f4xx_it.h
 
 ../include/main.h:
 
@@ -138,5 +139,7 @@ src/stm32f4xx_it.o: ../src/stm32f4xx_it.c ../include/main.h \
 ../include/boiler.h:
 
 ../include/esp8266.h:
+
+../include/dwt_delay.h:
 
 ../include/stm32f4xx_it.h:

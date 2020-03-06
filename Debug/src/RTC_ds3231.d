@@ -37,7 +37,7 @@ src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
  ../include/misc.h ../include/blinds.h \
  ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
  ../include/DS18B20_water_temp.h ../include/alarms_and_security.h \
- ../include/boiler.h ../include/esp8266.h
+ ../include/boiler.h ../include/esp8266.h ../include/dwt_delay.h
 
 ../include/RTC_ds3231.h:
 
@@ -138,3 +138,5 @@ src/RTC_ds3231.o: ../src/RTC_ds3231.c ../include/RTC_ds3231.h \
 ../include/boiler.h:
 
 ../include/esp8266.h:
+
+../include/dwt_delay.h:

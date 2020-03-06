@@ -1,5 +1,5 @@
-src/main.o: ../src/main.c ../include/main.h \
- ../system/include/stm32f4xx/stm32f4xx_hal.h \
+src/dwt_delay.o: ../src/dwt_delay.c ../include/dwt_delay.h \
+ ../include/main.h ../system/include/stm32f4xx/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_def.h \
@@ -32,12 +32,14 @@ src/main.o: ../src/main.c ../include/main.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_tim_ex.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_uart.h \
  ../system/include/stm32f4xx/stm32f4xx_hal_usart.h \
- ../include/light_mgmt.h ../include/main.h ../include/system_init.h \
- ../include/RTC_ds3231.h ../include/LCD_pcf8574.h \
- ../system/include/diag/Trace.h ../include/misc.h ../include/blinds.h \
+ ../include/light_mgmt.h ../include/system_init.h ../include/RTC_ds3231.h \
+ ../include/LCD_pcf8574.h ../system/include/diag/Trace.h \
+ ../include/misc.h ../include/blinds.h \
  ../include/ventilation_and_heating.h ../include/DHT11_humidity_temp.h \
  ../include/DS18B20_water_temp.h ../include/alarms_and_security.h \
  ../include/boiler.h ../include/esp8266.h ../include/dwt_delay.h
+
+../include/dwt_delay.h:
 
 ../include/main.h:
 
@@ -112,8 +114,6 @@ src/main.o: ../src/main.c ../include/main.h \
 ../system/include/stm32f4xx/stm32f4xx_hal_usart.h:
 
 ../include/light_mgmt.h:
-
-../include/main.h:
 
 ../include/system_init.h:
 
