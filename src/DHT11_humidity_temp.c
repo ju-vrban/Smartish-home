@@ -7,6 +7,9 @@
 
 #include "DHT11_humidity_temp.h"
 
+/**DHT11 input/output configuration
+ PE0      ------> DHT11_SERIAL_PIN
+ */
 void GPIO_DHT11_serial_input (void)
 {
   GPIO_InitStruct.Pin = DHT11_SERIAL_PIN;

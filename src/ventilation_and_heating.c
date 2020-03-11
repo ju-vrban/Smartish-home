@@ -38,16 +38,14 @@ void emergency_Ventilation (void)
   if (check_For_Gases () == true && gasesPresent == 0)
     {
       gasesPresent = 1;
-      HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_FAN, GPIO_PIN_SET);
-      HAL_GPIO_WritePin (GPIOE, GPIO_EXHAUST_FAN, GPIO_PIN_SET);
+      HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_EXHAUST_FAN, GPIO_PIN_SET);
     }
   else if ((check_For_Gases () == false) && gasesPresent == 1)
     {
       if (HAL_GetTick () - lastConversion >= 10000L)
         {
           gasesPresent = 0;
-          HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_FAN, GPIO_PIN_RESET);
-          HAL_GPIO_WritePin (GPIOE, GPIO_EXHAUST_FAN, GPIO_PIN_RESET);
+          HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_EXHAUST_FAN, GPIO_PIN_RESET);
         }
     }
 }

@@ -166,10 +166,6 @@ void DMA1_Stream5_IRQHandler(void)
   HAL_DMA_IRQHandler(&hdma_dac1);
 }
 
-void EXTI2_IRQHandler(void)
-{
 
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
-}
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

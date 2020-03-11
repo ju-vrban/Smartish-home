@@ -43,9 +43,6 @@ int main (void)
   DAC_Init ();
   TIM2_dac_Init ();
   TIM9_us_delay_Init ();
-  UART4_ESP8266_Init ();
-  GPIO_ESP8266_Serial_Input ();
-  DWT_Init ();
 
   //float RTCTempSens;
   char LCDCharBuffer[10];
@@ -55,7 +52,7 @@ int main (void)
   int sysRestart = 1;
   float currentTime = 0;
   long int lastConversion = 0;
-  int a;
+
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
@@ -93,19 +90,20 @@ int main (void)
         {
           DHT11_Data_Transfer ();
         }
-
-       a=ESP8266_Read_Data ();*/
-       trace_printf("a = %d\n", esp8266input.ESP8266InputData);
+*/
+//      trace_printf("It works\n");
 
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);
-//      sprintf (
-//          LCDCharBuffer, "T: %fC",
-//          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
       LCD_Put_Cur (0, 0);
       LCD_Send_String (LCDCharBuffer);
 /*
+//      sprintf (
+//          LCDCharBuffer, "T: %fC",
+//          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
+
+
       sprintf (
           LCDCharBuffer,
           " H: %f",
@@ -127,6 +125,7 @@ int main (void)
        LCD_Send_String (LCDCharBuffer);*/
     }
 }
+
 
 /**
  * @brief  This function is executed in case of error occurrence.

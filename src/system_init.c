@@ -113,8 +113,7 @@ void GPIO_Init (void)
           | GPIO_ELECTROMAGNET_THREE_BED,
       GPIO_PIN_RESET);
 
-  HAL_GPIO_WritePin (GPIOE, GPIO_EXHAUST_FAN, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_FAN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_EXHAUST_FAN, GPIO_PIN_RESET);
 
   /**GPIO PIR/switch input configuration
    PD5      ------> GPIO_BATHROOM_PIR
@@ -227,19 +226,10 @@ void GPIO_Init (void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
 
-  /**GPIO exhaust fan output configuration
-   PE6      ------> GPIO_EXHAUST_FAN
-   */
-  GPIO_InitStruct.Pin = GPIO_EXHAUST_FAN;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
-
   /**GPIO intake fan output configuration
-   PH2      ------> GPIO_INTAKE_FAN
+   PH2      ------> GPIO_INTAKE_EXHAUST_FAN
    */
-  GPIO_InitStruct.Pin = GPIO_INTAKE_FAN;
+  GPIO_InitStruct.Pin = GPIO_INTAKE_EXHAUST_FAN;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -387,7 +377,7 @@ void TIM4_Encoder_Bedroom_Init (void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 0;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 65535;
+  htim4.Init.Period = 100;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 
@@ -542,24 +532,5 @@ void TIM9_us_delay_Init (void)
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
   if (HAL_TIM_ConfigClockSource (&htim9, &sClockSourceConfig) != HAL_OK)
     Error_Handler ();
-}
-
-/**
-  * @brief UART4 Initialization Function
-  * @param None
-  * @retval None
-  */
-void UART4_ESP8266_Init (void)
-{
-  huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
-  huart4.Init.WordLength = UART_WORDLENGTH_8B;
-  huart4.Init.StopBits = UART_STOPBITS_1;
-  huart4.Init.Parity = UART_PARITY_NONE;
-  huart4.Init.Mode = UART_MODE_TX_RX;
-  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&huart4) != HAL_OK)
-    Error_Handler();
 }
 

@@ -60,6 +60,7 @@ extern "C"
 
   void DMA1_Stream5_IRQHandler(void);
   void EXTI2_IRQHandler(void);
+  void UART4_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

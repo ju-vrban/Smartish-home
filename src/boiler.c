@@ -13,7 +13,11 @@
      */
 void check_Boiler_Temp (void)
 {
-
+  const float waterTemp = 25.00;
+  if (ds18b20.temperature <= waterTemp && ds18b20.temperature >= waterTemp)
+    {
+//      HAL_GPIO_WritePin(GPIOF, )
+    }
 }
 
 /**

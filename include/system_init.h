@@ -18,9 +18,9 @@ extern "C"
 
   /*GPIO light macros */
 #define GPIO_MAIN_ENTRANCE_LIGHT          GPIO_PIN_11
-#define GPIO_LIVING_ROOM_KITCHEN_LIGHT    GPIO_PIN_12    // IS NOT USED
+#define GPIO_LIVING_ROOM_KITCHEN_LIGHT    GPIO_PIN_12    // IS NOT USED, USE TIM12
 #define GPIO_BATHROOM_LIGHT               GPIO_PIN_13
-#define GPIO_BEDROOM_LIGHT                GPIO_PIN_14   // IS NOT USED
+#define GPIO_BEDROOM_LIGHT                GPIO_PIN_14   // IS NOT USED, USE TIM12
 
   /* Timer macros */
 #define TIM3_LIVING_ROOM_ENCODER_CH1      GPIO_PIN_4
@@ -46,14 +46,13 @@ extern "C"
 
   /* Ventilation and fire detection macros */
 #define GPIO_DANGEROUS_GASES              GPIO_PIN_12
-#define GPIO_INTAKE_FAN                   GPIO_PIN_2
-#define GPIO_EXHAUST_FAN                  GPIO_PIN_6
+#define GPIO_INTAKE_EXHAUST_FAN           GPIO_PIN_2
 #define GPIO_FIRE_IR_SENSOR               GPIO_PIN_5
 
 #define ON  1
 #define OFF 0
 
-  I2C_HandleTypeDef hi2c1;
+I2C_HandleTypeDef  hi2c1;
   I2C_HandleTypeDef hi2c2;
   GPIO_InitTypeDef GPIO_InitStruct;
   TIM_HandleTypeDef htim2;
@@ -63,8 +62,6 @@ extern "C"
   TIM_HandleTypeDef htim12;
   DAC_HandleTypeDef hdac;
   DMA_HandleTypeDef hdma_dac1;
-  UART_HandleTypeDef huart4;
-
 
   void SystemClock_Config (void);
   void GPIO_Init (void);
@@ -78,7 +75,6 @@ extern "C"
   void TIM2_dac_Init (void);
   void DMA_Init (void);
   void TIM9_us_delay_Init (void);
-  void UART4_ESP8266_Init (void);
 
 #ifdef __cplusplus
 }

@@ -42,7 +42,6 @@ extern "C" {
 
   void GPIO_ESP8266_Serial_Input (void);
   int ESP8266_Read_Data (void);
-  void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 
 
 

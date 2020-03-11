@@ -15,7 +15,8 @@
  */
 bool check_For_Fire (void)
 {
-  if (HAL_GPIO_ReadPin (GPIOG, GPIO_DANGEROUS_GASES) == GPIO_PIN_SET)
+  if (HAL_GPIO_ReadPin (GPIOG, GPIO_DANGEROUS_GASES) == GPIO_PIN_SET
+      && HAL_GPIO_ReadPin (GPIOE, GPIO_FIRE_IR_SENSOR) == GPIO_PIN_SET)
     return true;
   else
     return false;
