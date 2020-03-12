@@ -7,6 +7,10 @@
 
 #include "DS18B20_water_temp.h"
 
+/**GPIO water temp sensor configuration
+ PE3     ------> DS18B20_SERIAL_PIN
+
+ */
 void GPIO_DS18B20_serial_input (void)
 {
   GPIO_InitStruct.Pin = DS18B20_SERIAL_PIN;

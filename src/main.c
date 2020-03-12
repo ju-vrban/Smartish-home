@@ -52,7 +52,7 @@ int main (void)
   int sysRestart = 1;
   float currentTime = 0;
   long int lastConversion = 0;
-
+  uint8_t key;
 
   //set_Time (30, 33, 16, 5, 13, 2, 20);
 
@@ -85,33 +85,40 @@ int main (void)
       gnerate_Sine_Wave ();      // PROBA
       fire_Alarm ();
       emergency_Ventilation ();
-/*
-      if (HAL_GetTick () - lastConversion >= 1000L)
-        {
-          DHT11_Data_Transfer ();
-        }
-*/
-//      trace_printf("It works\n");
 
+      key = read_Keypad ();
+
+      if (key != 0x01)
+        {
+          LCD_Send_Cmd (0x85);
+          LCD_Send_Data (key);
+        }
+      /*
+       if (HAL_GetTick () - lastConversion >= 1000L)
+       {
+       DHT11_Data_Transfer ();
+       }
+       */
+//      trace_printf("It works\n");
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);
       LCD_Put_Cur (0, 0);
       LCD_Send_String (LCDCharBuffer);
-/*
-//      sprintf (
-//          LCDCharBuffer, "T: %fC",
-//          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
+      /*
+       //      sprintf (
+       //          LCDCharBuffer, "T: %fC",
+       //          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
 
 
-      sprintf (
-          LCDCharBuffer,
-          " H: %f",
-          (float) (((dht11.humidity / 10) + 48)
-              + ((dht11.humidity_dec % 10) + 48)));
-      LCD_Put_Cur (1, 0);
-      LCD_Send_String (LCDCharBuffer);
-*/
+       sprintf (
+       LCDCharBuffer,
+       " H: %f",
+       (float) (((dht11.humidity / 10) + 48)
+       + ((dht11.humidity_dec % 10) + 48)));
+       LCD_Put_Cur (1, 0);
+       LCD_Send_String (LCDCharBuffer);
+       */
       //  if (HAL_GetTick () - lastConversion > 500L)
       //    {
       //     lastConversion = HAL_GetTick ();
@@ -125,7 +132,6 @@ int main (void)
        LCD_Send_String (LCDCharBuffer);*/
     }
 }
-
 
 /**
  * @brief  This function is executed in case of error occurrence.

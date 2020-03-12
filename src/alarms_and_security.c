@@ -15,7 +15,7 @@
  */
 bool check_For_Fire (void)
 {
-  if (HAL_GPIO_ReadPin (GPIOG, GPIO_DANGEROUS_GASES) == GPIO_PIN_SET
+  if (HAL_GPIO_ReadPin (GPIOE, GPIO_DANGEROUS_GASES) == GPIO_PIN_SET
       && HAL_GPIO_ReadPin (GPIOE, GPIO_FIRE_IR_SENSOR) == GPIO_PIN_SET)
     return true;
   else
@@ -67,4 +67,159 @@ void fire_Alarm (void)
             }
         }
     }
+}
+
+/**
+ * @brief If Reed switch looses contact while the security system is active,
+ *  sound the alarm
+ *
+ * @param None
+ * @retval true or false
+ */
+bool check_For_Forcefull_Entrance (void)
+{
+  static int alarmStatus = 0;
+  alarmStatus = alarm_status();
+
+  if (HAL_GPIO_ReadPin (GPIOG, GPIO_FORCEFUL_ENTRY) == GPIO_PIN_SET
+      && alarmStatus == ON)
+    return true;
+  else
+    return false;
+}
+
+/**
+ * @brief Returns if the alarm is active or disabled
+ *
+ * @param None
+ * @retval true or false
+ */
+bool alarm_status (void)
+{
+
+}
+
+char read_Keypad (void)
+{
+  /* Make ROW 1 LOW and all other ROWs HIGH */
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1, GPIO_PIN_RESET);  //Pull the R1 low
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_2, GPIO_PIN_SET);  // Pull the R2 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_3, GPIO_PIN_SET);  // Pull the R3 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_SET);  // Pull the R4 High
+
+  if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
+    return '1';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
+    return '2';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
+    return '3';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
+    return 'A';
+  }
+
+  /* Make ROW 2 LOW and all other ROWs HIGH */
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1, GPIO_PIN_SET);  //Pull the R1 low
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_2, GPIO_PIN_RESET);  // Pull the R2 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_3, GPIO_PIN_SET);  // Pull the R3 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_SET);  // Pull the R4 High
+
+  if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
+    return '4';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
+    return '5';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
+    return '6';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
+    return 'B';
+  }
+
+
+  /* Make ROW 3 LOW and all other ROWs HIGH */
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1, GPIO_PIN_SET);  //Pull the R1 low
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_2, GPIO_PIN_SET);  // Pull the R2 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_3, GPIO_PIN_RESET);  // Pull the R3 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_SET);  // Pull the R4 High
+
+  if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
+    return '7';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
+    return '8';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
+    return '9';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
+    return 'C';
+  }
+
+
+  /* Make ROW 4 LOW and all other ROWs HIGH */
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1, GPIO_PIN_SET);  //Pull the R1 low
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_2, GPIO_PIN_SET);  // Pull the R2 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_3, GPIO_PIN_SET);  // Pull the R3 High
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_RESET);  // Pull the R4 High
+
+  if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
+    return '*';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
+    return '0';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
+    return '#';
+  }
+
+  if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
+  {
+    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
+    return 'D';
+  }
 }

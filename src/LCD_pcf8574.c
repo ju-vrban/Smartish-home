@@ -111,7 +111,15 @@ void LCD_Init (void)
   HAL_Delay (1);
   LCD_Send_Cmd (0x0C); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
 }
-
+/*
+void LCD_Init (void)
+{
+  lcd_send_cmd (0x02);
+  lcd_send_cmd (0x28);
+  lcd_send_cmd (0x0c);
+  lcd_send_cmd (0x80);
+}
+*/
 /**
  * @brief Sets the time in the DS3231 RTC
  * @param Inputs secounds, minutes, hour, day of the week, date month and year

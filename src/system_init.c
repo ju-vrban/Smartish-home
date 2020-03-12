@@ -115,6 +115,10 @@ void GPIO_Init (void)
 
   HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_EXHAUST_FAN, GPIO_PIN_RESET);
 
+  HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_3 | KEYPAD_ROW_4, GPIO_PIN_RESET);
+
+  HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1 | KEYPAD_ROW_2, GPIO_PIN_RESET);
+
   /**GPIO PIR/switch input configuration
    PD5      ------> GPIO_BATHROOM_PIR
    PD6      ------> GPIO_LIVING_ROOM_ENCODER_SW
@@ -179,7 +183,7 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
   /**GPIO stepper motor output configuration
-   PG1      ------> GPIO_ELECTROMAGNET_FOUR_BED
+
    PG10     ------> GPIO_ELECTROMAGNET_TWO_LIVING
    PG11     ------> GPIO_ELECTROMAGNET_FOUR_LIVING
    PG13     ------> GPIO_ELECTROMAGNET_THREE_LIVING
@@ -187,23 +191,11 @@ void GPIO_Init (void)
    */
   GPIO_InitStruct.Pin = GPIO_ELECTROMAGNET_ONE_LIVING
       | GPIO_ELECTROMAGNET_TWO_LIVING | GPIO_ELECTROMAGNET_THREE_LIVING
-      | GPIO_ELECTROMAGNET_FOUR_LIVING | GPIO_ELECTROMAGNET_FOUR_BED;
+      | GPIO_ELECTROMAGNET_FOUR_LIVING;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
-
-  /**GPIO stepper motor output configuration
-   PF2      ------> GPIO_ELECTROMAGNET_ONE_BED
-   PF8      ------> GPIO_ELECTROMAGNET_TWO_BED
-   PF9      ------> GPIO_ELECTROMAGNET_THREE_BED
-   */
-  GPIO_InitStruct.Pin = GPIO_ELECTROMAGNET_ONE_BED | GPIO_ELECTROMAGNET_TWO_BED
-      | GPIO_ELECTROMAGNET_THREE_BED;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
 
   /**GPIO blinds switch input configuration
    PF11     ------> GPIO_LIVING_ROOM_SWITCH_RAISE
@@ -241,16 +233,60 @@ void GPIO_Init (void)
   GPIO_InitStruct.Pin = GPIO_FIRE_IR_SENSOR;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
+
+  /**GPIO Reed relay input configuration
+   PE6      ------> GPIO_FORCEFUL_ENTRY
+   */
+  GPIO_InitStruct.Pin = GPIO_FORCEFUL_ENTRY;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
+
+  /**GPIO keypad output configuration
+   PE2      ------> KEYPAD_ROW_3
+   PE4      ------> KEYPAD_ROW_4
+   */
+  GPIO_InitStruct.Pin = KEYPAD_ROW_3 | KEYPAD_ROW_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
+
+  /**GPIO keypad intput configuration
+   PE5     ------> KEYPAD_COLUMN_1
+   */
+  GPIO_InitStruct.Pin = KEYPAD_COLUMN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
+
+  /**GPIO keypad intput configuration
+   PF2     ------> KEYPAD_COLUMN_2
+   PF8     ------> KEYPAD_COLUMN_3
+   PF9     ------> KEYPAD_COLUMN_4
+   */
+  GPIO_InitStruct.Pin = KEYPAD_COLUMN_2 | KEYPAD_COLUMN_3 | KEYPAD_COLUMN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
+
+  /**GPIO keypad output configuration
+   PG2      ------> KEYPAD_ROW_1
+   PG3      ------> KEYPAD_ROW_2
+   */
+  GPIO_InitStruct.Pin = KEYPAD_ROW_1 | KEYPAD_ROW_2;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
 }
 
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /**
- * @brief I2C1 in DMA mode initialization function for the
- *        external RTC and 16x1 LCD
- *
- * Clock speed is 100 kHz because of the max frequency of the pcf8574
+ * @brief I2C1 initialization function for the
+ *        external RTC
  *
  * @param None
  * @retval None
@@ -270,7 +306,10 @@ void I2C1_RTC_Init (void)
   hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
-  /* Tx and Rx pin configuration */
+  /**GPIO I2C1 pin configuration
+   PB6     ------> I2C1 SCL
+   PB9      ------> I2C1 SDA
+   */
   GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_9;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -284,7 +323,10 @@ void I2C1_RTC_Init (void)
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /**
- * @brief I2C1 initialization function for the external RTC
+ * @brief I2C2 16x1 LCD initialization
+ *
+ *Clock speed is 100 kHz because of the max frequency of the pcf8574
+ *
  * @param None
  * @retval None
  */
@@ -304,7 +346,10 @@ void I2C2_LCD_Init (void)
   hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
-  /* Tx and Rx pin configuration */
+  /**GPIO  I2C2 pin configuration
+   PB10      ------> I2C2 SCL
+   PF11      ------> I2C2 SDA
+   */
   GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -313,6 +358,38 @@ void I2C2_LCD_Init (void)
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
   HAL_I2C_Init (&hi2c2);
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+  * @brief I2C3 Initialization Function
+  * @param None
+  * @retval None
+  */
+void I2C3_LCD_Init(void)
+{
+  hi2c3.Instance = I2C3;
+  hi2c3.Init.ClockSpeed = 100000;
+  hi2c3.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c3.Init.OwnAddress1 = 0;
+  hi2c3.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c3.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c3.Init.OwnAddress2 = 0;
+  hi2c3.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c3.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c3) != HAL_OK)
+    Error_Handler();
+
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c3, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+    Error_Handler();
+
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c3, 0) != HAL_OK)
+    Error_Handler();
 }
 
 /*----------------------------------------------------------------------------*/
@@ -405,7 +482,7 @@ void TIM4_Encoder_Bedroom_Init (void)
 /*----------------------------------------------------------------------------*/
 /**
  * @brief Initialization function for TIM12 in PWM mode for channels 1 and 2
- *        with a frequency of 200 Hz for the living room and bedroom lightning
+ *        with a frequency of 200 Hz for the living room and bedroom light
  * @param None
  * @retval None
  */

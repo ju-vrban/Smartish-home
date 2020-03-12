@@ -9,6 +9,9 @@ extern "C" {
 
   bool check_For_Fire (void);
   void fire_Alarm(void);
+  bool check_For_Forcefull_Entrance (void);
+  bool alarm_status (void);
+  char read_Keypad (void);
 
 #ifdef __cplusplus
 }

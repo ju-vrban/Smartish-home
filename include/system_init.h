@@ -8,7 +8,7 @@ extern "C"
 
 #include "main.h"
 
-  /* GPIO switch macros */
+  /* GPIO switch*/
 #define GPIO_BATHROOM_PIR                 GPIO_PIN_5
 #define GPIO_LIVING_ROOM_ENCODER_SW       GPIO_PIN_6
 #define GPIO_BEDROOM_ENCODER_SW           GPIO_PIN_7
@@ -16,13 +16,13 @@ extern "C"
 #define GPIO_MAIN_ENTRANCE_PIR            GPIO_PIN_10
 #define GPIO_AUTOMATIC_MODE               GPIO_PIN_15
 
-  /*GPIO light macros */
+  /*GPIO light*/
 #define GPIO_MAIN_ENTRANCE_LIGHT          GPIO_PIN_11
 #define GPIO_LIVING_ROOM_KITCHEN_LIGHT    GPIO_PIN_12    // IS NOT USED, USE TIM12
 #define GPIO_BATHROOM_LIGHT               GPIO_PIN_13
 #define GPIO_BEDROOM_LIGHT                GPIO_PIN_14   // IS NOT USED, USE TIM12
 
-  /* Timer macros */
+  /* Timer*/
 #define TIM3_LIVING_ROOM_ENCODER_CH1      GPIO_PIN_4
 #define TIM3_LIVING_ROOM_ENCODER_CH2      GPIO_PIN_5
 #define TIM4_BEDROOM_ENCODER_CH1          GPIO_PIN_6
@@ -30,7 +30,7 @@ extern "C"
 #define TIM12_PWM_CH1                     GPIO_PIN_14
 #define TIM12_PWM_CH2                     GPIO_PIN_15
 
-  /* Blinds stepper macros */
+  /* Blinds stepper*/
 #define GPIO_ELECTROMAGNET_ONE_LIVING     GPIO_PIN_15
 #define GPIO_ELECTROMAGNET_TWO_LIVING     GPIO_PIN_10
 #define GPIO_ELECTROMAGNET_THREE_LIVING   GPIO_PIN_13
@@ -44,17 +44,30 @@ extern "C"
 #define GPIO_BEDROOM_SWITCH_RAISE         GPIO_PIN_12
 #define GPIO_BEDROOM_SWITCH_LOWER         GPIO_PIN_13
 
-  /* Ventilation and fire detection macros */
+  /* Ventilation and fire detection */
 #define GPIO_DANGEROUS_GASES              GPIO_PIN_12
 #define GPIO_INTAKE_EXHAUST_FAN           GPIO_PIN_2
-#define GPIO_FIRE_IR_SENSOR               GPIO_PIN_5
+#define GPIO_FIRE_IR_SENSOR               GPIO_PIN_1
+#define GPIO_FORCEFUL_ENTRY               GPIO_PIN_6
+
+  /* Keypad*/
+#define KEYPAD_ROW_1                      GPIO_PIN_2
+#define KEYPAD_ROW_2                      GPIO_PIN_3
+#define KEYPAD_ROW_3                      GPIO_PIN_2
+#define KEYPAD_ROW_4                      GPIO_PIN_4
+#define KEYPAD_COLUMN_1                   GPIO_PIN_5
+#define KEYPAD_COLUMN_2                   GPIO_PIN_2
+#define KEYPAD_COLUMN_3                   GPIO_PIN_8
+#define KEYPAD_COLUMN_4                   GPIO_PIN_9
+
 
 #define ON  1
 #define OFF 0
 
-I2C_HandleTypeDef  hi2c1;
+  I2C_HandleTypeDef hi2c1;
   I2C_HandleTypeDef hi2c2;
-  GPIO_InitTypeDef GPIO_InitStruct;
+  I2C_HandleTypeDef hi2c3;
+  GPIO_InitTypeDef  GPIO_InitStruct;
   TIM_HandleTypeDef htim2;
   TIM_HandleTypeDef htim3;
   TIM_HandleTypeDef htim4;
@@ -67,7 +80,8 @@ I2C_HandleTypeDef  hi2c1;
   void GPIO_Init (void);
   void I2C1_RTC_Init (void);
   void I2C2_LCD_Init (void);
-  void TIM3_Init(void);
+  void I2C3_LCD_Init (void);
+  void TIM3_Init (void);
   void TIM3_Encoder_Living_Room_Init (void);
   void TIM4_Encoder_Bedroom_Init (void);
   void TIM12_PWM_Living_Bedroom_Init (void);
@@ -75,6 +89,7 @@ I2C_HandleTypeDef  hi2c1;
   void TIM2_dac_Init (void);
   void DMA_Init (void);
   void TIM9_us_delay_Init (void);
+
 
 #ifdef __cplusplus
 }
