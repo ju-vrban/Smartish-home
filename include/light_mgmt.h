@@ -11,7 +11,9 @@ extern "C"
 #define DAWN              6.00f
 #define BEFORE_MIDNIGHT   23.599f
 #define AFTER_MIDNIGHT    00.00f
+#define NOON              12.00f
 #define MINS_60           3600000L
+#define MINS_5            300000
 
 
   float calculate_Dusk_Time (void);
@@ -19,7 +21,7 @@ extern "C"
   void entrance_Light (float dusk, float entranceTimeValue);
   void bathroom_Light (void);
   void living_Room_Kitchen_Light (float dusk, float currentTime);
-  void bedroom_Light (float currentTime);
+  void bedroom_Light (float dusk, float currentTime);
 
 #ifdef __cplusplus
 }

@@ -15,7 +15,8 @@ float calculate_Dusk_Time (void)
   float timeConst[3] =
     { 1, 1.3, 1.6 };
 
-  switch (Time.month)
+  int Month = Time.month;
+  switch (Month)
     {
     case January:
       numOfDays = 0 + (float) Time.date * timeConst[1];
@@ -273,14 +274,17 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
 /*  Pokrenuti tim4 rcc u main */
 
 /* Nema senzora ali se more prek aplikacije ili ručno upravljati pwm */
-void bedroom_Light (float currentTime)
+void bedroom_Light (float dusk, float currentTime)
 {
-  bool automaticMode = automatic_Mode ();
-  int bedroomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD, GPIO_BEDROOM_ENCODER_SW);
 
   static int switchState = OFF;
-  static long int currentSystemTime;
+  static long int currentSystemTime = 0;
   static uint8_t encoderDuty;
+  bool automaticMode;
+  int bedroomEncoderSwitch;
+
+  automaticMode = automatic_Mode ();
+  bedroomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD, GPIO_BEDROOM_ENCODER_SW);
 
   if (automaticMode == OFF) // vjerojatno ne treba automstic  mode
     {
@@ -291,27 +295,65 @@ void bedroom_Light (float currentTime)
           HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_2);
           encoderDuty = __HAL_TIM_GET_COUNTER(&htim4);
           htim12.Instance->CCR2 = encoderDuty;
+
+        }
+      else if (bedroomEncoderSwitch == ON && switchState == ON)
+        {
+          switchState = OFF;
+          HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_2);
+
+        }
+    }
+  else
+    {
+      if (bedroomEncoderSwitch == ON && switchState == OFF)
+        {
+          switchState = ON;
+          if (currentTime >= DAWN && currentTime <= NOON)
+            {
+              HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_2);
+              htim12.Instance->CCR2 = 35;
+            }
+          else if (currentTime >= NOON && currentTime <= dusk)
+            {
+              HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_2);
+              htim12.Instance->CCR2 = 50;
+            }
+          else if ((currentTime >= dusk) && currentTime <= BEFORE_MIDNIGHT)
+            {
+              HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_2);
+              htim12.Instance->CCR2 = 35;
+            }
+          else if (currentTime >= AFTER_MIDNIGHT && currentTime <= DAWN)
+            {
+              HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_2);
+              htim12.Instance->CCR2 = 15;
+            }
         }
       else if (bedroomEncoderSwitch == ON && switchState == ON)
         {
           switchState = OFF;
           HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_2);
         }
-    }
-  else
-    {
-      if (HAL_TIM_PWM_GetState (&htim12) == ON && currentTime >= AFTER_MIDNIGHT
-          && currentTime <= DAWN)
+      else if (switchState == ON
+          && (currentTime >= AFTER_MIDNIGHT && currentTime <= DAWN))
         {
-          if (HAL_GetTick () - currentSystemTime >= MINS_60)
+          if (HAL_GetTick () - currentSystemTime >= MINS_5)
             {
+              switchState = OFF;
               currentSystemTime = HAL_GetTick ();
               HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_2);
             }
         }
-      else
+      else if ((switchState == ON && (currentTime >= dusk)
+          && currentTime <= BEFORE_MIDNIGHT))
         {
-          //HAL_uart_();
+          htim12.Instance->CCR2 = 35;
+        }
+      else if ((switchState == ON && (currentTime >= AFTER_MIDNIGHT)
+          && currentTime <= DAWN))
+        {
+          htim12.Instance->CCR2 = 15;
         }
     }
 }

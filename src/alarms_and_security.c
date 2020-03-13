@@ -53,13 +53,13 @@ void fire_Alarm (void)
               htim12.Instance->CCR2 = 100;
             }
           else if ((HAL_GetTick () - lastConversion >= 1000L)
-              && (HAL_GetTick () - lastConversion <= 1015L) && statusFlag2 == 0)
+              && (HAL_GetTick () - lastConversion <= 1005L) && statusFlag2 == 0)
             {
               statusFlag2 = 1;
               HAL_TIM_PWM_Stop (&htim12, TIM12_PWM_CH1);
               HAL_TIM_PWM_Stop (&htim12, TIM12_PWM_CH2);
             }
-          else if (HAL_GetTick () - lastConversion >= 1015L)
+          else if (HAL_GetTick () - lastConversion > 1005L)
             {
               lastConversion = HAL_GetTick ();
               statusFlag1 = 0;

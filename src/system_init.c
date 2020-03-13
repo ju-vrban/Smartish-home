@@ -94,11 +94,8 @@ void GPIO_Init (void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin (
-      GPIOD,
-      GPIO_MAIN_ENTRANCE_LIGHT | GPIO_LIVING_ROOM_KITCHEN_LIGHT
-          | GPIO_BATHROOM_LIGHT | GPIO_BEDROOM_LIGHT,
-      GPIO_PIN_RESET);
+  HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT | GPIO_BATHROOM_LIGHT,
+                     GPIO_PIN_RESET);
 
   HAL_GPIO_WritePin (
       GPIOG,
@@ -136,13 +133,9 @@ void GPIO_Init (void)
 
   /**GPIO light output configuration
    PD11     ------> GPIO_MAIN_ENTRANCE_LIGHT
-   PD12     ------> GPIO_LIVING_ROOM_KITCHEN_LIGHT
-   PD13     ------> GPIO_BATHROOM_LIGHT
-   PD14     ------> GPIO_BEDROOM_LIGHT
+   PD14     ------> GPIO_BATHROOM_LIGHT
    */
-  GPIO_InitStruct.Pin = GPIO_MAIN_ENTRANCE_LIGHT
-      | GPIO_LIVING_ROOM_KITCHEN_LIGHT | GPIO_BATHROOM_LIGHT
-      | GPIO_BEDROOM_LIGHT;
+  GPIO_InitStruct.Pin = GPIO_MAIN_ENTRANCE_LIGHT | GPIO_BATHROOM_LIGHT;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -162,18 +155,27 @@ void GPIO_Init (void)
 
   /**TIM4 encoder GPIO configuration
    PB6     ------> TIM4_BEDROOM_ENCODER_CH1
-   PB7     ------> TIM4_BEDROOM_ENCODER_CH2
    */
-  GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH1 | TIM4_BEDROOM_ENCODER_CH2;
+  GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH1;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF2_TIM4;
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
+  /**TIM4 encoder GPIO configuration
+   PD13    ------> TIM4_BEDROOM_ENCODER_CH2
+   */
+  GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH2;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF2_TIM4;
+  HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
+
   /**TIM12 PWM GPIO Configuration
-   PB14     ------> TIM12_PWM_CH1
-   PB15     ------> TIM12_PWM_CH2
+   PB14     ------> TIM12_PWM_CH1    LIVING ROOM
+   PB15     ------> TIM12_PWM_CH2    BEDROOM
    */
   GPIO_InitStruct.Pin = TIM12_PWM_CH1 | TIM12_PWM_CH2;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -363,11 +365,11 @@ void I2C2_LCD_Init (void)
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /**
-  * @brief I2C3 Initialization Function
-  * @param None
-  * @retval None
-  */
-void I2C3_LCD_Init(void)
+ * @brief I2C3 Initialization Function
+ * @param None
+ * @retval None
+ */
+void I2C3_LCD_Init (void)
 {
   hi2c3.Instance = I2C3;
   hi2c3.Init.ClockSpeed = 100000;
@@ -378,18 +380,18 @@ void I2C3_LCD_Init(void)
   hi2c3.Init.OwnAddress2 = 0;
   hi2c3.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   hi2c3.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c3) != HAL_OK)
-    Error_Handler();
+  if (HAL_I2C_Init (&hi2c3) != HAL_OK)
+    Error_Handler ();
 
   /** Configure Analogue filter
-  */
-  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c3, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
-    Error_Handler();
+   */
+  if (HAL_I2CEx_ConfigAnalogFilter (&hi2c3, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+    Error_Handler ();
 
   /** Configure Digital filter
-  */
-  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c3, 0) != HAL_OK)
-    Error_Handler();
+   */
+  if (HAL_I2CEx_ConfigDigitalFilter (&hi2c3, 0) != HAL_OK)
+    Error_Handler ();
 }
 
 /*----------------------------------------------------------------------------*/

@@ -17,7 +17,7 @@ int concatenate (int x, int y)
 
 bool automatic_Mode (void)
 {
-  if (HAL_GPIO_ReadPin (GPIOD, GPIO_AUTOMATIC_MODE) == true)
+  if (HAL_GPIO_ReadPin (GPIOD, GPIO_AUTOMATIC_MODE) == ON)
     return true;
   else
     return false;

@@ -18,15 +18,13 @@ extern "C"
 
   /*GPIO light*/
 #define GPIO_MAIN_ENTRANCE_LIGHT          GPIO_PIN_11
-#define GPIO_LIVING_ROOM_KITCHEN_LIGHT    GPIO_PIN_12    // IS NOT USED, USE TIM12
-#define GPIO_BATHROOM_LIGHT               GPIO_PIN_13
-#define GPIO_BEDROOM_LIGHT                GPIO_PIN_14   // IS NOT USED, USE TIM12
+#define GPIO_BATHROOM_LIGHT               GPIO_PIN_14
 
   /* Timer*/
 #define TIM3_LIVING_ROOM_ENCODER_CH1      GPIO_PIN_4
 #define TIM3_LIVING_ROOM_ENCODER_CH2      GPIO_PIN_5
 #define TIM4_BEDROOM_ENCODER_CH1          GPIO_PIN_6
-#define TIM4_BEDROOM_ENCODER_CH2          GPIO_PIN_7
+#define TIM4_BEDROOM_ENCODER_CH2          GPIO_PIN_13
 #define TIM12_PWM_CH1                     GPIO_PIN_14
 #define TIM12_PWM_CH2                     GPIO_PIN_15
 
