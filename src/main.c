@@ -35,16 +35,16 @@ int main (void)
   GPIO_Init ();
   I2C1_RTC_Init ();
   I2C2_LCD_Init ();
-  I2C3_LCD_Init ();
+//  I2C3_LCD_Init ();
   LCD_Init ();
-  TIM3_Encoder_Living_Room_Init ();
+/*  TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
   TIM12_PWM_Living_Bedroom_Init ();
   DMA_Init ();
   DAC_Init ();
   TIM2_dac_Init ();
   TIM9_us_delay_Init ();
-
+*/
   //float RTCTempSens;
   char LCDCharBuffer[10];
   int timeOfUpdate[3] =
@@ -55,18 +55,17 @@ int main (void)
   long int lastConversion = 0;
   uint8_t key;
 
- // set_Time (30, 05, 16, 5, 13, 3, 20);
+//  set_Time (00, 30, 14, 1, 16, 3, 20);
 
-  //clear_Alarm1 ();
   //HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
 
-  HAL_TIM_Base_Start (&htim9);
+//  HAL_TIM_Base_Start (&htim9);
 
   while (1)
     {
-      get_Time ();
+       get_Time ();
 
-      if ((Time.hours == timeOfUpdate[0] && Time.minutes == timeOfUpdate[1]
+       if ((Time.hours == timeOfUpdate[0] && Time.minutes == timeOfUpdate[1]
           && Time.seconds == timeOfUpdate[3]) || sysRestart == 1)
         {
           dusk = calculate_Dusk_Time ();
@@ -74,7 +73,7 @@ int main (void)
         }
 
       currentTime = (float) Time.hours + ((float) Time.minutes / 100);
-
+/*
       entrance_Light (dusk, currentTime);
       bathroom_Light ();
       living_Room_Kitchen_Light (dusk, currentTime);
@@ -88,7 +87,7 @@ int main (void)
       emergency_Ventilation ();
 
       key = read_Keypad ();
-  /*
+
       if (key != 0x01)
         {
           LCD_Send_Cmd (0x85);

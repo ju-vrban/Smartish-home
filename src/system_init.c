@@ -153,20 +153,12 @@ void GPIO_Init (void)
   GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
   HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
-  /**TIM4 encoder GPIO configuration
-   PB6     ------> TIM4_BEDROOM_ENCODER_CH1
-   */
-  GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH1;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF2_TIM4;
-  HAL_GPIO_Init (GPIOB, &GPIO_InitStruct);
 
   /**TIM4 encoder GPIO configuration
+   PD12    ------> TIM4_BEDROOM_ENCODER_CH1
    PD13    ------> TIM4_BEDROOM_ENCODER_CH2
    */
-  GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH2;
+  GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH1|TIM4_BEDROOM_ENCODER_CH2;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -230,7 +222,7 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOH, &GPIO_InitStruct);
 
   /**GPIO IR fire sensor input configuration
-   PE5      ------> GPIO_FIRE_IR_SENSOR
+   PG1      ------> GPIO_FIRE_IR_SENSOR
    */
   GPIO_InitStruct.Pin = GPIO_FIRE_IR_SENSOR;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -310,7 +302,7 @@ void I2C1_RTC_Init (void)
 
   /**GPIO I2C1 pin configuration
    PB6     ------> I2C1 SCL
-   PB9      ------> I2C1 SDA
+   PB9     ------> I2C1 SDA
    */
   GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_9;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
@@ -350,7 +342,7 @@ void I2C2_LCD_Init (void)
 
   /**GPIO  I2C2 pin configuration
    PB10      ------> I2C2 SCL
-   PF11      ------> I2C2 SDA
+   PB11      ------> I2C2 SDA
    */
   GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;

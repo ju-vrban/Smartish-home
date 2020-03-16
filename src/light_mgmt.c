@@ -12,8 +12,8 @@ float calculate_Dusk_Time (void)
   get_Time ();
 
   int numOfDays = 0;
-  float timeConst[3] =
-    { 1, 1.3, 1.6 };
+  float timeConst[12] =
+    { 1.2, 1.5, 2 };
 
   int Month = Time.month;
   switch (Month)
@@ -64,7 +64,7 @@ float calculate_Dusk_Time (void)
       if (Time.year % 4 == 0)
         numOfDays = 244 + (float) Time.date * timeConst[2];
       else
-        numOfDays = 243 + (float) Time.date * timeConst[82];
+        numOfDays = 243 + (float) Time.date * timeConst[2];
       break;
     case October:
       if (Time.year % 4 == 0)
