@@ -13,7 +13,7 @@ float calculate_Dusk_Time (void)
 
   int numOfDays = 0;
   float timeConst[12] =
-    { 1.2, 1.5, 2 };
+    { 1.2, 1.5, 2.7 };
 
   int Month = Time.month;
   switch (Month)
@@ -200,7 +200,7 @@ void bathroom_Light (void)
           && isOccupied == 1)
         {
           if (HAL_GetTick () - currentTime >= 500L)
-            {
+            {isOccupied = 0;
               currentTime = HAL_GetTick ();
               HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_RESET);
             }
@@ -233,7 +233,7 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
   if (automaticMode == ON)
     {
       if ((currentTime >= dusk && currentTime <= BEFORE_MIDNIGHT)
-          && lightState == OFF) //put inside main before function to not waste processor time
+          && lightState == OFF)
         {
           lightState = ON;
           HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_1);
@@ -252,14 +252,14 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
       livingRoomEncoderSwitch = HAL_GPIO_ReadPin (GPIOD,
       GPIO_LIVING_ROOM_ENCODER_SW);
 
-      if (livingRoomEncoderSwitch == ON && switchState == OFF)
+      if (livingRoomEncoderSwitch == OFF && switchState == OFF)
         {
           switchState = ON;
           HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_1);
           encoderDuty = __HAL_TIM_GET_COUNTER(&htim3);
           htim12.Instance->CCR1 = encoderDuty;
         }
-      else if (switchState == ON && livingRoomEncoderSwitch == ON)
+      else if (switchState == OFF && livingRoomEncoderSwitch == ON)
         {
           switchState = OFF;
           HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_1);

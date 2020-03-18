@@ -12,9 +12,10 @@ extern "C"
 #define GPIO_BATHROOM_PIR                 GPIO_PIN_5
 #define GPIO_LIVING_ROOM_ENCODER_SW       GPIO_PIN_6
 #define GPIO_BEDROOM_ENCODER_SW           GPIO_PIN_7
-#define GPIO_BATHROOM_SWITCH              GPIO_PIN_9
+#define GPIO_BATHROOM_SWITCH              GPIO_PIN_0
 #define GPIO_MAIN_ENTRANCE_PIR            GPIO_PIN_10
 #define GPIO_AUTOMATIC_MODE               GPIO_PIN_15
+#define GPIO_LIVING_MICROWAVE_SEN         GPIO_PIN_6
 
   /*GPIO light*/
 #define GPIO_MAIN_ENTRANCE_LIGHT          GPIO_PIN_11

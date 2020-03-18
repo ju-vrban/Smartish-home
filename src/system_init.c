@@ -86,12 +86,15 @@ void SystemClock_Config (void)
 void GPIO_Init (void)
 {
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
+
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin (GPIOD, GPIO_MAIN_ENTRANCE_LIGHT | GPIO_BATHROOM_LIGHT,
@@ -117,23 +120,38 @@ void GPIO_Init (void)
   HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1 | KEYPAD_ROW_2, GPIO_PIN_RESET);
 
   /**GPIO PIR/switch input configuration
-   PD5      ------> GPIO_BATHROOM_PIR
-   PD6      ------> GPIO_LIVING_ROOM_ENCODER_SW
-   PD7      ------> GPIO_BEDROOM_ENCODER_SW
-   PD9      ------> GPIO_BATHROOM_SWITCH
-   PD10     ------> GPIO_MAIN_ENTRANCE_PIR
-   PD15     ------> GPIO_AUTOMATIC_MODE
+   PD5      ------> GPIO_BATHROOM_PIR           #
+   PD0      ------> GPIO_BATHROOM_SWITCH        #
+   PD10     ------> GPIO_MAIN_ENTRANCE_PIR      #
+   PD15     ------> GPIO_AUTOMATIC_MODE         #
    */
-  GPIO_InitStruct.Pin = GPIO_BATHROOM_PIR | GPIO_LIVING_ROOM_ENCODER_SW
-      | GPIO_BEDROOM_ENCODER_SW | GPIO_MAIN_ENTRANCE_PIR | GPIO_AUTOMATIC_MODE
+  GPIO_InitStruct.Pin = GPIO_BATHROOM_PIR | GPIO_MAIN_ENTRANCE_PIR | GPIO_AUTOMATIC_MODE
       | GPIO_BATHROOM_SWITCH;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
 
+  /**GPIO microwave radar sensor input configuration
+     PF6      ------> GPIO_LIVING_MICROWAVE_SEN
+     */
+    GPIO_InitStruct.Pin = GPIO_LIVING_MICROWAVE_SEN;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+    HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
+
+  /**GPIO switch input configuration
+   PD6      ------> GPIO_LIVING_ROOM_ENCODER_SW #
+   PD7      ------> GPIO_BEDROOM_ENCODER_SW     #
+   */
+  GPIO_InitStruct.Pin = GPIO_LIVING_ROOM_ENCODER_SW
+      | GPIO_BEDROOM_ENCODER_SW;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
+
   /**GPIO light output configuration
-   PD11     ------> GPIO_MAIN_ENTRANCE_LIGHT
-   PD14     ------> GPIO_BATHROOM_LIGHT
+   PD11     ------> GPIO_MAIN_ENTRANCE_LIGHT    #
+   PD14     ------> GPIO_BATHROOM_LIGHT         #
    */
   GPIO_InitStruct.Pin = GPIO_MAIN_ENTRANCE_LIGHT | GPIO_BATHROOM_LIGHT;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -142,8 +160,8 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
 
   /**TIM3 encoder GPIO configuration
-   PB4     ------> TIM3_LIVING_ROOM_ENCODER_CH1
-   PB5     ------> TIM3_LIVING_ROOM_ENCODER_CH2
+   PB4     ------> TIM3_LIVING_ROOM_ENCODER_CH1 #
+   PB5     ------> TIM3_LIVING_ROOM_ENCODER_CH2 #
    */
   GPIO_InitStruct.Pin = TIM3_LIVING_ROOM_ENCODER_CH1
       | TIM3_LIVING_ROOM_ENCODER_CH2;
@@ -155,8 +173,8 @@ void GPIO_Init (void)
 
 
   /**TIM4 encoder GPIO configuration
-   PD12    ------> TIM4_BEDROOM_ENCODER_CH1
-   PD13    ------> TIM4_BEDROOM_ENCODER_CH2
+   PD12    ------> TIM4_BEDROOM_ENCODER_CH1 #
+   PD13    ------> TIM4_BEDROOM_ENCODER_CH2 #
    */
   GPIO_InitStruct.Pin = TIM4_BEDROOM_ENCODER_CH1|TIM4_BEDROOM_ENCODER_CH2;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -166,8 +184,8 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
 
   /**TIM12 PWM GPIO Configuration
-   PB14     ------> TIM12_PWM_CH1    LIVING ROOM
-   PB15     ------> TIM12_PWM_CH2    BEDROOM
+   PB14     ------> TIM12_PWM_CH1    LIVING ROOM #
+   PB15     ------> TIM12_PWM_CH2    BEDROOM     #
    */
   GPIO_InitStruct.Pin = TIM12_PWM_CH1 | TIM12_PWM_CH2;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -178,10 +196,10 @@ void GPIO_Init (void)
 
   /**GPIO stepper motor output configuration
 
-   PG10     ------> GPIO_ELECTROMAGNET_TWO_LIVING
-   PG11     ------> GPIO_ELECTROMAGNET_FOUR_LIVING
-   PG13     ------> GPIO_ELECTROMAGNET_THREE_LIVING
-   PG15     ------> GPIO_ELECTROMAGNET_ONE_LIVING
+   PG10     ------> GPIO_ELECTROMAGNET_TWO_LIVING   #
+   PG11     ------> GPIO_ELECTROMAGNET_FOUR_LIVING  #
+   PG13     ------> GPIO_ELECTROMAGNET_THREE_LIVING #
+   PG15     ------> GPIO_ELECTROMAGNET_ONE_LIVING   #
    */
   GPIO_InitStruct.Pin = GPIO_ELECTROMAGNET_ONE_LIVING
       | GPIO_ELECTROMAGNET_TWO_LIVING | GPIO_ELECTROMAGNET_THREE_LIVING
@@ -192,10 +210,10 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
 
   /**GPIO blinds switch input configuration
-   PF11     ------> GPIO_LIVING_ROOM_SWITCH_RAISE
-   PF12     ------> GPIO_BEDROOM_SWITCH_RAISE
-   PF13     ------> GPIO_BEDROOM_SWITCH_LOWER
-   PF15     ------> GPIO_LIVING_ROOM_SWITCH_LOWER
+   PF11     ------> GPIO_LIVING_ROOM_SWITCH_RAISE #
+   PF12     ------> GPIO_BEDROOM_SWITCH_RAISE     #
+   PF13     ------> GPIO_BEDROOM_SWITCH_LOWER     #
+   PF15     ------> GPIO_LIVING_ROOM_SWITCH_LOWER #
    */
   GPIO_InitStruct.Pin = GPIO_LIVING_ROOM_SWITCH_RAISE
       | GPIO_BEDROOM_SWITCH_RAISE | GPIO_BEDROOM_SWITCH_LOWER
@@ -204,8 +222,8 @@ void GPIO_Init (void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
 
-  /**GPIO blinds switch input configuration
-   PG12     ------> GPIO_DANGEROUS_GASES
+  /**GPIO dangerous gasses input configuration
+   PG12     ------> GPIO_DANGEROUS_GASES  #
    */
   GPIO_InitStruct.Pin = GPIO_DANGEROUS_GASES;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -213,7 +231,7 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
 
   /**GPIO intake fan output configuration
-   PH2      ------> GPIO_INTAKE_EXHAUST_FAN
+   PH2      ------> GPIO_INTAKE_EXHAUST_FAN #
    */
   GPIO_InitStruct.Pin = GPIO_INTAKE_EXHAUST_FAN;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -222,7 +240,7 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOH, &GPIO_InitStruct);
 
   /**GPIO IR fire sensor input configuration
-   PG1      ------> GPIO_FIRE_IR_SENSOR
+   PG1      ------> GPIO_FIRE_IR_SENSOR #
    */
   GPIO_InitStruct.Pin = GPIO_FIRE_IR_SENSOR;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -230,7 +248,7 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOG, &GPIO_InitStruct);
 
   /**GPIO Reed relay input configuration
-   PE6      ------> GPIO_FORCEFUL_ENTRY
+   PE6      ------> GPIO_FORCEFUL_ENTRY #
    */
   GPIO_InitStruct.Pin = GPIO_FORCEFUL_ENTRY;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -238,8 +256,8 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
 
   /**GPIO keypad output configuration
-   PE2      ------> KEYPAD_ROW_3
-   PE4      ------> KEYPAD_ROW_4
+   PE2      ------> KEYPAD_ROW_3  #
+   PE4      ------> KEYPAD_ROW_4  #
    */
   GPIO_InitStruct.Pin = KEYPAD_ROW_3 | KEYPAD_ROW_4;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -248,7 +266,7 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
 
   /**GPIO keypad intput configuration
-   PE5     ------> KEYPAD_COLUMN_1
+   PE5     ------> KEYPAD_COLUMN_1  #
    */
   GPIO_InitStruct.Pin = KEYPAD_COLUMN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -256,9 +274,9 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
 
   /**GPIO keypad intput configuration
-   PF2     ------> KEYPAD_COLUMN_2
-   PF8     ------> KEYPAD_COLUMN_3
-   PF9     ------> KEYPAD_COLUMN_4
+   PF2     ------> KEYPAD_COLUMN_2  #
+   PF8     ------> KEYPAD_COLUMN_3  #
+   PF9     ------> KEYPAD_COLUMN_4  #
    */
   GPIO_InitStruct.Pin = KEYPAD_COLUMN_2 | KEYPAD_COLUMN_3 | KEYPAD_COLUMN_4;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -266,8 +284,8 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
 
   /**GPIO keypad output configuration
-   PG2      ------> KEYPAD_ROW_1
-   PG3      ------> KEYPAD_ROW_2
+   PG2      ------> KEYPAD_ROW_1  #
+   PG3      ------> KEYPAD_ROW_2  #
    */
   GPIO_InitStruct.Pin = KEYPAD_ROW_1 | KEYPAD_ROW_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -301,8 +319,8 @@ void I2C1_RTC_Init (void)
   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
   /**GPIO I2C1 pin configuration
-   PB6     ------> I2C1 SCL
-   PB9     ------> I2C1 SDA
+   PB6     ------> I2C1 SCL #
+   PB9     ------> I2C1 SDA #
    */
   GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_9;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
@@ -341,8 +359,8 @@ void I2C2_LCD_Init (void)
   hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
   /**GPIO  I2C2 pin configuration
-   PB10      ------> I2C2 SCL
-   PB11      ------> I2C2 SDA
+   PB10      ------> I2C2 SCL #
+   PB11      ------> I2C2 SDA #
    */
   GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;

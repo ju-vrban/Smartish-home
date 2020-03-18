@@ -37,10 +37,10 @@ int main (void)
   I2C2_LCD_Init ();
 //  I2C3_LCD_Init ();
   LCD_Init ();
-/*  TIM3_Encoder_Living_Room_Init ();
+  TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
   TIM12_PWM_Living_Bedroom_Init ();
-  DMA_Init ();
+/*  DMA_Init ();
   DAC_Init ();
   TIM2_dac_Init ();
   TIM9_us_delay_Init ();
@@ -73,12 +73,12 @@ int main (void)
         }
 
       currentTime = (float) Time.hours + ((float) Time.minutes / 100);
-/*
+
       entrance_Light (dusk, currentTime);
       bathroom_Light ();
       living_Room_Kitchen_Light (dusk, currentTime);
       bedroom_Light (dusk, currentTime);
-
+/*
       blinds_Living_Room (dusk, currentTime);
       blinds_Bedroom (dusk, currentTime);
 
