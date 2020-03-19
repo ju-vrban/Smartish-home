@@ -70,6 +70,7 @@ extern "C"
   TIM_HandleTypeDef htim2;
   TIM_HandleTypeDef htim3;
   TIM_HandleTypeDef htim4;
+  TIM_HandleTypeDef htim5;
   TIM_HandleTypeDef htim9;
   TIM_HandleTypeDef htim12;
   DAC_HandleTypeDef hdac;
@@ -80,9 +81,9 @@ extern "C"
   void I2C1_RTC_Init (void);
   void I2C2_LCD_Init (void);
   void I2C3_LCD_Init (void);
-  void TIM3_Init (void);
   void TIM3_Encoder_Living_Room_Init (void);
   void TIM4_Encoder_Bedroom_Init (void);
+  void TIM5_Init(void);
   void TIM12_PWM_Living_Bedroom_Init (void);
   void DAC_Init (void);
   void TIM2_dac_Init (void);

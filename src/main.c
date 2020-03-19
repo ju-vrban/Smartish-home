@@ -35,16 +35,16 @@ int main (void)
   GPIO_Init ();
   I2C1_RTC_Init ();
   I2C2_LCD_Init ();
-//  I2C3_LCD_Init ();
+  I2C3_LCD_Init ();
   LCD_Init ();
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
   TIM12_PWM_Living_Bedroom_Init ();
-/*  DMA_Init ();
+  DMA_Init ();
   DAC_Init ();
   TIM2_dac_Init ();
   TIM9_us_delay_Init ();
-*/
+
   //float RTCTempSens;
   char LCDCharBuffer[10];
   int timeOfUpdate[3] =
@@ -57,15 +57,15 @@ int main (void)
 
 //  set_Time (00, 30, 14, 1, 16, 3, 20);
 
-  //HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
+//HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
 
 //  HAL_TIM_Base_Start (&htim9);
 
   while (1)
     {
-       get_Time ();
+      get_Time ();
 
-       if ((Time.hours == timeOfUpdate[0] && Time.minutes == timeOfUpdate[1]
+      if ((Time.hours == timeOfUpdate[0] && Time.minutes == timeOfUpdate[1]
           && Time.seconds == timeOfUpdate[3]) || sysRestart == 1)
         {
           dusk = calculate_Dusk_Time ();
@@ -74,43 +74,41 @@ int main (void)
 
       currentTime = (float) Time.hours + ((float) Time.minutes / 100);
 
-      entrance_Light (dusk, currentTime);
-      bathroom_Light ();
-      living_Room_Kitchen_Light (dusk, currentTime);
-      bedroom_Light (dusk, currentTime);
+       entrance_Light (dusk, currentTime);
+       bathroom_Light ();
+       living_Room_Kitchen_Light (dusk, currentTime);
+       bedroom_Light (dusk, currentTime);
 /*
-      blinds_Living_Room (dusk, currentTime);
-      blinds_Bedroom (dusk, currentTime);
+       blinds_Living_Room (dusk, currentTime);
+       blinds_Bedroom (dusk, currentTime);
 
-     // gnerate_Sine_Wave ();      // PROBA
-      fire_Alarm ();
-      emergency_Ventilation ();
+       // gnerate_Sine_Wave ();      // PROBA
+       fire_Alarm ();
+       emergency_Ventilation ();
 
-      key = read_Keypad ();
+       key = read_Keypad ();
 
-      if (key != 0x01)
-        {
-          LCD_Send_Cmd (0x85);
-          LCD_Send_Data (key);
-        }
+       if (key != 0x01)
+       {
+       LCD_Send_Cmd (0x85);
+       LCD_Send_Data (key);
+       }
 
        if (HAL_GetTick () - lastConversion >= 1000L)
        {
        DHT11_Data_Transfer ();
        }
        */
-//      trace_printf("It works\n");
-
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);
       LCD_Put_Cur (0, 0);
       LCD_Send_String (LCDCharBuffer);
 
-       //      sprintf (
-       //          LCDCharBuffer, "T: %fC",
-       //          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
+      //      sprintf (
+      //          LCDCharBuffer, "T: %fC",
+      //          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
 
-/*
+      /*
        sprintf (
        LCDCharBuffer,
        " H: %f",
