@@ -136,7 +136,7 @@ void GPIO_Init (void)
      */
     GPIO_InitStruct.Pin = GPIO_LIVING_MICROWAVE_SEN;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-    GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
 
   /**GPIO switch input configuration
@@ -146,8 +146,8 @@ void GPIO_Init (void)
   GPIO_InitStruct.Pin = GPIO_LIVING_ROOM_ENCODER_SW
       | GPIO_BEDROOM_ENCODER_SW;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init (GPIOD, &GPIO_InitStruct);
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init (GPIOC, &GPIO_InitStruct);
 
   /**GPIO light output configuration
    PD11     ------> GPIO_MAIN_ENTRANCE_LIGHT    #

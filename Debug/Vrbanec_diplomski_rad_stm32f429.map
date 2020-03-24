@@ -4567,7 +4567,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/DS18B20_water_temp.o
  .debug_macro   0x0000000000000000      0x217 ./src/DS18B20_water_temp.o
  .debug_macro   0x0000000000000000      0x134 ./src/DS18B20_water_temp.o
- .debug_macro   0x0000000000000000       0x28 ./src/DS18B20_water_temp.o
+ .debug_macro   0x0000000000000000       0x2e ./src/DS18B20_water_temp.o
  .debug_macro   0x0000000000000000      0x100 ./src/DS18B20_water_temp.o
  .debug_macro   0x0000000000000000       0x28 ./src/DS18B20_water_temp.o
  .debug_macro   0x0000000000000000       0x16 ./src/DS18B20_water_temp.o
@@ -4579,7 +4579,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c ./src/DS18B20_water_temp.o
  .debug_macro   0x0000000000000000       0x10 ./src/DS18B20_water_temp.o
  .debug_line    0x0000000000000000      0xa94 ./src/DS18B20_water_temp.o
- .debug_str     0x0000000000000000    0xe128a ./src/DS18B20_water_temp.o
+ .debug_str     0x0000000000000000    0xe129a ./src/DS18B20_water_temp.o
  .comment       0x0000000000000000       0x67 ./src/DS18B20_water_temp.o
  .debug_frame   0x0000000000000000       0xa8 ./src/DS18B20_water_temp.o
  .ARM.attributes
@@ -4759,7 +4759,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/LCD_pcf8574.o
  .debug_macro   0x0000000000000000      0x217 ./src/LCD_pcf8574.o
  .debug_macro   0x0000000000000000      0x134 ./src/LCD_pcf8574.o
- .debug_macro   0x0000000000000000       0x28 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000000000       0x2e ./src/LCD_pcf8574.o
  .debug_macro   0x0000000000000000      0x100 ./src/LCD_pcf8574.o
  .debug_macro   0x0000000000000000       0x28 ./src/LCD_pcf8574.o
  .debug_macro   0x0000000000000000       0x16 ./src/LCD_pcf8574.o
@@ -4961,7 +4961,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/RTC_ds3231.o
  .debug_macro   0x0000000000000000      0x217 ./src/RTC_ds3231.o
  .debug_macro   0x0000000000000000      0x134 ./src/RTC_ds3231.o
- .debug_macro   0x0000000000000000       0x28 ./src/RTC_ds3231.o
+ .debug_macro   0x0000000000000000       0x2e ./src/RTC_ds3231.o
  .debug_macro   0x0000000000000000      0x100 ./src/RTC_ds3231.o
  .debug_macro   0x0000000000000000       0x16 ./src/RTC_ds3231.o
  .debug_macro   0x0000000000000000       0x16 ./src/RTC_ds3231.o
@@ -5184,7 +5184,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/alarms_and_security.o
  .debug_macro   0x0000000000000000      0x217 ./src/alarms_and_security.o
  .debug_macro   0x0000000000000000      0x134 ./src/alarms_and_security.o
- .debug_macro   0x0000000000000000       0x28 ./src/alarms_and_security.o
+ .debug_macro   0x0000000000000000       0x2e ./src/alarms_and_security.o
  .debug_macro   0x0000000000000000      0x100 ./src/alarms_and_security.o
  .debug_macro   0x0000000000000000       0x28 ./src/alarms_and_security.o
  .debug_macro   0x0000000000000000       0x16 ./src/alarms_and_security.o
@@ -5197,7 +5197,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c ./src/alarms_and_security.o
  .debug_macro   0x0000000000000000       0x10 ./src/alarms_and_security.o
  .debug_line    0x0000000000000000      0xccc ./src/alarms_and_security.o
- .debug_str     0x0000000000000000    0xe12be ./src/alarms_and_security.o
+ .debug_str     0x0000000000000000    0xe12ce ./src/alarms_and_security.o
  .comment       0x0000000000000000       0x67 ./src/alarms_and_security.o
  .debug_frame   0x0000000000000000       0x84 ./src/alarms_and_security.o
  .ARM.attributes
@@ -5446,7 +5446,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/blinds.o
  .debug_macro   0x0000000000000000      0x217 ./src/blinds.o
  .debug_macro   0x0000000000000000      0x134 ./src/blinds.o
- .debug_macro   0x0000000000000000       0x28 ./src/blinds.o
+ .debug_macro   0x0000000000000000       0x2e ./src/blinds.o
  .debug_macro   0x0000000000000000      0x100 ./src/blinds.o
  .debug_macro   0x0000000000000000       0x28 ./src/blinds.o
  .debug_macro   0x0000000000000000       0x16 ./src/blinds.o
@@ -5459,7 +5459,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./src/blinds.o
  .debug_macro   0x0000000000000000       0x10 ./src/blinds.o
  .debug_line    0x0000000000000000      0xf67 ./src/blinds.o
- .debug_str     0x0000000000000000    0xe12ee ./src/blinds.o
+ .debug_str     0x0000000000000000    0xe12fe ./src/blinds.o
  .comment       0x0000000000000000       0x67 ./src/blinds.o
  .debug_frame   0x0000000000000000       0xe8 ./src/blinds.o
  .ARM.attributes
@@ -5647,7 +5647,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/boiler.o
  .debug_macro   0x0000000000000000      0x217 ./src/boiler.o
  .debug_macro   0x0000000000000000      0x134 ./src/boiler.o
- .debug_macro   0x0000000000000000       0x28 ./src/boiler.o
+ .debug_macro   0x0000000000000000       0x2e ./src/boiler.o
  .debug_macro   0x0000000000000000      0x100 ./src/boiler.o
  .debug_macro   0x0000000000000000       0x28 ./src/boiler.o
  .debug_macro   0x0000000000000000       0x16 ./src/boiler.o
@@ -5660,7 +5660,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c ./src/boiler.o
  .debug_macro   0x0000000000000000       0x10 ./src/boiler.o
  .debug_line    0x0000000000000000      0x8b4 ./src/boiler.o
- .debug_str     0x0000000000000000    0xe1179 ./src/boiler.o
+ .debug_str     0x0000000000000000    0xe1189 ./src/boiler.o
  .comment       0x0000000000000000       0x67 ./src/boiler.o
  .debug_frame   0x0000000000000000       0x30 ./src/boiler.o
  .ARM.attributes
@@ -5849,7 +5849,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/dwt_delay.o
  .debug_macro   0x0000000000000000      0x217 ./src/dwt_delay.o
  .debug_macro   0x0000000000000000      0x134 ./src/dwt_delay.o
- .debug_macro   0x0000000000000000       0x28 ./src/dwt_delay.o
+ .debug_macro   0x0000000000000000       0x2e ./src/dwt_delay.o
  .debug_macro   0x0000000000000000      0x100 ./src/dwt_delay.o
  .debug_macro   0x0000000000000000       0x28 ./src/dwt_delay.o
  .debug_macro   0x0000000000000000       0x16 ./src/dwt_delay.o
@@ -5862,7 +5862,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c ./src/dwt_delay.o
  .debug_macro   0x0000000000000000       0x10 ./src/dwt_delay.o
  .debug_line    0x0000000000000000      0x909 ./src/dwt_delay.o
- .debug_str     0x0000000000000000    0xe1255 ./src/dwt_delay.o
+ .debug_str     0x0000000000000000    0xe1265 ./src/dwt_delay.o
  .comment       0x0000000000000000       0x67 ./src/dwt_delay.o
  .debug_frame   0x0000000000000000       0x30 ./src/dwt_delay.o
  .ARM.attributes
@@ -6050,7 +6050,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/esp8266.o
  .debug_macro   0x0000000000000000      0x217 ./src/esp8266.o
  .debug_macro   0x0000000000000000      0x134 ./src/esp8266.o
- .debug_macro   0x0000000000000000       0x28 ./src/esp8266.o
+ .debug_macro   0x0000000000000000       0x2e ./src/esp8266.o
  .debug_macro   0x0000000000000000      0x100 ./src/esp8266.o
  .debug_macro   0x0000000000000000       0x28 ./src/esp8266.o
  .debug_macro   0x0000000000000000       0x16 ./src/esp8266.o
@@ -6063,7 +6063,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./src/esp8266.o
  .debug_macro   0x0000000000000000       0x16 ./src/esp8266.o
  .debug_line    0x0000000000000000      0x943 ./src/esp8266.o
- .debug_str     0x0000000000000000    0xe174f ./src/esp8266.o
+ .debug_str     0x0000000000000000    0xe175f ./src/esp8266.o
  .comment       0x0000000000000000       0x67 ./src/esp8266.o
  .debug_frame   0x0000000000000000       0x48 ./src/esp8266.o
  .ARM.attributes
@@ -6251,7 +6251,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./src/light_mgmt.o
  .debug_macro   0x0000000000000000       0x1c ./src/light_mgmt.o
  .debug_macro   0x0000000000000000       0x10 ./src/light_mgmt.o
- .debug_macro   0x0000000000000000       0x28 ./src/light_mgmt.o
+ .debug_macro   0x0000000000000000       0x2e ./src/light_mgmt.o
  .group         0x0000000000000000        0xc ./src/main.o
  .group         0x0000000000000000        0xc ./src/main.o
  .group         0x0000000000000000        0xc ./src/main.o
@@ -6425,7 +6425,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/main.o
  .debug_macro   0x0000000000000000      0x217 ./src/main.o
  .debug_macro   0x0000000000000000      0x134 ./src/main.o
- .debug_macro   0x0000000000000000       0x28 ./src/main.o
+ .debug_macro   0x0000000000000000       0x2e ./src/main.o
  .debug_macro   0x0000000000000000      0x100 ./src/main.o
  .debug_macro   0x0000000000000000       0x28 ./src/main.o
  .debug_macro   0x0000000000000000       0x16 ./src/main.o
@@ -6621,7 +6621,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/misc.o
  .debug_macro   0x0000000000000000      0x217 ./src/misc.o
  .debug_macro   0x0000000000000000      0x134 ./src/misc.o
- .debug_macro   0x0000000000000000       0x28 ./src/misc.o
+ .debug_macro   0x0000000000000000       0x2e ./src/misc.o
  .debug_macro   0x0000000000000000      0x100 ./src/misc.o
  .debug_macro   0x0000000000000000       0x28 ./src/misc.o
  .debug_macro   0x0000000000000000       0x16 ./src/misc.o
@@ -6811,7 +6811,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x0000000000000000      0x217 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x0000000000000000      0x134 ./src/stm32f4xx_hal_msp.o
- .debug_macro   0x0000000000000000       0x28 ./src/stm32f4xx_hal_msp.o
+ .debug_macro   0x0000000000000000       0x2e ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x0000000000000000      0x100 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x0000000000000000       0x28 ./src/stm32f4xx_hal_msp.o
  .debug_macro   0x0000000000000000       0x16 ./src/stm32f4xx_hal_msp.o
@@ -6996,7 +6996,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/stm32f4xx_it.o
  .debug_macro   0x0000000000000000      0x217 ./src/stm32f4xx_it.o
  .debug_macro   0x0000000000000000      0x134 ./src/stm32f4xx_it.o
- .debug_macro   0x0000000000000000       0x28 ./src/stm32f4xx_it.o
+ .debug_macro   0x0000000000000000       0x2e ./src/stm32f4xx_it.o
  .debug_macro   0x0000000000000000      0x100 ./src/stm32f4xx_it.o
  .debug_macro   0x0000000000000000       0x28 ./src/stm32f4xx_it.o
  .debug_macro   0x0000000000000000       0x16 ./src/stm32f4xx_it.o
@@ -7290,7 +7290,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/system_init.o
  .debug_macro   0x0000000000000000      0x217 ./src/system_init.o
  .debug_macro   0x0000000000000000      0x134 ./src/system_init.o
- .debug_macro   0x0000000000000000       0x28 ./src/system_init.o
+ .debug_macro   0x0000000000000000       0x2e ./src/system_init.o
  .debug_macro   0x0000000000000000       0x28 ./src/system_init.o
  .debug_macro   0x0000000000000000       0x16 ./src/system_init.o
  .debug_macro   0x0000000000000000       0x16 ./src/system_init.o
@@ -7512,7 +7512,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x287 ./src/ventilation_and_heating.o
  .debug_macro   0x0000000000000000      0x217 ./src/ventilation_and_heating.o
  .debug_macro   0x0000000000000000      0x134 ./src/ventilation_and_heating.o
- .debug_macro   0x0000000000000000       0x28 ./src/ventilation_and_heating.o
+ .debug_macro   0x0000000000000000       0x2e ./src/ventilation_and_heating.o
  .debug_macro   0x0000000000000000      0x100 ./src/ventilation_and_heating.o
  .debug_macro   0x0000000000000000       0x28 ./src/ventilation_and_heating.o
  .debug_macro   0x0000000000000000       0x16 ./src/ventilation_and_heating.o
@@ -7525,7 +7525,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c ./src/ventilation_and_heating.o
  .debug_macro   0x0000000000000000       0x10 ./src/ventilation_and_heating.o
  .debug_line    0x0000000000000000      0x925 ./src/ventilation_and_heating.o
- .debug_str     0x0000000000000000    0xe1223 ./src/ventilation_and_heating.o
+ .debug_str     0x0000000000000000    0xe1233 ./src/ventilation_and_heating.o
  .comment       0x0000000000000000       0x67 ./src/ventilation_and_heating.o
  .debug_frame   0x0000000000000000       0x40 ./src/ventilation_and_heating.o
  .ARM.attributes
@@ -8116,7 +8116,7 @@ END GROUP
                 0x000000002002fc00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                        PROVIDE (_Main_Stack_Limit = __Main_Stack_Limit)
                 0x0000000000000100                _Minimum_Stack_Size = 0x100
-                0x00000000200005e4                PROVIDE (_Heap_Begin = _end_noinit)
+                0x00000000200005e0                PROVIDE (_Heap_Begin = _end_noinit)
                 0x000000002002fc00                PROVIDE (_Heap_Limit = (__stack - __Main_Stack_Size))
 
 .isr_vector     0x0000000008000000      0x3ec
@@ -8140,16 +8140,16 @@ END GROUP
 
 .inits          0x00000000080003ec       0x28
                 0x00000000080003ec                __data_regions_array_start = .
-                0x00000000080003ec        0x4 LONG 0x8007790 LOADADDR (.data)
+                0x00000000080003ec        0x4 LONG 0x8007770 LOADADDR (.data)
                 0x00000000080003f0        0x4 LONG 0x20000000 ADDR (.data)
                 0x00000000080003f4        0x4 LONG 0x200001ec (ADDR (.data) + SIZEOF (.data))
-                0x00000000080003f8        0x4 LONG 0x8007790 LOADADDR (.data_CCMRAM)
+                0x00000000080003f8        0x4 LONG 0x8007770 LOADADDR (.data_CCMRAM)
                 0x00000000080003fc        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
                 0x0000000008000400        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x0000000008000404                __data_regions_array_end = .
                 0x0000000008000404                __bss_regions_array_start = .
                 0x0000000008000404        0x4 LONG 0x200001ec ADDR (.bss)
-                0x0000000008000408        0x4 LONG 0x200005e4 (ADDR (.bss) + SIZEOF (.bss))
+                0x0000000008000408        0x4 LONG 0x200005e0 (ADDR (.bss) + SIZEOF (.bss))
                 0x000000000800040c        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
                 0x0000000008000410        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x0000000008000414                __bss_regions_array_end = .
@@ -8175,7 +8175,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x0000000008000420     0x7368
+.text           0x0000000008000420     0x7348
  *(.text .text.*)
  .text.HAL_InitTick
                 0x0000000008000420       0x4c ./system/src/stm32f4xx/stm32f4xx_hal.o
@@ -8498,403 +8498,403 @@ END GROUP
                 0x0000000008002fb4       0xac ./src/light_mgmt.o
                 0x0000000008002fb4                bathroom_Light
  .text.living_Room_Kitchen_Light
-                0x0000000008003060      0x168 ./src/light_mgmt.o
+                0x0000000008003060      0x160 ./src/light_mgmt.o
                 0x0000000008003060                living_Room_Kitchen_Light
  .text.bedroom_Light
-                0x00000000080031c8      0x200 ./src/light_mgmt.o
-                0x00000000080031c8                bedroom_Light
- .text.main     0x00000000080033c8       0xd4 ./src/main.o
-                0x00000000080033c8                main
+                0x00000000080031c0      0x1fc ./src/light_mgmt.o
+                0x00000000080031c0                bedroom_Light
+ .text.main     0x00000000080033bc       0xb8 ./src/main.o
+                0x00000000080033bc                main
  .text.Error_Handler
-                0x000000000800349c        0x2 ./src/main.o
-                0x000000000800349c                Error_Handler
- *fill*         0x000000000800349e        0x2 
+                0x0000000008003474        0x2 ./src/main.o
+                0x0000000008003474                Error_Handler
+ *fill*         0x0000000008003476        0x2 
  .text.automatic_Mode
-                0x00000000080034a0       0x18 ./src/misc.o
-                0x00000000080034a0                automatic_Mode
+                0x0000000008003478       0x18 ./src/misc.o
+                0x0000000008003478                automatic_Mode
  .text.HAL_MspInit
-                0x00000000080034b8       0x38 ./src/stm32f4xx_hal_msp.o
-                0x00000000080034b8                HAL_MspInit
+                0x0000000008003490       0x38 ./src/stm32f4xx_hal_msp.o
+                0x0000000008003490                HAL_MspInit
  .text.HAL_DAC_MspInit
-                0x00000000080034f0       0xb0 ./src/stm32f4xx_hal_msp.o
-                0x00000000080034f0                HAL_DAC_MspInit
+                0x00000000080034c8       0xb0 ./src/stm32f4xx_hal_msp.o
+                0x00000000080034c8                HAL_DAC_MspInit
  .text.HAL_I2C_MspInit
-                0x00000000080035a0       0xb4 ./src/stm32f4xx_hal_msp.o
-                0x00000000080035a0                HAL_I2C_MspInit
+                0x0000000008003578       0xb4 ./src/stm32f4xx_hal_msp.o
+                0x0000000008003578                HAL_I2C_MspInit
  .text.HAL_TIM_Base_MspInit
-                0x0000000008003654       0x30 ./src/stm32f4xx_hal_msp.o
-                0x0000000008003654                HAL_TIM_Base_MspInit
+                0x000000000800362c       0x30 ./src/stm32f4xx_hal_msp.o
+                0x000000000800362c                HAL_TIM_Base_MspInit
  .text.NMI_Handler
-                0x0000000008003684        0x2 ./src/stm32f4xx_it.o
-                0x0000000008003684                NMI_Handler
+                0x000000000800365c        0x2 ./src/stm32f4xx_it.o
+                0x000000000800365c                NMI_Handler
  .text.HardFault_Handler
-                0x0000000008003686        0x2 ./src/stm32f4xx_it.o
-                0x0000000008003686                HardFault_Handler
+                0x000000000800365e        0x2 ./src/stm32f4xx_it.o
+                0x000000000800365e                HardFault_Handler
  .text.MemManage_Handler
-                0x0000000008003688        0x2 ./src/stm32f4xx_it.o
-                0x0000000008003688                MemManage_Handler
+                0x0000000008003660        0x2 ./src/stm32f4xx_it.o
+                0x0000000008003660                MemManage_Handler
  .text.BusFault_Handler
-                0x000000000800368a        0x2 ./src/stm32f4xx_it.o
-                0x000000000800368a                BusFault_Handler
+                0x0000000008003662        0x2 ./src/stm32f4xx_it.o
+                0x0000000008003662                BusFault_Handler
  .text.UsageFault_Handler
-                0x000000000800368c        0x2 ./src/stm32f4xx_it.o
-                0x000000000800368c                UsageFault_Handler
+                0x0000000008003664        0x2 ./src/stm32f4xx_it.o
+                0x0000000008003664                UsageFault_Handler
  .text.SVC_Handler
-                0x000000000800368e        0x2 ./src/stm32f4xx_it.o
-                0x000000000800368e                SVC_Handler
+                0x0000000008003666        0x2 ./src/stm32f4xx_it.o
+                0x0000000008003666                SVC_Handler
  .text.DebugMon_Handler
-                0x0000000008003690        0x2 ./src/stm32f4xx_it.o
-                0x0000000008003690                DebugMon_Handler
+                0x0000000008003668        0x2 ./src/stm32f4xx_it.o
+                0x0000000008003668                DebugMon_Handler
  .text.PendSV_Handler
-                0x0000000008003692        0x2 ./src/stm32f4xx_it.o
-                0x0000000008003692                PendSV_Handler
+                0x000000000800366a        0x2 ./src/stm32f4xx_it.o
+                0x000000000800366a                PendSV_Handler
  .text.SysTick_Handler
-                0x0000000008003694        0x8 ./src/stm32f4xx_it.o
-                0x0000000008003694                SysTick_Handler
+                0x000000000800366c        0x8 ./src/stm32f4xx_it.o
+                0x000000000800366c                SysTick_Handler
  .text.DMA1_Stream5_IRQHandler
-                0x000000000800369c       0x10 ./src/stm32f4xx_it.o
-                0x000000000800369c                DMA1_Stream5_IRQHandler
- .text._kill    0x00000000080036ac       0x10 ./src/syscalls.o
-                0x00000000080036ac                _kill
- .text._exit    0x00000000080036bc        0xc ./src/syscalls.o
-                0x00000000080036bc                _exit
+                0x0000000008003674       0x10 ./src/stm32f4xx_it.o
+                0x0000000008003674                DMA1_Stream5_IRQHandler
+ .text._kill    0x0000000008003684       0x10 ./src/syscalls.o
+                0x0000000008003684                _kill
+ .text._exit    0x0000000008003694        0xc ./src/syscalls.o
+                0x0000000008003694                _exit
  .text.SystemClock_Config
-                0x00000000080036c8       0xf8 ./src/system_init.o
-                0x00000000080036c8                SystemClock_Config
+                0x00000000080036a0       0xf8 ./src/system_init.o
+                0x00000000080036a0                SystemClock_Config
  .text.GPIO_Init
-                0x00000000080037c0      0x260 ./src/system_init.o
-                0x00000000080037c0                GPIO_Init
+                0x0000000008003798      0x264 ./src/system_init.o
+                0x0000000008003798                GPIO_Init
  .text.I2C1_RTC_Init
-                0x0000000008003a20       0x78 ./src/system_init.o
-                0x0000000008003a20                I2C1_RTC_Init
+                0x00000000080039fc       0x78 ./src/system_init.o
+                0x00000000080039fc                I2C1_RTC_Init
  .text.I2C2_LCD_Init
-                0x0000000008003a98       0x8c ./src/system_init.o
-                0x0000000008003a98                I2C2_LCD_Init
+                0x0000000008003a74       0x8c ./src/system_init.o
+                0x0000000008003a74                I2C2_LCD_Init
  .text.I2C3_LCD_Init
-                0x0000000008003b24       0x5c ./src/system_init.o
-                0x0000000008003b24                I2C3_LCD_Init
+                0x0000000008003b00       0x5c ./src/system_init.o
+                0x0000000008003b00                I2C3_LCD_Init
  .text.TIM3_Encoder_Living_Room_Init
-                0x0000000008003b80       0x84 ./src/system_init.o
-                0x0000000008003b80                TIM3_Encoder_Living_Room_Init
+                0x0000000008003b5c       0x84 ./src/system_init.o
+                0x0000000008003b5c                TIM3_Encoder_Living_Room_Init
  .text.TIM4_Encoder_Bedroom_Init
-                0x0000000008003c04       0x84 ./src/system_init.o
-                0x0000000008003c04                TIM4_Encoder_Bedroom_Init
+                0x0000000008003be0       0x84 ./src/system_init.o
+                0x0000000008003be0                TIM4_Encoder_Bedroom_Init
  .text.TIM12_PWM_Living_Bedroom_Init
-                0x0000000008003c88       0xbc ./src/system_init.o
-                0x0000000008003c88                TIM12_PWM_Living_Bedroom_Init
+                0x0000000008003c64       0xbc ./src/system_init.o
+                0x0000000008003c64                TIM12_PWM_Living_Bedroom_Init
  .text.DAC_Init
-                0x0000000008003d44       0x44 ./src/system_init.o
-                0x0000000008003d44                DAC_Init
+                0x0000000008003d20       0x44 ./src/system_init.o
+                0x0000000008003d20                DAC_Init
  .text.TIM2_dac_Init
-                0x0000000008003d88       0x70 ./src/system_init.o
-                0x0000000008003d88                TIM2_dac_Init
+                0x0000000008003d64       0x70 ./src/system_init.o
+                0x0000000008003d64                TIM2_dac_Init
  .text.DMA_Init
-                0x0000000008003df8       0x34 ./src/system_init.o
-                0x0000000008003df8                DMA_Init
+                0x0000000008003dd4       0x34 ./src/system_init.o
+                0x0000000008003dd4                DMA_Init
  .text.TIM9_us_delay_Init
-                0x0000000008003e2c       0x54 ./src/system_init.o
-                0x0000000008003e2c                TIM9_us_delay_Init
+                0x0000000008003e08       0x54 ./src/system_init.o
+                0x0000000008003e08                TIM9_us_delay_Init
  .text.SystemInit
-                0x0000000008003e80       0x10 ./src/system_stm32f4xx.o
-                0x0000000008003e80                SystemInit
+                0x0000000008003e5c       0x10 ./src/system_stm32f4xx.o
+                0x0000000008003e5c                SystemInit
  .text.SystemCoreClockUpdate
-                0x0000000008003e90       0xa0 ./src/system_stm32f4xx.o
-                0x0000000008003e90                SystemCoreClockUpdate
- .text          0x0000000008003f30      0x378 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubdf3.o)
-                0x0000000008003f30                __aeabi_drsub
-                0x0000000008003f38                __aeabi_dsub
-                0x0000000008003f38                __subdf3
-                0x0000000008003f3c                __adddf3
-                0x0000000008003f3c                __aeabi_dadd
-                0x00000000080041b4                __aeabi_ui2d
-                0x00000000080041b4                __floatunsidf
-                0x00000000080041d4                __floatsidf
-                0x00000000080041d4                __aeabi_i2d
-                0x00000000080041f8                __extendsfdf2
-                0x00000000080041f8                __aeabi_f2d
-                0x000000000800423c                __aeabi_ul2d
-                0x000000000800423c                __floatundidf
-                0x000000000800424c                __floatdidf
-                0x000000000800424c                __aeabi_l2d
- .text          0x00000000080042a8      0x424 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_muldivdf3.o)
-                0x00000000080042a8                __aeabi_dmul
-                0x00000000080042a8                __muldf3
-                0x00000000080044fc                __aeabi_ddiv
-                0x00000000080044fc                __divdf3
- .text          0x00000000080046cc      0x110 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpdf2.o)
-                0x00000000080046cc                __gtdf2
-                0x00000000080046cc                __gedf2
-                0x00000000080046d4                __ltdf2
-                0x00000000080046d4                __ledf2
-                0x00000000080046dc                __cmpdf2
-                0x00000000080046dc                __eqdf2
-                0x00000000080046dc                __nedf2
-                0x0000000008004758                __aeabi_cdrcmple
-                0x0000000008004768                __aeabi_cdcmple
-                0x0000000008004768                __aeabi_cdcmpeq
-                0x0000000008004778                __aeabi_dcmpeq
-                0x000000000800478c                __aeabi_dcmplt
-                0x00000000080047a0                __aeabi_dcmple
-                0x00000000080047b4                __aeabi_dcmpge
-                0x00000000080047c8                __aeabi_dcmpgt
- .text          0x00000000080047dc       0x50 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_fixdfsi.o)
-                0x00000000080047dc                __fixdfsi
-                0x00000000080047dc                __aeabi_d2iz
- .text          0x000000000800482c      0x21c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubsf3.o)
-                0x000000000800482c                __aeabi_frsub
-                0x0000000008004834                __subsf3
-                0x0000000008004834                __aeabi_fsub
-                0x0000000008004838                __aeabi_fadd
-                0x0000000008004838                __addsf3
-                0x0000000008004998                __aeabi_ui2f
-                0x0000000008004998                __floatunsisf
-                0x00000000080049a0                __aeabi_i2f
-                0x00000000080049a0                __floatsisf
-                0x00000000080049bc                __floatundisf
-                0x00000000080049bc                __aeabi_ul2f
-                0x00000000080049cc                __floatdisf
-                0x00000000080049cc                __aeabi_l2f
- .text          0x0000000008004a48      0x2a0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_muldivsf3.o)
-                0x0000000008004a48                __mulsf3
-                0x0000000008004a48                __aeabi_fmul
-                0x0000000008004bb0                __divsf3
-                0x0000000008004bb0                __aeabi_fdiv
- .text          0x0000000008004ce8       0xec /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpsf2.o)
-                0x0000000008004ce8                __gtsf2
-                0x0000000008004ce8                __gesf2
-                0x0000000008004cf0                __lesf2
-                0x0000000008004cf0                __ltsf2
-                0x0000000008004cf8                __nesf2
-                0x0000000008004cf8                __eqsf2
-                0x0000000008004cf8                __cmpsf2
-                0x0000000008004d58                __aeabi_cfrcmple
-                0x0000000008004d60                __aeabi_cfcmple
-                0x0000000008004d60                __aeabi_cfcmpeq
-                0x0000000008004d70                __aeabi_fcmpeq
-                0x0000000008004d84                __aeabi_fcmplt
-                0x0000000008004d98                __aeabi_fcmple
-                0x0000000008004dac                __aeabi_fcmpge
-                0x0000000008004dc0                __aeabi_fcmpgt
- .text          0x0000000008004dd4       0x4c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_fixsfsi.o)
-                0x0000000008004dd4                __fixsfsi
-                0x0000000008004dd4                __aeabi_f2iz
- .text          0x0000000008004e20       0x30 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
-                0x0000000008004e20                __aeabi_uldivmod
+                0x0000000008003e6c       0xa0 ./src/system_stm32f4xx.o
+                0x0000000008003e6c                SystemCoreClockUpdate
+ .text          0x0000000008003f0c      0x378 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubdf3.o)
+                0x0000000008003f0c                __aeabi_drsub
+                0x0000000008003f14                __aeabi_dsub
+                0x0000000008003f14                __subdf3
+                0x0000000008003f18                __adddf3
+                0x0000000008003f18                __aeabi_dadd
+                0x0000000008004190                __aeabi_ui2d
+                0x0000000008004190                __floatunsidf
+                0x00000000080041b0                __floatsidf
+                0x00000000080041b0                __aeabi_i2d
+                0x00000000080041d4                __extendsfdf2
+                0x00000000080041d4                __aeabi_f2d
+                0x0000000008004218                __aeabi_ul2d
+                0x0000000008004218                __floatundidf
+                0x0000000008004228                __floatdidf
+                0x0000000008004228                __aeabi_l2d
+ .text          0x0000000008004284      0x424 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_muldivdf3.o)
+                0x0000000008004284                __aeabi_dmul
+                0x0000000008004284                __muldf3
+                0x00000000080044d8                __aeabi_ddiv
+                0x00000000080044d8                __divdf3
+ .text          0x00000000080046a8      0x110 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpdf2.o)
+                0x00000000080046a8                __gtdf2
+                0x00000000080046a8                __gedf2
+                0x00000000080046b0                __ltdf2
+                0x00000000080046b0                __ledf2
+                0x00000000080046b8                __cmpdf2
+                0x00000000080046b8                __eqdf2
+                0x00000000080046b8                __nedf2
+                0x0000000008004734                __aeabi_cdrcmple
+                0x0000000008004744                __aeabi_cdcmple
+                0x0000000008004744                __aeabi_cdcmpeq
+                0x0000000008004754                __aeabi_dcmpeq
+                0x0000000008004768                __aeabi_dcmplt
+                0x000000000800477c                __aeabi_dcmple
+                0x0000000008004790                __aeabi_dcmpge
+                0x00000000080047a4                __aeabi_dcmpgt
+ .text          0x00000000080047b8       0x50 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_fixdfsi.o)
+                0x00000000080047b8                __fixdfsi
+                0x00000000080047b8                __aeabi_d2iz
+ .text          0x0000000008004808      0x21c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubsf3.o)
+                0x0000000008004808                __aeabi_frsub
+                0x0000000008004810                __subsf3
+                0x0000000008004810                __aeabi_fsub
+                0x0000000008004814                __aeabi_fadd
+                0x0000000008004814                __addsf3
+                0x0000000008004974                __aeabi_ui2f
+                0x0000000008004974                __floatunsisf
+                0x000000000800497c                __aeabi_i2f
+                0x000000000800497c                __floatsisf
+                0x0000000008004998                __floatundisf
+                0x0000000008004998                __aeabi_ul2f
+                0x00000000080049a8                __floatdisf
+                0x00000000080049a8                __aeabi_l2f
+ .text          0x0000000008004a24      0x2a0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_muldivsf3.o)
+                0x0000000008004a24                __mulsf3
+                0x0000000008004a24                __aeabi_fmul
+                0x0000000008004b8c                __divsf3
+                0x0000000008004b8c                __aeabi_fdiv
+ .text          0x0000000008004cc4       0xec /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                0x0000000008004cc4                __gtsf2
+                0x0000000008004cc4                __gesf2
+                0x0000000008004ccc                __lesf2
+                0x0000000008004ccc                __ltsf2
+                0x0000000008004cd4                __nesf2
+                0x0000000008004cd4                __eqsf2
+                0x0000000008004cd4                __cmpsf2
+                0x0000000008004d34                __aeabi_cfrcmple
+                0x0000000008004d3c                __aeabi_cfcmple
+                0x0000000008004d3c                __aeabi_cfcmpeq
+                0x0000000008004d4c                __aeabi_fcmpeq
+                0x0000000008004d60                __aeabi_fcmplt
+                0x0000000008004d74                __aeabi_fcmple
+                0x0000000008004d88                __aeabi_fcmpge
+                0x0000000008004d9c                __aeabi_fcmpgt
+ .text          0x0000000008004db0       0x4c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_fixsfsi.o)
+                0x0000000008004db0                __fixsfsi
+                0x0000000008004db0                __aeabi_f2iz
+ .text          0x0000000008004dfc       0x30 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000008004dfc                __aeabi_uldivmod
  .text.__udivmoddi4
-                0x0000000008004e50      0x2c0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
-                0x0000000008004e50                __udivmoddi4
- .text          0x0000000008005110        0x4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
-                0x0000000008005110                __aeabi_ldiv0
-                0x0000000008005110                __aeabi_idiv0
- .text.__errno  0x0000000008005114        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-errno.o)
-                0x0000000008005114                __errno
- .text.memcpy   0x0000000008005120       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memcpy-stub.o)
-                0x0000000008005120                memcpy
- .text.memset   0x000000000800513c       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memset.o)
-                0x000000000800513c                memset
- .text.__cvt    0x000000000800514c       0xc0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
-                0x000000000800514c                __cvt
+                0x0000000008004e2c      0x2c0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x0000000008004e2c                __udivmoddi4
+ .text          0x00000000080050ec        0x4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x00000000080050ec                __aeabi_ldiv0
+                0x00000000080050ec                __aeabi_idiv0
+ .text.__errno  0x00000000080050f0        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-errno.o)
+                0x00000000080050f0                __errno
+ .text.memcpy   0x00000000080050fc       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memcpy-stub.o)
+                0x00000000080050fc                memcpy
+ .text.memset   0x0000000008005118       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memset.o)
+                0x0000000008005118                memset
+ .text.__cvt    0x0000000008005128       0xc0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
+                0x0000000008005128                __cvt
  .text.__exponent
-                0x000000000800520c       0x7c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
-                0x000000000800520c                __exponent
+                0x00000000080051e8       0x7c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
+                0x00000000080051e8                __exponent
  .text._printf_float
-                0x0000000008005288      0x454 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
-                0x0000000008005288                _printf_float
+                0x0000000008005264      0x454 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
+                0x0000000008005264                _printf_float
  .text._printf_common
-                0x00000000080056dc       0xda /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00000000080056dc                _printf_common
- *fill*         0x00000000080057b6        0x2 
+                0x00000000080056b8       0xda /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000000080056b8                _printf_common
+ *fill*         0x0000000008005792        0x2 
  .text._printf_i
-                0x00000000080057b8      0x24c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00000000080057b8                _printf_i
- .text.sprintf  0x0000000008005a04       0x40 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sprintf.o)
-                0x0000000008005a04                sprintf
-                0x0000000008005a04                siprintf
- .text          0x0000000008005a44       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-strlen.o)
-                0x0000000008005a44                strlen
+                0x0000000008005794      0x24c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008005794                _printf_i
+ .text.sprintf  0x00000000080059e0       0x40 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sprintf.o)
+                0x00000000080059e0                sprintf
+                0x00000000080059e0                siprintf
+ .text          0x0000000008005a20       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-strlen.o)
+                0x0000000008005a20                strlen
  .text._vsnprintf_r
-                0x0000000008005a54       0x58 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
-                0x0000000008005a54                _vsnprintf_r
-                0x0000000008005a54                _vsniprintf_r
+                0x0000000008005a30       0x58 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
+                0x0000000008005a30                _vsnprintf_r
+                0x0000000008005a30                _vsniprintf_r
  .text.vsnprintf
-                0x0000000008005aac       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
-                0x0000000008005aac                vsnprintf
-                0x0000000008005aac                vsniprintf
- .text.quorem   0x0000000008005ac8      0x116 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-dtoa.o)
- *fill*         0x0000000008005bde        0x2 
- .text._dtoa_r  0x0000000008005be0      0xba4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-dtoa.o)
-                0x0000000008005be0                _dtoa_r
+                0x0000000008005a88       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-vsnprintf.o)
+                0x0000000008005a88                vsnprintf
+                0x0000000008005a88                vsniprintf
+ .text.quorem   0x0000000008005aa4      0x116 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-dtoa.o)
+ *fill*         0x0000000008005bba        0x6 
+ .text._dtoa_r  0x0000000008005bc0      0xba4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-dtoa.o)
+                0x0000000008005bc0                _dtoa_r
  .text._localeconv_r
-                0x0000000008006784        0x8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-localeconv.o)
-                0x0000000008006784                _localeconv_r
- .text.malloc   0x000000000800678c       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-malloc.o)
-                0x000000000800678c                malloc
- *fill*         0x000000000800679c        0x4 
- .text          0x00000000080067a0       0xa0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memchr.o)
-                0x00000000080067a0                memchr
- .text._Balloc  0x0000000008006840       0x68 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006840                _Balloc
- .text._Bfree   0x00000000080068a8       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x00000000080068a8                _Bfree
+                0x0000000008006764        0x8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-localeconv.o)
+                0x0000000008006764                _localeconv_r
+ .text.malloc   0x000000000800676c       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-malloc.o)
+                0x000000000800676c                malloc
+ *fill*         0x000000000800677c        0x4 
+ .text          0x0000000008006780       0xa0 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memchr.o)
+                0x0000000008006780                memchr
+ .text._Balloc  0x0000000008006820       0x68 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006820                _Balloc
+ .text._Bfree   0x0000000008006888       0x2e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006888                _Bfree
  .text.__multadd
-                0x00000000080068d6       0x7c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x00000000080068d6                __multadd
+                0x00000000080068b6       0x7c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x00000000080068b6                __multadd
  .text.__hi0bits
-                0x0000000008006952       0x40 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006952                __hi0bits
+                0x0000000008006932       0x40 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006932                __hi0bits
  .text.__lo0bits
-                0x0000000008006992       0x5c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006992                __lo0bits
- .text.__i2b    0x00000000080069ee       0x12 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x00000000080069ee                __i2b
+                0x0000000008006972       0x5c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006972                __lo0bits
+ .text.__i2b    0x00000000080069ce       0x12 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x00000000080069ce                __i2b
  .text.__multiply
-                0x0000000008006a00      0x138 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006a00                __multiply
+                0x00000000080069e0      0x138 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x00000000080069e0                __multiply
  .text.__pow5mult
-                0x0000000008006b38       0x9c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006b38                __pow5mult
+                0x0000000008006b18       0x9c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006b18                __pow5mult
  .text.__lshift
-                0x0000000008006bd4       0xbe /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006bd4                __lshift
- .text.__mcmp   0x0000000008006c92       0x36 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006c92                __mcmp
- .text.__mdiff  0x0000000008006cc8       0xec /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006cc8                __mdiff
- .text.__d2b    0x0000000008006db4       0x9e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008006db4                __d2b
+                0x0000000008006bb4       0xbe /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006bb4                __lshift
+ .text.__mcmp   0x0000000008006c72       0x36 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006c72                __mcmp
+ .text.__mdiff  0x0000000008006ca8       0xec /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006ca8                __mdiff
+ .text.__d2b    0x0000000008006d94       0x9e /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008006d94                __d2b
  .text._calloc_r
-                0x0000000008006e52       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-callocr.o)
-                0x0000000008006e52                _calloc_r
- *fill*         0x0000000008006e6e        0x2 
- .text._free_r  0x0000000008006e70       0x9c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-freer.o)
-                0x0000000008006e70                _free_r
+                0x0000000008006e32       0x1c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-callocr.o)
+                0x0000000008006e32                _calloc_r
+ *fill*         0x0000000008006e4e        0x2 
+ .text._free_r  0x0000000008006e50       0x9c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-freer.o)
+                0x0000000008006e50                _free_r
  .text._malloc_r
-                0x0000000008006f0c       0xb4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
-                0x0000000008006f0c                _malloc_r
+                0x0000000008006eec       0xb4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
+                0x0000000008006eec                _malloc_r
  .text.__ssputs_r
-                0x0000000008006fc0       0xb6 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
-                0x0000000008006fc0                __ssputs_r
- *fill*         0x0000000008007076        0x2 
+                0x0000000008006fa0       0xb6 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000008006fa0                __ssputs_r
+ *fill*         0x0000000008007056        0x2 
  .text._svfprintf_r
-                0x0000000008007078      0x200 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
-                0x0000000008007078                _svfprintf_r
-                0x0000000008007078                _svfiprintf_r
- .text._sbrk_r  0x0000000008007278       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sbrkr.o)
-                0x0000000008007278                _sbrk_r
+                0x0000000008007058      0x200 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000008007058                _svfprintf_r
+                0x0000000008007058                _svfiprintf_r
+ .text._sbrk_r  0x0000000008007258       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-sbrkr.o)
+                0x0000000008007258                _sbrk_r
  .text.__ascii_mbtowc
-                0x0000000008007298       0x24 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mbtowc_r.o)
-                0x0000000008007298                __ascii_mbtowc
- .text.memmove  0x00000000080072bc       0x34 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memmove.o)
-                0x00000000080072bc                memmove
+                0x0000000008007278       0x24 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mbtowc_r.o)
+                0x0000000008007278                __ascii_mbtowc
+ .text.memmove  0x000000000800729c       0x34 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-memmove.o)
+                0x000000000800729c                memmove
  .text.__malloc_lock
-                0x00000000080072f0        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
-                0x00000000080072f0                __malloc_lock
+                0x00000000080072d0        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
+                0x00000000080072d0                __malloc_lock
  .text.__malloc_unlock
-                0x00000000080072fc        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
-                0x00000000080072fc                __malloc_unlock
+                0x00000000080072dc        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mlock.o)
+                0x00000000080072dc                __malloc_unlock
  .text._realloc_r
-                0x0000000008007308       0x4c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-reallocr.o)
-                0x0000000008007308                _realloc_r
+                0x00000000080072e8       0x4c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-reallocr.o)
+                0x00000000080072e8                _realloc_r
  .text.__ascii_wctomb
-                0x0000000008007354       0x1a /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-wctomb_r.o)
-                0x0000000008007354                __ascii_wctomb
+                0x0000000008007334       0x1a /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-wctomb_r.o)
+                0x0000000008007334                __ascii_wctomb
  .text.__retarget_lock_acquire_recursive
-                0x000000000800736e        0x2 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
-                0x000000000800736e                __retarget_lock_acquire_recursive
+                0x000000000800734e        0x2 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
+                0x000000000800734e                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0000000008007370        0x2 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
-                0x0000000008007370                __retarget_lock_release_recursive
+                0x0000000008007350        0x2 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
+                0x0000000008007350                __retarget_lock_release_recursive
  .text._malloc_usable_size_r
-                0x0000000008007372       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
-                0x0000000008007372                _malloc_usable_size_r
- *fill*         0x0000000008007382        0x2 
- .text          0x0000000008007384       0x2c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_unorddf2.o)
-                0x0000000008007384                __aeabi_dcmpun
-                0x0000000008007384                __unorddf2
+                0x0000000008007352       0x10 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
+                0x0000000008007352                _malloc_usable_size_r
+ *fill*         0x0000000008007362        0x2 
+ .text          0x0000000008007364       0x2c /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_unorddf2.o)
+                0x0000000008007364                __aeabi_dcmpun
+                0x0000000008007364                __unorddf2
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.flagBitshiftOffset.7177
-                0x00000000080073b0        0x8 ./system/src/stm32f4xx/stm32f4xx_hal_dma.o
+                0x0000000008007390        0x8 ./system/src/stm32f4xx/stm32f4xx_hal_dma.o
  .rodata.dumpExceptionStack.str1.4
-                0x00000000080073b8      0x11a ./system/src/cortexm/exception_handlers.o
- *fill*         0x00000000080074d2        0x2 
+                0x0000000008007398      0x11a ./system/src/cortexm/exception_handlers.o
+ *fill*         0x00000000080074b2        0x2 
  .rodata.str1.4
-                0x00000000080074d4       0x2a ./system/src/cortexm/exception_handlers.o
- *fill*         0x00000000080074fe        0x2 
+                0x00000000080074b4       0x2a ./system/src/cortexm/exception_handlers.o
+ *fill*         0x00000000080074de        0x2 
  .rodata.main.str1.4
-                0x0000000008007500        0xf ./src/main.o
- *fill*         0x000000000800750f        0x1 
+                0x00000000080074e0        0xf ./src/main.o
+ *fill*         0x00000000080074ef        0x1 
  .rodata.AHBPrescTable
-                0x0000000008007510       0x10 ./src/system_stm32f4xx.o
-                0x0000000008007510                AHBPrescTable
+                0x00000000080074f0       0x10 ./src/system_stm32f4xx.o
+                0x00000000080074f0                AHBPrescTable
  .rodata.APBPrescTable
-                0x0000000008007520        0x8 ./src/system_stm32f4xx.o
-                0x0000000008007520                APBPrescTable
+                0x0000000008007500        0x8 ./src/system_stm32f4xx.o
+                0x0000000008007500                APBPrescTable
  .rodata._printf_float.str1.1
-                0x0000000008007528       0x12 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
+                0x0000000008007508       0x12 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_float.o)
  .rodata._printf_i.str1.1
-                0x000000000800753a       0x22 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000000800751a       0x22 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata._dtoa_r.str1.1
-                0x000000000800755c        0xd /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-dtoa.o)
+                0x000000000800753c        0xd /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-dtoa.o)
                                           0xf (size before relaxing)
- *fill*         0x0000000008007569        0x7 
+ *fill*         0x0000000008007549        0x7 
  .rodata.__mprec_bigtens
-                0x0000000008007570       0x28 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008007570                __mprec_bigtens
+                0x0000000008007550       0x28 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008007550                __mprec_bigtens
  .rodata.__mprec_tens
-                0x0000000008007598       0xc8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
-                0x0000000008007598                __mprec_tens
+                0x0000000008007578       0xc8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008007578                __mprec_tens
  .rodata.p05.6127
-                0x0000000008007660        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
+                0x0000000008007640        0xc /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-mprec.o)
  .rodata._svfprintf_r.str1.1
-                0x000000000800766c       0x11 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
+                0x000000000800764c       0x11 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata._setlocale_r.str1.1
-                0x000000000800767d        0x8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-locale.o)
+                0x000000000800765d        0x8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-locale.o)
                                           0x9 (size before relaxing)
  .rodata.str1.1
-                0x0000000008007685        0x2 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-locale.o)
+                0x0000000008007665        0x2 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-locale.o)
  .rodata._ctype_
-                0x0000000008007687      0x101 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-ctype_.o)
-                0x0000000008007687                _ctype_
+                0x0000000008007667      0x101 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-ctype_.o)
+                0x0000000008007667                _ctype_
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x0000000008007788        0x0 linker stubs
+ .glue_7        0x0000000008007768        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008007788        0x0 linker stubs
+ .glue_7t       0x0000000008007768        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008007788        0x0
- .vfp11_veneer  0x0000000008007788        0x0 linker stubs
+.vfp11_veneer   0x0000000008007768        0x0
+ .vfp11_veneer  0x0000000008007768        0x0 linker stubs
 
-.v4_bx          0x0000000008007788        0x0
- .v4_bx         0x0000000008007788        0x0 linker stubs
+.v4_bx          0x0000000008007768        0x0
+ .v4_bx         0x0000000008007768        0x0 linker stubs
 
-.iplt           0x0000000008007788        0x0
- .iplt          0x0000000008007788        0x0 ./system/src/stm32f4xx/stm32f4xx_hal.o
+.iplt           0x0000000008007768        0x0
+ .iplt          0x0000000008007768        0x0 ./system/src/stm32f4xx/stm32f4xx_hal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008007788                . = ALIGN (0x4)
-                0x0000000008007788                __exidx_start = .
+                0x0000000008007768                . = ALIGN (0x4)
+                0x0000000008007768                __exidx_start = .
 
-.ARM.exidx      0x0000000008007788        0x8
+.ARM.exidx      0x0000000008007768        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.text.__udivmoddi4
-                0x0000000008007788        0x8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
-                0x0000000008007790                __exidx_end = .
+                0x0000000008007768        0x8 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x0000000008007770                __exidx_end = .
 
-.rel.dyn        0x0000000008007790        0x0
- .rel.iplt      0x0000000008007790        0x0 ./system/src/stm32f4xx/stm32f4xx_hal.o
-                0x0000000008007790                . = ALIGN (0x4)
-                0x0000000008007790                _etext = .
-                0x0000000008007790                __etext = .
+.rel.dyn        0x0000000008007770        0x0
+ .rel.iplt      0x0000000008007770        0x0 ./system/src/stm32f4xx/stm32f4xx_hal.o
+                0x0000000008007770                . = ALIGN (0x4)
+                0x0000000008007770                _etext = .
+                0x0000000008007770                __etext = .
 
-.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008007790
+.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008007770
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x0000000010000000                . = ALIGN (0x4)
-                0x0000000008007790                _sidata = LOADADDR (.data)
+                0x0000000008007770                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x1ec load address 0x0000000008007790
+.data           0x0000000020000000      0x1ec load address 0x0000000008007770
  FILL mask 0xff
                 0x0000000020000000                _sdata = .
                 0x0000000020000000                __data_start__ = .
@@ -8927,13 +8927,13 @@ END GROUP
                 0x00000000200001ec                _edata = .
                 0x00000000200001ec                __data_end__ = .
 
-.igot.plt       0x00000000200001ec        0x0 load address 0x000000000800797c
+.igot.plt       0x00000000200001ec        0x0 load address 0x000000000800795c
  .igot.plt      0x00000000200001ec        0x0 ./system/src/stm32f4xx/stm32f4xx_hal.o
 
 .bss_CCMRAM     0x0000000010000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x00000000200001ec      0x3f8
+.bss            0x00000000200001ec      0x3f4
                 0x00000000200001ec                __bss_start__ = .
                 0x00000000200001ec                _sbss = .
  *(.bss_begin .bss_begin.*)
@@ -8951,81 +8951,78 @@ END GROUP
                 0x000000002000027c        0x4 ./src/light_mgmt.o
  .bss.duskTime.9833
                 0x0000000020000280        0x8 ./src/light_mgmt.o
- .bss.encoderDuty.9863
-                0x0000000020000288        0x1 ./src/light_mgmt.o
- *fill*         0x0000000020000289        0x3 
  .bss.isOccupied.9844
-                0x000000002000028c        0x4 ./src/light_mgmt.o
+                0x0000000020000288        0x4 ./src/light_mgmt.o
  .bss.lastConversion.9855
-                0x0000000020000290        0x4 ./src/light_mgmt.o
+                0x000000002000028c        0x4 ./src/light_mgmt.o
  .bss.lightState.9851
-                0x0000000020000294        0x4 ./src/light_mgmt.o
+                0x0000000020000290        0x4 ./src/light_mgmt.o
  .bss.switchState.9854
-                0x0000000020000298        0x4 ./src/light_mgmt.o
+                0x0000000020000294        0x4 ./src/light_mgmt.o
  .bss.switchState.9861
-                0x000000002000029c        0x4 ./src/light_mgmt.o
+                0x0000000020000298        0x4 ./src/light_mgmt.o
  .bss.__malloc_free_list
-                0x00000000200002a0        0x4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
-                0x00000000200002a0                __malloc_free_list
+                0x000000002000029c        0x4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
+                0x000000002000029c                __malloc_free_list
  .bss.__malloc_sbrk_start
-                0x00000000200002a4        0x4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
-                0x00000000200002a4                __malloc_sbrk_start
+                0x00000000200002a0        0x4 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-mallocr.o)
+                0x00000000200002a0                __malloc_sbrk_start
  *(COMMON)
- COMMON         0x00000000200002a8        0x4 ./system/src/stm32f4xx/stm32f4xx_hal.o
-                0x00000000200002a8                uwTick
- COMMON         0x00000000200002ac        0x4 ./system/src/newlib/_syscalls.o
-                0x00000000200002ac                errno
- COMMON         0x00000000200002b0      0x325 ./src/DHT11_humidity_temp.o
-                0x00000000200002b0                hi2c3
-                0x0000000020000304                htim4
-                0x0000000020000344                hi2c1
-                0x0000000020000398                hi2c2
-                0x00000000200003ec                htim5
-                0x000000002000042c                ds18b20
-                0x0000000020000434                htim3
-                0x0000000020000474                hdma_dac1
-                0x00000000200004d4                hdac
-                0x00000000200004e8                esp8266input
-                0x00000000200004ec                GPIO_InitStruct
-                0x0000000020000500                htim9
-                0x0000000020000540                htim2
-                0x0000000020000580                dht11
-                0x0000000020000588                Time
-                0x0000000020000590                htim12
-                0x00000000200005d0                AlarmTime
- COMMON         0x00000000200005d5        0x9 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
-                0x00000000200005d5                __lock___atexit_recursive_mutex
-                0x00000000200005d6                __lock___arc4random_mutex
-                0x00000000200005d7                __lock___env_recursive_mutex
-                0x00000000200005d8                __lock___sinit_recursive_mutex
-                0x00000000200005d9                __lock___malloc_recursive_mutex
-                0x00000000200005da                __lock___at_quick_exit_mutex
-                0x00000000200005db                __lock___dd_hash_mutex
-                0x00000000200005dc                __lock___tz_mutex
-                0x00000000200005dd                __lock___sfp_recursive_mutex
+ COMMON         0x00000000200002a4        0x4 ./system/src/stm32f4xx/stm32f4xx_hal.o
+                0x00000000200002a4                uwTick
+ COMMON         0x00000000200002a8        0x4 ./system/src/newlib/_syscalls.o
+                0x00000000200002a8                errno
+ COMMON         0x00000000200002ac      0x325 ./src/DHT11_humidity_temp.o
+                0x00000000200002ac                hi2c3
+                0x0000000020000300                htim4
+                0x0000000020000340                hi2c1
+                0x0000000020000394                hi2c2
+                0x00000000200003e8                htim5
+                0x0000000020000428                ds18b20
+                0x0000000020000430                htim3
+                0x0000000020000470                hdma_dac1
+                0x00000000200004d0                hdac
+                0x00000000200004e4                esp8266input
+                0x00000000200004e8                GPIO_InitStruct
+                0x00000000200004fc                htim9
+                0x000000002000053c                htim2
+                0x000000002000057c                dht11
+                0x0000000020000584                Time
+                0x000000002000058c                htim12
+                0x00000000200005cc                AlarmTime
+ COMMON         0x00000000200005d1        0x9 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-lock.o)
+                0x00000000200005d1                __lock___atexit_recursive_mutex
+                0x00000000200005d2                __lock___arc4random_mutex
+                0x00000000200005d3                __lock___env_recursive_mutex
+                0x00000000200005d4                __lock___sinit_recursive_mutex
+                0x00000000200005d5                __lock___malloc_recursive_mutex
+                0x00000000200005d6                __lock___at_quick_exit_mutex
+                0x00000000200005d7                __lock___dd_hash_mutex
+                0x00000000200005d8                __lock___tz_mutex
+                0x00000000200005d9                __lock___sfp_recursive_mutex
  *(.bss_end .bss_end.*)
- *fill*         0x00000000200005de        0x2 
- .bss_end       0x00000000200005e0        0x4 ./system/src/newlib/_startup.o
-                0x00000000200005e4                . = ALIGN (0x4)
-                0x00000000200005e4                __bss_end__ = .
-                0x00000000200005e4                _ebss = .
+ *fill*         0x00000000200005da        0x2 
+ .bss_end       0x00000000200005dc        0x4 ./system/src/newlib/_startup.o
+                0x00000000200005e0                . = ALIGN (0x4)
+                0x00000000200005e0                __bss_end__ = .
+                0x00000000200005e0                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x00000000200005e4        0x0
-                0x00000000200005e4                _noinit = .
+.noinit         0x00000000200005e0        0x0
+                0x00000000200005e0                _noinit = .
  *(.noinit .noinit.*)
-                0x00000000200005e4                . = ALIGN (0x4)
-                0x00000000200005e4                _end_noinit = .
+                0x00000000200005e0                . = ALIGN (0x4)
+                0x00000000200005e0                _end_noinit = .
                 [!provide]                        PROVIDE (end = _end_noinit)
                 [!provide]                        PROVIDE (_end = _end_noinit)
                 [!provide]                        PROVIDE (__end = _end_noinit)
                 [!provide]                        PROVIDE (__end__ = _end_noinit)
 
-._check_stack   0x00000000200005e4      0x100
-                0x00000000200006e4                . = (. + _Minimum_Stack_Size)
- *fill*         0x00000000200005e4      0x100 
+._check_stack   0x00000000200005e0      0x100
+                0x00000000200006e0                . = (. + _Minimum_Stack_Size)
+ *fill*         0x00000000200005e0      0x100 
 
 .b1text
  *(.b1text)
@@ -9329,7 +9326,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000    0x247f7
+.debug_info     0x0000000000000000    0x247e8
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0xad1 ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_info    0x0000000000000ad1     0x116a ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -9354,16 +9351,16 @@ END GROUP
  .debug_info    0x00000000000125d7     0x1ac7 ./src/DHT11_humidity_temp.o
  .debug_info    0x000000000001409e     0x1af5 ./src/LCD_pcf8574.o
  .debug_info    0x0000000000015b93     0x1eec ./src/RTC_ds3231.o
- .debug_info    0x0000000000017a7f     0x1f70 ./src/light_mgmt.o
- .debug_info    0x00000000000199ef     0x1a57 ./src/main.o
- .debug_info    0x000000000001b446     0x1a23 ./src/misc.o
- .debug_info    0x000000000001ce69     0x1d44 ./src/stm32f4xx_hal_msp.o
- .debug_info    0x000000000001ebad     0x1840 ./src/stm32f4xx_it.o
- .debug_info    0x00000000000203ed     0x10b4 ./src/syscalls.o
- .debug_info    0x00000000000214a1     0x2dff ./src/system_init.o
- .debug_info    0x00000000000242a0      0x557 ./src/system_stm32f4xx.o
+ .debug_info    0x0000000000017a7f     0x1f5e ./src/light_mgmt.o
+ .debug_info    0x00000000000199dd     0x1a57 ./src/main.o
+ .debug_info    0x000000000001b434     0x1a23 ./src/misc.o
+ .debug_info    0x000000000001ce57     0x1d44 ./src/stm32f4xx_hal_msp.o
+ .debug_info    0x000000000001eb9b     0x1840 ./src/stm32f4xx_it.o
+ .debug_info    0x00000000000203db     0x10b4 ./src/syscalls.o
+ .debug_info    0x000000000002148f     0x2e02 ./src/system_init.o
+ .debug_info    0x0000000000024291      0x557 ./src/system_stm32f4xx.o
 
-.debug_abbrev   0x0000000000000000     0x4b5b
+.debug_abbrev   0x0000000000000000     0x4b7b
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x21c ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_abbrev  0x000000000000021c      0x393 ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -9388,16 +9385,16 @@ END GROUP
  .debug_abbrev  0x0000000000002bb8      0x2e5 ./src/DHT11_humidity_temp.o
  .debug_abbrev  0x0000000000002e9d      0x30d ./src/LCD_pcf8574.o
  .debug_abbrev  0x00000000000031aa      0x303 ./src/RTC_ds3231.o
- .debug_abbrev  0x00000000000034ad      0x395 ./src/light_mgmt.o
- .debug_abbrev  0x0000000000003842      0x2e4 ./src/main.o
- .debug_abbrev  0x0000000000003b26      0x360 ./src/misc.o
- .debug_abbrev  0x0000000000003e86      0x2eb ./src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x0000000000004171      0x2ae ./src/stm32f4xx_it.o
- .debug_abbrev  0x000000000000441f      0x2f8 ./src/syscalls.o
- .debug_abbrev  0x0000000000004717      0x315 ./src/system_init.o
- .debug_abbrev  0x0000000000004a2c      0x12f ./src/system_stm32f4xx.o
+ .debug_abbrev  0x00000000000034ad      0x3b5 ./src/light_mgmt.o
+ .debug_abbrev  0x0000000000003862      0x2e4 ./src/main.o
+ .debug_abbrev  0x0000000000003b46      0x360 ./src/misc.o
+ .debug_abbrev  0x0000000000003ea6      0x2eb ./src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x0000000000004191      0x2ae ./src/stm32f4xx_it.o
+ .debug_abbrev  0x000000000000443f      0x2f8 ./src/syscalls.o
+ .debug_abbrev  0x0000000000004737      0x315 ./src/system_init.o
+ .debug_abbrev  0x0000000000004a4c      0x12f ./src/system_stm32f4xx.o
 
-.debug_line     0x0000000000000000    0x1912a
+.debug_line     0x0000000000000000    0x190e1
  *(.debug_line)
  .debug_line    0x0000000000000000      0x80e ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_line    0x000000000000080e      0xa1b ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -9422,14 +9419,14 @@ END GROUP
  .debug_line    0x0000000000011e1c      0xab6 ./src/DHT11_humidity_temp.o
  .debug_line    0x00000000000128d2      0xa08 ./src/LCD_pcf8574.o
  .debug_line    0x00000000000132da      0xb1d ./src/RTC_ds3231.o
- .debug_line    0x0000000000013df7      0xfeb ./src/light_mgmt.o
- .debug_line    0x0000000000014de2      0x936 ./src/main.o
- .debug_line    0x0000000000015718      0xa0b ./src/misc.o
- .debug_line    0x0000000000016123      0xafc ./src/stm32f4xx_hal_msp.o
- .debug_line    0x0000000000016c1f      0x9b5 ./src/stm32f4xx_it.o
- .debug_line    0x00000000000175d4      0x6ba ./src/syscalls.o
- .debug_line    0x0000000000017c8e     0x124f ./src/system_init.o
- .debug_line    0x0000000000018edd      0x24d ./src/system_stm32f4xx.o
+ .debug_line    0x0000000000013df7      0xfb7 ./src/light_mgmt.o
+ .debug_line    0x0000000000014dae      0x921 ./src/main.o
+ .debug_line    0x00000000000156cf      0xa0b ./src/misc.o
+ .debug_line    0x00000000000160da      0xafc ./src/stm32f4xx_hal_msp.o
+ .debug_line    0x0000000000016bd6      0x9b5 ./src/stm32f4xx_it.o
+ .debug_line    0x000000000001758b      0x6ba ./src/syscalls.o
+ .debug_line    0x0000000000017c45     0x124f ./src/system_init.o
+ .debug_line    0x0000000000018e94      0x24d ./src/system_stm32f4xx.o
 
 .debug_frame    0x0000000000000000     0x3bb0
  *(.debug_frame)
@@ -9499,7 +9496,7 @@ END GROUP
  .debug_frame   0x0000000000003b70       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(lib_a-nano-msizer.o)
  .debug_frame   0x0000000000003b90       0x20 /home/jurica/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_unorddf2.o)
 
-.debug_str      0x0000000000000000    0xe6e79
+.debug_str      0x0000000000000000    0xe6e89
  *(.debug_str)
  .debug_str     0x0000000000000000    0xdacd3 ./system/src/stm32f4xx/stm32f4xx_hal.o
                                       0xdb060 (size before relaxing)
@@ -9541,30 +9538,30 @@ END GROUP
                                       0x97e59 (size before relaxing)
  .debug_str     0x00000000000e5291       0x38 ./system/src/cmsis/startup_stm32f429xx.o
                                          0x95 (size before relaxing)
- .debug_str     0x00000000000e52c9     0x13c7 ./src/DHT11_humidity_temp.o
-                                      0xe1276 (size before relaxing)
- .debug_str     0x00000000000e6690       0x79 ./src/LCD_pcf8574.o
-                                      0xe11e6 (size before relaxing)
- .debug_str     0x00000000000e6709      0x125 ./src/RTC_ds3231.o
-                                      0xe12bf (size before relaxing)
- .debug_str     0x00000000000e682e      0x1c2 ./src/light_mgmt.o
-                                      0xe13cb (size before relaxing)
- .debug_str     0x00000000000e69f0       0xfe ./src/main.o
-                                      0xe130d (size before relaxing)
- .debug_str     0x00000000000e6aee       0x52 ./src/misc.o
-                                      0xe1241 (size before relaxing)
- .debug_str     0x00000000000e6b40       0x39 ./src/stm32f4xx_hal_msp.o
-                                      0xe1391 (size before relaxing)
- .debug_str     0x00000000000e6b79       0x40 ./src/stm32f4xx_it.o
-                                      0xe122c (size before relaxing)
- .debug_str     0x00000000000e6bb9      0x1f3 ./src/syscalls.o
+ .debug_str     0x00000000000e52c9     0x13d7 ./src/DHT11_humidity_temp.o
+                                      0xe1286 (size before relaxing)
+ .debug_str     0x00000000000e66a0       0x79 ./src/LCD_pcf8574.o
+                                      0xe11f6 (size before relaxing)
+ .debug_str     0x00000000000e6719      0x125 ./src/RTC_ds3231.o
+                                      0xe12cf (size before relaxing)
+ .debug_str     0x00000000000e683e      0x1c2 ./src/light_mgmt.o
+                                      0xe13db (size before relaxing)
+ .debug_str     0x00000000000e6a00       0xfe ./src/main.o
+                                      0xe131d (size before relaxing)
+ .debug_str     0x00000000000e6afe       0x52 ./src/misc.o
+                                      0xe1251 (size before relaxing)
+ .debug_str     0x00000000000e6b50       0x39 ./src/stm32f4xx_hal_msp.o
+                                      0xe13a1 (size before relaxing)
+ .debug_str     0x00000000000e6b89       0x40 ./src/stm32f4xx_it.o
+                                      0xe123c (size before relaxing)
+ .debug_str     0x00000000000e6bc9      0x1f3 ./src/syscalls.o
                                        0x8721 (size before relaxing)
- .debug_str     0x00000000000e6dac       0x56 ./src/system_init.o
-                                      0xe1f41 (size before relaxing)
- .debug_str     0x00000000000e6e02       0x77 ./src/system_stm32f4xx.o
+ .debug_str     0x00000000000e6dbc       0x56 ./src/system_init.o
+                                      0xe1f51 (size before relaxing)
+ .debug_str     0x00000000000e6e12       0x77 ./src/system_stm32f4xx.o
                                       0x92c3e (size before relaxing)
 
-.debug_loc      0x0000000000000000     0xd814
+.debug_loc      0x0000000000000000     0xd76f
  *(.debug_loc)
  .debug_loc     0x0000000000000000      0x141 ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_loc     0x0000000000000141      0x744 ./system/src/stm32f4xx/stm32f4xx_hal_cortex.o
@@ -9587,12 +9584,12 @@ END GROUP
  .debug_loc     0x000000000000c26d       0x84 ./src/DHT11_humidity_temp.o
  .debug_loc     0x000000000000c2f1      0x137 ./src/LCD_pcf8574.o
  .debug_loc     0x000000000000c428      0x299 ./src/RTC_ds3231.o
- .debug_loc     0x000000000000c6c1      0x9e5 ./src/light_mgmt.o
- .debug_loc     0x000000000000d0a6       0xc0 ./src/main.o
- .debug_loc     0x000000000000d166       0x78 ./src/misc.o
- .debug_loc     0x000000000000d1de      0x105 ./src/stm32f4xx_hal_msp.o
- .debug_loc     0x000000000000d2e3      0x3c5 ./src/syscalls.o
- .debug_loc     0x000000000000d6a8      0x16c ./src/system_stm32f4xx.o
+ .debug_loc     0x000000000000c6c1      0x955 ./src/light_mgmt.o
+ .debug_loc     0x000000000000d016       0xab ./src/main.o
+ .debug_loc     0x000000000000d0c1       0x78 ./src/misc.o
+ .debug_loc     0x000000000000d139      0x105 ./src/stm32f4xx_hal_msp.o
+ .debug_loc     0x000000000000d23e      0x3c5 ./src/syscalls.o
+ .debug_loc     0x000000000000d603      0x16c ./src/system_stm32f4xx.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -9643,7 +9640,7 @@ OUTPUT(Vrbanec_diplomski_rad_stm32f429.elf elf32-littlearm)
  .debug_ranges  0x0000000000001018       0x70 ./src/system_init.o
  .debug_ranges  0x0000000000001088       0x18 ./src/system_stm32f4xx.o
 
-.debug_macro    0x0000000000000000    0x2867a
+.debug_macro    0x0000000000000000    0x28680
  .debug_macro   0x0000000000000000      0x23f ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_macro   0x000000000000023f      0xa9c ./system/src/stm32f4xx/stm32f4xx_hal.o
  .debug_macro   0x0000000000000cdb      0x1a2 ./system/src/stm32f4xx/stm32f4xx_hal.o
@@ -9740,29 +9737,29 @@ OUTPUT(Vrbanec_diplomski_rad_stm32f429.elf elf32-littlearm)
  .debug_macro   0x0000000000025646      0x1e1 ./src/DHT11_humidity_temp.o
  .debug_macro   0x0000000000025827       0xd9 ./src/DHT11_humidity_temp.o
  .debug_macro   0x0000000000025900       0x54 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025954       0x28 ./src/DHT11_humidity_temp.o
- .debug_macro   0x000000000002597c      0x100 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025a7c       0x28 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025aa4       0x16 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025aba       0x10 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025aca       0x16 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025ae0       0x10 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025af0       0x1c ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025b0c       0x10 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025b1c       0x16 ./src/DHT11_humidity_temp.o
- .debug_macro   0x0000000000025b32      0x49b ./src/LCD_pcf8574.o
- .debug_macro   0x0000000000025fcd       0x10 ./src/LCD_pcf8574.o
- .debug_macro   0x0000000000025fdd      0x49b ./src/RTC_ds3231.o
- .debug_macro   0x0000000000026478       0x22 ./src/RTC_ds3231.o
- .debug_macro   0x000000000002649a      0x49b ./src/light_mgmt.o
- .debug_macro   0x0000000000026935       0xfa ./src/light_mgmt.o
- .debug_macro   0x0000000000026a2f      0x491 ./src/main.o
- .debug_macro   0x0000000000026ec0      0x49c ./src/misc.o
- .debug_macro   0x000000000002735c      0x491 ./src/stm32f4xx_hal_msp.o
- .debug_macro   0x00000000000277ed      0x49b ./src/stm32f4xx_it.o
- .debug_macro   0x0000000000027c88      0x249 ./src/syscalls.o
- .debug_macro   0x0000000000027ed1      0x241 ./src/syscalls.o
- .debug_macro   0x0000000000028112       0x1c ./src/syscalls.o
- .debug_macro   0x000000000002812e       0x10 ./src/syscalls.o
- .debug_macro   0x000000000002813e      0x49b ./src/system_init.o
- .debug_macro   0x00000000000285d9       0xa1 ./src/system_stm32f4xx.o
+ .debug_macro   0x0000000000025954       0x2e ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025982      0x100 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025a82       0x28 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025aaa       0x16 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025ac0       0x10 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025ad0       0x16 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025ae6       0x10 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025af6       0x1c ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025b12       0x10 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025b22       0x16 ./src/DHT11_humidity_temp.o
+ .debug_macro   0x0000000000025b38      0x49b ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000025fd3       0x10 ./src/LCD_pcf8574.o
+ .debug_macro   0x0000000000025fe3      0x49b ./src/RTC_ds3231.o
+ .debug_macro   0x000000000002647e       0x22 ./src/RTC_ds3231.o
+ .debug_macro   0x00000000000264a0      0x49b ./src/light_mgmt.o
+ .debug_macro   0x000000000002693b       0xfa ./src/light_mgmt.o
+ .debug_macro   0x0000000000026a35      0x491 ./src/main.o
+ .debug_macro   0x0000000000026ec6      0x49c ./src/misc.o
+ .debug_macro   0x0000000000027362      0x491 ./src/stm32f4xx_hal_msp.o
+ .debug_macro   0x00000000000277f3      0x49b ./src/stm32f4xx_it.o
+ .debug_macro   0x0000000000027c8e      0x249 ./src/syscalls.o
+ .debug_macro   0x0000000000027ed7      0x241 ./src/syscalls.o
+ .debug_macro   0x0000000000028118       0x1c ./src/syscalls.o
+ .debug_macro   0x0000000000028134       0x10 ./src/syscalls.o
+ .debug_macro   0x0000000000028144      0x49b ./src/system_init.o
+ .debug_macro   0x00000000000285df       0xa1 ./src/system_stm32f4xx.o

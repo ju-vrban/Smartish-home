@@ -14,6 +14,7 @@ extern "C"
 #define NOON              12.00f
 #define MINS_60           3600000L
 #define MINS_5            300000L
+#define MINS_1            60000L
 
 
   float calculate_Dusk_Time (void);

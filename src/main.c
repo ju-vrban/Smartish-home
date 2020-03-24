@@ -72,13 +72,13 @@ int main (void)
           sysRestart = 0;
         }
 
-      currentTime = (float) Time.hours + ((float) Time.minutes / 100);
-
-       entrance_Light (dusk, currentTime);
-       bathroom_Light ();
-       living_Room_Kitchen_Light (dusk, currentTime);
-       bedroom_Light (dusk, currentTime);
-/*
+//      currentTime = (float) Time.hours + ((float) Time.minutes / 100);
+      currentTime = 19.00;
+      entrance_Light (dusk, currentTime);
+      bathroom_Light ();
+      living_Room_Kitchen_Light (dusk, currentTime);
+      bedroom_Light (dusk, currentTime);
+      /*
        blinds_Living_Room (dusk, currentTime);
        blinds_Bedroom (dusk, currentTime);
 
