@@ -190,14 +190,16 @@ void bathroom_Light (void)
   if (automaticMode == ON)
     {
       /* Sensor */
-      if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_SET
+      if ((HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_SET
           && isOccupied == 0)
+          || HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_SWITCH) == GPIO_PIN_SET)
         {
           isOccupied = 1;
           HAL_GPIO_WritePin (GPIOD, GPIO_BATHROOM_LIGHT, GPIO_PIN_SET);
         }
-      else if (HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_RESET
+      else if ((HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_PIR) == GPIO_PIN_RESET
           && isOccupied == 1)
+          || HAL_GPIO_ReadPin (GPIOD, GPIO_BATHROOM_SWITCH) == GPIO_PIN_RESET)
         {
           if (HAL_GetTick () - currentTime >= 500L)
             {
@@ -220,7 +222,6 @@ void bathroom_Light (void)
     }
 }
 
-/* U automatic nacinu duty racunati pomocu aplikacije */
 void living_Room_Kitchen_Light (float dusk, float currentTime)
 {
   static int lightState = OFF;
@@ -234,23 +235,28 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
 
   if (automaticMode == ON)
     {
-      if (HAL_GPIO_ReadPin (GPIOF,
+      if ((HAL_GPIO_ReadPin (GPIOF,
       GPIO_LIVING_MICROWAVE_SEN) == GPIO_PIN_SET && currentTime >= dusk
-      && currentTime <= BEFORE_MIDNIGHT
-      && lightState == OFF)
+          && currentTime <= BEFORE_MIDNIGHT && lightState == OFF)
+          || HAL_GPIO_ReadPin (GPIOC, GPIO_LIVING_ROOM_ENCODER_SW) == ON)
         {
+          if (HAL_GPIO_ReadPin (GPIOC, GPIO_LIVING_ROOM_ENCODER_SW) == ON)
+            {
+              switchState = ON;
+            }
           lightState = ON;
           lastConversion = HAL_GetTick ();
           HAL_TIM_PWM_Start (&htim12, TIM_CHANNEL_1);
           htim12.Instance->CCR1 = 50;
         }
-      else if (HAL_GPIO_ReadPin (GPIOF,
-      GPIO_LIVING_MICROWAVE_SEN) == GPIO_PIN_SET && lightState == ON)
+      else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_MICROWAVE_SEN) == ON
+          && lightState == ON && switchState == OFF)
         {
           lastConversion = HAL_GetTick ();
         }
       else if ((currentTime >= dusk && currentTime <= BEFORE_MIDNIGHT)
-          && lightState == ON && (HAL_GetTick () - lastConversion >= MINS_1))
+          && lightState == ON && (HAL_GetTick () - lastConversion >= MINS_1)
+          && switchState == OFF)
         {
           lastConversion = HAL_GetTick ();
           lightState = OFF;
@@ -261,6 +267,10 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
         {
           lightState = OFF;
           HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_1);
+        }
+      else if (HAL_GPIO_ReadPin (GPIOC, GPIO_LIVING_ROOM_ENCODER_SW) == ON)
+        {
+          switchState = OFF;
         }
     }
   else if (automaticMode == OFF)
@@ -285,9 +295,6 @@ void living_Room_Kitchen_Light (float dusk, float currentTime)
     }
 }
 
-/*  Pokrenuti tim4 rcc u main */
-
-/* Nema senzora ali se more prek aplikacije ili ručno upravljati pwm */
 void bedroom_Light (float dusk, float currentTime)
 {
 
@@ -317,7 +324,7 @@ void bedroom_Light (float dusk, float currentTime)
     }
   else
     {
-      if (bedroomEncoderSwitch == OFF && switchState == OFF)
+      if (bedroomEncoderSwitch == ON && switchState == OFF)
         {
 
           if (currentTime >= DAWN && currentTime <= NOON && switchState == OFF)
@@ -348,7 +355,7 @@ void bedroom_Light (float dusk, float currentTime)
               htim12.Instance->CCR2 = 15;
             }
         }
-      else if (bedroomEncoderSwitch == OFF && switchState == ON)
+      else if (bedroomEncoderSwitch == ON && switchState == ON)
         {
           switchState = OFF;
           HAL_TIM_PWM_Stop (&htim12, TIM_CHANNEL_2);

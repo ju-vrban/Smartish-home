@@ -12,7 +12,6 @@ extern "C"
 
   int concatenate (int x, int y);
   bool automatic_Mode (void);
-  void gnerate_Sine_Wave (void);
   void delay_us (uint16_t us);
 
 #ifdef __cplusplus

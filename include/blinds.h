@@ -11,12 +11,12 @@ extern "C"
 #define LOWERED   1
 #define RAISED    0
 
-  void lower_Blinds_Living (void);
-  void raise_Blinds_Living(void);
+  int lower_Blinds_Living (void);
+  int raise_Blinds_Living(void);
   void blinds_Living_Room (float dusk, float currentTime);
   void blinds_Living_Room_Manual(void);
-  void lower_Blinds_Bedroom (void);
-  void raise_Blinds_Bedroom (void);
+  int lower_Blinds_Bedroom (void);
+  int raise_Blinds_Bedroom (void);
   void blinds_Bedroom (float dusk, float currentTime);
   void blinds_Bedroom_Manual (void);
 

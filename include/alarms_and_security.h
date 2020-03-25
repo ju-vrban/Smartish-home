@@ -8,6 +8,7 @@ extern "C" {
 #include "main.h"
 
   bool check_For_Fire (void);
+  void gnerate_Sine_Wave (void);
   void fire_Alarm(void);
   bool check_For_Forcefull_Entrance (void);
   bool alarm_status (void);

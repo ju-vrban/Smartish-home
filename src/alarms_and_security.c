@@ -7,6 +7,50 @@
 
 #include "alarms_and_security.h"
 
+
+/**
+ * @brief Calculatesthe sine value according to the formula
+ * sineVal=(sin(x*2*PI/ns)+1)*((DAC_Max_Digit_Value + 1)/2)
+ *
+ * where ns is number of samples, and DAC_Max_Digit_Value is 0xFFF for
+ *  right aligned 12 bit resolution
+ *
+ *@param None
+ *@retval None
+ */
+void gnerate_Sine_Wave (void)
+{
+  uint32_t sineVal[400];
+  static int statusFlag1 = 0;
+  static int statusFlag2 = 0;
+  static long int lastConversion = 0;
+
+  for (int i = 0; i < 400; i++)
+    {
+      sineVal[i] = (sin (i * 2 * PI / 400) + 1) * ((4095 + 1) / 2);
+    }
+  if ((HAL_GetTick () - lastConversion >= 1000L)
+      && (HAL_GetTick () - lastConversion < 2000L) && statusFlag1 == 0)
+    {
+      statusFlag1 = 1;
+      HAL_TIM_Base_Start (&htim2);
+      HAL_DAC_Start_DMA (&hdac, DMA_CHANNEL_7, sineVal, 100, DAC_ALIGN_12B_R);
+//      HAL_DAC_SetValue (&hdac, DMA_CHANNEL_7, DAC_ALIGN_12B_R, sineVal);
+    }
+  else if ((HAL_GetTick () - lastConversion >= 2000L)
+      && (HAL_GetTick () - lastConversion < 2005L) && statusFlag2 == 0)
+    {
+      statusFlag2 = 1;
+      HAL_DAC_Stop_DMA (&hdac, DMA_CHANNEL_7);
+    }
+  else if (HAL_GetTick () - lastConversion >= 2005L)
+    {
+      lastConversion = HAL_GetTick ();
+      statusFlag1 = 0;
+      statusFlag2 = 0;
+    }
+}
+
 /**
  * @brief If IR sensor returns high value, the function returns a true value
  *
@@ -15,8 +59,8 @@
  */
 bool check_For_Fire (void)
 {
-  if (HAL_GPIO_ReadPin (GPIOE, GPIO_DANGEROUS_GASES) == GPIO_PIN_SET
-      && HAL_GPIO_ReadPin (GPIOE, GPIO_FIRE_IR_SENSOR) == GPIO_PIN_SET)
+  if (HAL_GPIO_ReadPin (GPIOG, GPIO_DANGEROUS_GASES) == GPIO_PIN_SET
+      && HAL_GPIO_ReadPin (GPIOG, GPIO_FIRE_IR_SENSOR) == GPIO_PIN_SET)
     return true;
   else
     return false;
@@ -34,10 +78,10 @@ void fire_Alarm (void)
   if (check_For_Fire () == true)
     {
       raise_Blinds_Living ();
-      raise_Blinds_Bedroom ();
+//      raise_Blinds_Bedroom ();
       gnerate_Sine_Wave ();
 
-      static long int lastConversion = 0L;
+      static uint32_t lastConversion = 0L;
       static int statusFlag1 = 0;
       static int statusFlag2 = 0;
 
@@ -66,6 +110,11 @@ void fire_Alarm (void)
               statusFlag1 = 0;
             }
         }
+    }
+  else if(check_For_Fire() == false)
+    {
+      HAL_DAC_Stop_DMA (&hdac, DMA_CHANNEL_7);
+      HAL_TIM_Base_Stop(&htim2);
     }
 }
 

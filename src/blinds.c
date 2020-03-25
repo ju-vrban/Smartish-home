@@ -7,20 +7,19 @@
 
 #include "blinds.h"
 
-void lower_Blinds_Living (void)
+int lower_Blinds_Living (void)
 {
-  static long int lastConversion = 0L;
+  static uint32_t lastTimeLowerLiving = 0;
   static int statusFlag1 = 0;
   static int statusFlag2 = 0;
   static int statusFlag3 = 0;
   static int statusFlag4 = 0;
+  static int i = 0;
 
-  for (int i = 0; i < 512; i++)
+  if (i < 512)
     {
-      if ((HAL_GetTick () - lastConversion >= 2L)
-          && (HAL_GetTick () - lastConversion < 4L) && statusFlag1 == 0)
+      if ((HAL_GetTick () - lastTimeLowerLiving >= 2L) && statusFlag1 == 0)
         {
-
           statusFlag1 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
                              GPIO_PIN_SET);
@@ -31,8 +30,7 @@ void lower_Blinds_Living (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_LIVING,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 4L)
-          && (HAL_GetTick () - lastConversion < 6L) && statusFlag2 == 0)
+      else if ((HAL_GetTick () - lastTimeLowerLiving >= 4L) && statusFlag2 == 0)
         {
           statusFlag2 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
@@ -45,8 +43,7 @@ void lower_Blinds_Living (void)
                              GPIO_PIN_RESET);
         }
 
-      else if ((HAL_GetTick () - lastConversion >= 6L)
-          && (HAL_GetTick () - lastConversion < 8L) && statusFlag3 == 0)
+      else if ((HAL_GetTick () - lastTimeLowerLiving >= 6L) && statusFlag3 == 0)
         {
           statusFlag3 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
@@ -58,8 +55,7 @@ void lower_Blinds_Living (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_LIVING,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 8L)
-          && (HAL_GetTick () - lastConversion < 10L) && statusFlag4 == 0)
+      else if ((HAL_GetTick () - lastTimeLowerLiving >= 8L) && statusFlag4 == 0)
         {
           statusFlag4 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
@@ -71,29 +67,37 @@ void lower_Blinds_Living (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_LIVING,
                              GPIO_PIN_SET);
         }
-      else if (HAL_GetTick () - lastConversion >= 10L)
+      else if (HAL_GetTick () - lastTimeLowerLiving >= 10L)
         {
-          lastConversion = HAL_GetTick ();
+          lastTimeLowerLiving = HAL_GetTick ();
           statusFlag1 = 0;
           statusFlag2 = 0;
           statusFlag3 = 0;
           statusFlag4 = 0;
+          i++;
         }
     }
+  else if (i == 512)
+    {
+      i = 0;
+      return 1;
+    }
+
+  return 0;
 }
 
-void raise_Blinds_Living (void)
+int raise_Blinds_Living (void)
 {
-  static long int lastConversion = 0;
+  static uint32_t lastTimeRaiseLiving = 0;
   static int statusFlag1 = 0;
   static int statusFlag2 = 0;
   static int statusFlag3 = 0;
   static int statusFlag4 = 0;
+  static int i = 0;
 
-  for (int i = 0; i < 512; i++)
+  if (i < 512)
     {
-      if ((HAL_GetTick () - lastConversion >= 2L)
-          && (HAL_GetTick () - lastConversion < 4L) && statusFlag1 == 0)
+      if ((HAL_GetTick () - lastTimeRaiseLiving >= 2L) && statusFlag1 == 0)
         {
           statusFlag1 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_LIVING,
@@ -105,8 +109,7 @@ void raise_Blinds_Living (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 4L)
-          && (HAL_GetTick () - lastConversion < 6L) && statusFlag2 == 0)
+      else if ((HAL_GetTick () - lastTimeRaiseLiving >= 4L) && statusFlag2 == 0)
         {
           statusFlag2 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_LIVING,
@@ -118,8 +121,7 @@ void raise_Blinds_Living (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 6L)
-          && (HAL_GetTick () - lastConversion < 8L) && statusFlag3 == 0)
+      else if ((HAL_GetTick () - lastTimeRaiseLiving >= 6L) && statusFlag3 == 0)
         {
           statusFlag3 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_LIVING,
@@ -131,8 +133,7 @@ void raise_Blinds_Living (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 8L)
-          && (HAL_GetTick () - lastConversion < 10L) && statusFlag4 == 0)
+      else if ((HAL_GetTick () - lastTimeRaiseLiving >= 8L) && statusFlag4 == 0)
         {
           statusFlag4 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_LIVING,
@@ -144,15 +145,23 @@ void raise_Blinds_Living (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_LIVING,
                              GPIO_PIN_SET);
         }
-      else if (HAL_GetTick () - lastConversion >= 10L)
+      else if (HAL_GetTick () - lastTimeRaiseLiving >= 10L)
         {
-          lastConversion = HAL_GetTick ();
+          lastTimeRaiseLiving = HAL_GetTick ();
           statusFlag1 = 0;
           statusFlag2 = 0;
           statusFlag3 = 0;
           statusFlag4 = 0;
+          i++;
         }
     }
+  else if (i == 512)
+    {
+      i = 0;
+      return 1;
+    }
+
+  return 0;
 }
 
 /**
@@ -166,6 +175,7 @@ void blinds_Living_Room (float dusk, float currentTime)
 {
 
   static int blindsStatus = RAISED;
+  static int checkBlindsStatus = 0;
 
   bool automaticMode;
   automaticMode = automatic_Mode ();
@@ -176,14 +186,17 @@ void blinds_Living_Room (float dusk, float currentTime)
           || (currentTime >= AFTER_MIDNIGHT && currentTime <= DAWN))
           && blindsStatus == RAISED)
         {
-          blindsStatus = LOWERED;
-          lower_Blinds_Living ();
+          checkBlindsStatus = lower_Blinds_Living ();
+          if (checkBlindsStatus == 1)
+            blindsStatus = LOWERED;
         }
       else if ((currentTime >= DAWN && currentTime <= dusk)
           && blindsStatus == LOWERED)
         {
-          blindsStatus = RAISED;
-          raise_Blinds_Living ();
+
+          checkBlindsStatus = raise_Blinds_Living ();
+          if (checkBlindsStatus == 1)
+            blindsStatus = RAISED;
         }
     }
   else
@@ -202,40 +215,41 @@ void blinds_Living_Room (float dusk, float currentTime)
 void blinds_Living_Room_Manual (void)
 {
   static int blindsStatus = RAISED;
+  static int checkBlindsStatus = 0;
 
-  if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE)
-      == GPIO_PIN_SET&& blindsStatus == LOWERED)
+  if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE) == ON
+      && blindsStatus == LOWERED)
     {
-      raise_Blinds_Living ();
-      blindsStatus = RAISED;
+      checkBlindsStatus = raise_Blinds_Living ();
+      if (checkBlindsStatus == 1)
+        blindsStatus = RAISED;
     }
-  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER)
-      == GPIO_PIN_SET && blindsStatus == RAISED)
+  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER) == ON
+      && blindsStatus == RAISED)
     {
-      lower_Blinds_Living ();
-      blindsStatus = LOWERED;
+      checkBlindsStatus = lower_Blinds_Living ();
+      if (checkBlindsStatus == 1)
+        blindsStatus = LOWERED;
     }
-  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER)
-      == GPIO_PIN_SET
-      && HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE)
-          == GPIO_PIN_SET)
+  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER) == ON
+      && HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE) == ON)
     {
-      /* Do nothing until one of the switches is released */
+      ; /* Do nothing until one of the switches is released */
     }
 }
 
-void lower_Blinds_Bedroom (void)
+/*
+int lower_Blinds_Bedroom (void)
 {
-  static long int lastConversion = 0L;
+  static uint32_t lastConversion = 0L;
   static int statusFlag1 = 0;
   static int statusFlag2 = 0;
   static int statusFlag3 = 0;
   static int statusFlag4 = 0;
-
-  for (int i = 0; i < 512; i++)
+  static int i = 0;
+  if (i < 512)
     {
-      if ((HAL_GetTick () - lastConversion >= 2L)
-          && (HAL_GetTick () - lastConversion < 4L) && statusFlag1 == 0)
+      if ((HAL_GetTick () - lastConversion >= 2L) && statusFlag1 == 0)
         {
           statusFlag1 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_BED, GPIO_PIN_SET);
@@ -245,8 +259,7 @@ void lower_Blinds_Bedroom (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_BED,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 4L)
-          && (HAL_GetTick () - lastConversion < 6L) && statusFlag2 == 0)
+      else if ((HAL_GetTick () - lastConversion >= 4L) && statusFlag2 == 0)
         {
           statusFlag2 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_BED, GPIO_PIN_RESET);
@@ -256,8 +269,7 @@ void lower_Blinds_Bedroom (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_BED,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 6L)
-          && (HAL_GetTick () - lastConversion < 8L) && statusFlag3 == 0)
+      else if ((HAL_GetTick () - lastConversion >= 6L) && statusFlag3 == 0)
         {
           statusFlag3 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_BED, GPIO_PIN_RESET);
@@ -266,8 +278,7 @@ void lower_Blinds_Bedroom (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_BED,
                              GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 8L)
-          && (HAL_GetTick () - lastConversion < 10L) && statusFlag4 == 0)
+      else if ((HAL_GetTick () - lastConversion >= 8L) && statusFlag4 == 0)
         {
           statusFlag4 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_BED, GPIO_PIN_RESET);
@@ -283,22 +294,29 @@ void lower_Blinds_Bedroom (void)
           statusFlag2 = 0;
           statusFlag3 = 0;
           statusFlag4 = 0;
+          i++;
         }
     }
+  else if (i == 512)
+    {
+      i = 0;
+      return 1;
+    }
+  return 0;
 }
 
-void raise_Blinds_Bedroom (void)
+int raise_Blinds_Bedroom (void)
 {
-  static long int lastConversion = 0L;
+  static uint32_t lastConversion = 0L;
   static int statusFlag1 = 0;
   static int statusFlag2 = 0;
   static int statusFlag3 = 0;
   static int statusFlag4 = 0;
+  static int i = 0;
 
-  for (int i = 0; i < 512; i++)
+  if (i < 512)
     {
-      if ((HAL_GetTick () - lastConversion >= 2L)
-          && (HAL_GetTick () - lastConversion < 4L) && statusFlag1 == 0)
+      if ((HAL_GetTick () - lastConversion >= 2L) && statusFlag1 == 0)
         {
           statusFlag1 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_BED, GPIO_PIN_SET);
@@ -307,8 +325,7 @@ void raise_Blinds_Bedroom (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_TWO_BED, GPIO_PIN_RESET);
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_BED, GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 4L)
-          && (HAL_GetTick () - lastConversion < 6L) && statusFlag2 == 0)
+      else if ((HAL_GetTick () - lastConversion >= 4L) && statusFlag2 == 0)
         {
           statusFlag2 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_BED,
@@ -317,8 +334,7 @@ void raise_Blinds_Bedroom (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_TWO_BED, GPIO_PIN_RESET);
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_BED, GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 6L)
-          && (HAL_GetTick () - lastConversion < 8L) && statusFlag3 == 0)
+      else if ((HAL_GetTick () - lastConversion >= 6L) && statusFlag3 == 0)
         {
           statusFlag3 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_BED,
@@ -328,8 +344,7 @@ void raise_Blinds_Bedroom (void)
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_TWO_BED, GPIO_PIN_SET);
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_ONE_BED, GPIO_PIN_RESET);
         }
-      else if ((HAL_GetTick () - lastConversion >= 8L)
-          && (HAL_GetTick () - lastConversion < 10L) && statusFlag4 == 0)
+      else if ((HAL_GetTick () - lastConversion >= 8L) && statusFlag4 == 0)
         {
           statusFlag4 = 1;
           HAL_GPIO_WritePin (GPIOG, GPIO_ELECTROMAGNET_FOUR_BED,
@@ -346,9 +361,17 @@ void raise_Blinds_Bedroom (void)
           statusFlag2 = 0;
           statusFlag3 = 0;
           statusFlag4 = 0;
+          i++;
         }
     }
+  else if (i == 512)
+    {
+      i = 0;
+      return 1;
+    }
+  return 0;
 }
+*/
 
 /**
  * @brief Stepper motor control for lowering and raising the blinds
@@ -357,10 +380,11 @@ void raise_Blinds_Bedroom (void)
  * 512 bits represent 360 degrees of rotation. The motor turns until
  * the blinds switch the leaver switch, and then it stops.
  */
-
+/*
 void blinds_Bedroom (float dusk, float currentTime)
 {
   static int blindsStatus = RAISED;
+  static int checkBlindsStatus = 0;
 
   bool automaticMode;
   automaticMode = automatic_Mode ();
@@ -371,14 +395,16 @@ void blinds_Bedroom (float dusk, float currentTime)
           || (currentTime >= AFTER_MIDNIGHT && currentTime <= DAWN))
           && blindsStatus == RAISED)
         {
-          blindsStatus = LOWERED;
-          lower_Blinds_Bedroom ();
+          checkBlindsStatus = lower_Blinds_Bedroom ();
+          if (checkBlindsStatus == 1)
+            blindsStatus = LOWERED;
         }
       else if ((currentTime >= DAWN && currentTime <= dusk)
           && blindsStatus == LOWERED)
         {
-          blindsStatus = RAISED;
-          raise_Blinds_Bedroom ();
+          checkBlindsStatus = raise_Blinds_Bedroom ();
+          if (checkBlindsStatus == 1)
+            blindsStatus = RAISED;
         }
     }
   else
@@ -386,6 +412,7 @@ void blinds_Bedroom (float dusk, float currentTime)
       blinds_Bedroom_Manual ();
     }
 }
+*/
 
 /**
  * @brief Manual stepper motor control for raising and lowering the blinds
@@ -394,28 +421,30 @@ void blinds_Bedroom (float dusk, float currentTime)
  * 512 bits represent 360 degrees of rotation. The motor turns until
  * the blinds switch the leaver switch, and then it stops.
  */
+/*
 void blinds_Bedroom_Manual (void)
 {
-
   static int blindsStatus = RAISED;
+  static int checkBlindsStatus = 0;
 
-  if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE)
-      == GPIO_PIN_SET&& blindsStatus == LOWERED)
+  if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE) == ON
+      && blindsStatus == LOWERED)
     {
-      raise_Blinds_Bedroom ();
-      blindsStatus = RAISED;
+      checkBlindsStatus = raise_Blinds_Bedroom ();
+      if (checkBlindsStatus == 1)
+        blindsStatus = RAISED;
     }
-  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER)
-      == GPIO_PIN_SET && blindsStatus == RAISED)
+  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER) == ON
+      && blindsStatus == RAISED)
     {
-      lower_Blinds_Bedroom ();
-      blindsStatus = LOWERED;
+      checkBlindsStatus = lower_Blinds_Bedroom ();
+      if (checkBlindsStatus == 1)
+        blindsStatus = LOWERED;
     }
-  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER)
-      == GPIO_PIN_SET
-      && HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE)
-          == GPIO_PIN_SET)
+  else if (HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_LOWER) == ON
+      && HAL_GPIO_ReadPin (GPIOF, GPIO_LIVING_ROOM_SWITCH_RAISE) == ON)
     {
-      /* Do nothing until one of the switches is released */
+      ;
     }
 }
+*/
