@@ -7,43 +7,39 @@
 
 #include "alarms_and_security.h"
 
-
 /**
  * @brief Calculatesthe sine value according to the formula
  * sineVal=(sin(x*2*PI/ns)+1)*((DAC_Max_Digit_Value + 1)/2)
  *
  * where ns is number of samples, and DAC_Max_Digit_Value is 0xFFF for
- *  right aligned 12 bit resolution
+ * right aligned 12 bit resolution. The Output frequeny of the audio sugnal is
+ * 2500 Hz, and it Turns on once a second.
  *
  *@param None
  *@retval None
  */
 void gnerate_Sine_Wave (void)
 {
-  uint32_t sineVal[400];
+  uint32_t sineVal[40000];
   static int statusFlag1 = 0;
   static int statusFlag2 = 0;
   static long int lastConversion = 0;
 
-  for (int i = 0; i < 400; i++)
+  for (int i = 0; i < 40000; i++)
     {
       sineVal[i] = (sin (i * 2 * PI / 400) + 1) * ((4095 + 1) / 2);
     }
-  if ((HAL_GetTick () - lastConversion >= 1000L)
-      && (HAL_GetTick () - lastConversion < 2000L) && statusFlag1 == 0)
+  if ((HAL_GetTick () - lastConversion >= 500L) && statusFlag1 == 0)
     {
       statusFlag1 = 1;
-      HAL_TIM_Base_Start (&htim2);
-      HAL_DAC_Start_DMA (&hdac, DMA_CHANNEL_7, sineVal, 100, DAC_ALIGN_12B_R);
-//      HAL_DAC_SetValue (&hdac, DMA_CHANNEL_7, DAC_ALIGN_12B_R, sineVal);
+      HAL_DAC_Start_DMA (&hdac, DAC_CHANNEL_1, sineVal, 40000, DAC_ALIGN_12B_R);
     }
-  else if ((HAL_GetTick () - lastConversion >= 2000L)
-      && (HAL_GetTick () - lastConversion < 2005L) && statusFlag2 == 0)
+  else if ((HAL_GetTick () - lastConversion >= 1000L) && statusFlag2 == 0)
     {
       statusFlag2 = 1;
-      HAL_DAC_Stop_DMA (&hdac, DMA_CHANNEL_7);
+      HAL_DAC_Stop_DMA (&hdac, DAC_CHANNEL_1);
     }
-  else if (HAL_GetTick () - lastConversion >= 2005L)
+  else if (HAL_GetTick () - lastConversion >= 1003L)
     {
       lastConversion = HAL_GetTick ();
       statusFlag1 = 0;
@@ -85,7 +81,7 @@ void fire_Alarm (void)
       static int statusFlag1 = 0;
       static int statusFlag2 = 0;
 
-      while (check_For_Fire ())
+      while (check_For_Fire () == true)
         {
           if ((HAL_GetTick () - lastConversion >= 500L)
               && (HAL_GetTick () - lastConversion <= 1000L) && statusFlag1 == 0)
@@ -111,10 +107,9 @@ void fire_Alarm (void)
             }
         }
     }
-  else if(check_For_Fire() == false)
+  else if (check_For_Fire () == false)
     {
-      HAL_DAC_Stop_DMA (&hdac, DMA_CHANNEL_7);
-      HAL_TIM_Base_Stop(&htim2);
+      HAL_DAC_Stop_DMA (&hdac, DAC_CHANNEL_1);
     }
 }
 
@@ -128,10 +123,10 @@ void fire_Alarm (void)
 bool check_For_Forcefull_Entrance (void)
 {
   static int alarmStatus = 0;
-  alarmStatus = alarm_status();
+  alarmStatus = alarm_status ();
 
-  if (HAL_GPIO_ReadPin (GPIOG, GPIO_FORCEFUL_ENTRY) == GPIO_PIN_SET
-      && alarmStatus == ON)
+  if (HAL_GPIO_ReadPin (GPIOG, GPIO_FORCEFUL_ENTRY)
+      == GPIO_PIN_SET&& alarmStatus == ON)
     return true;
   else
     return false;
@@ -157,28 +152,32 @@ char read_Keypad (void)
   HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_SET);  // Pull the R4 High
 
   if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
-    return '1';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))
+        ;   // wait till the button is pressed
+      return '1';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
-    return '2';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))
+        ;   // wait till the button is pressed
+      return '2';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
-    return '3';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))
+        ;   // wait till the button is pressed
+      return '3';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
-    return 'A';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))
+        ;   // wait till the button is pressed
+      return 'A';
+    }
 
   /* Make ROW 2 LOW and all other ROWs HIGH */
   HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1, GPIO_PIN_SET);  //Pull the R1 low
@@ -187,29 +186,32 @@ char read_Keypad (void)
   HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_SET);  // Pull the R4 High
 
   if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
-    return '4';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))
+        ;   // wait till the button is pressed
+      return '4';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
-    return '5';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))
+        ;   // wait till the button is pressed
+      return '5';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
-    return '6';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))
+        ;   // wait till the button is pressed
+      return '6';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
-    return 'B';
-  }
-
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))
+        ;   // wait till the button is pressed
+      return 'B';
+    }
 
   /* Make ROW 3 LOW and all other ROWs HIGH */
   HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1, GPIO_PIN_SET);  //Pull the R1 low
@@ -218,29 +220,32 @@ char read_Keypad (void)
   HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_SET);  // Pull the R4 High
 
   if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
-    return '7';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))
+        ;   // wait till the button is pressed
+      return '7';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
-    return '8';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))
+        ;   // wait till the button is pressed
+      return '8';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
-    return '9';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))
+        ;   // wait till the button is pressed
+      return '9';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
-    return 'C';
-  }
-
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))
+        ;   // wait till the button is pressed
+      return 'C';
+    }
 
   /* Make ROW 4 LOW and all other ROWs HIGH */
   HAL_GPIO_WritePin (GPIOG, KEYPAD_ROW_1, GPIO_PIN_SET);  //Pull the R1 low
@@ -249,26 +254,30 @@ char read_Keypad (void)
   HAL_GPIO_WritePin (GPIOE, KEYPAD_ROW_4, GPIO_PIN_RESET);  // Pull the R4 High
 
   if (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))   // if the Col 1 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)));   // wait till the button is pressed
-    return '*';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOE, KEYPAD_COLUMN_1)))
+        ;   // wait till the button is pressed
+      return '*';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))   // if the Col 2 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)));   // wait till the button is pressed
-    return '0';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_2)))
+        ;   // wait till the button is pressed
+      return '0';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))   // if the Col 3 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)));   // wait till the button is pressed
-    return '#';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_3)))
+        ;   // wait till the button is pressed
+      return '#';
+    }
 
   if (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))   // if the Col 4 is low
-  {
-    while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)));   // wait till the button is pressed
-    return 'D';
-  }
+    {
+      while (!(HAL_GPIO_ReadPin (GPIOF, KEYPAD_COLUMN_4)))
+        ;   // wait till the button is pressed
+      return 'D';
+    }
 }

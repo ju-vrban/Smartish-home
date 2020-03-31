@@ -86,7 +86,7 @@ extern "C"
   void TIM5_Init(void);
   void TIM12_PWM_Living_Bedroom_Init (void);
   void DAC_Init (void);
-  void TIM2_dac_Init (void);
+  void TIM2_DAC_Init (void);
   void DMA_Init (void);
   void TIM9_us_delay_Init (void);
 

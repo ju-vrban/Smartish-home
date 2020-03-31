@@ -31,7 +31,7 @@ extern "C"
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <math.h>
+#include "math.h"
 
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx.h"

@@ -8,8 +8,6 @@ extern "C"
 
 #include "main.h"
 
-#define PI 3.1415926
-
   int concatenate (int x, int y);
   bool automatic_Mode (void);
   void delay_us (uint16_t us);

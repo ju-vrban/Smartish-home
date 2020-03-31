@@ -384,7 +384,7 @@ void I2C3_LCD_Init (void)
   hi2c3.Instance = I2C3;
   hi2c3.Init.ClockSpeed = 100000;
   hi2c3.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c3.Init.OwnAddress1 = 0;
+  hi2c3.Init.OwnAddress1 = 0x0;
   hi2c3.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c3.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c3.Init.OwnAddress2 = 0;
@@ -619,7 +619,7 @@ void DAC_Init (void)
  * @param None
  * @retval None
  */
-void TIM2_dac_Init (void)
+void TIM2_DAC_Init (void)
 {
   TIM_ClockConfigTypeDef ClockSourceConfig =
     { 0 };
@@ -627,9 +627,9 @@ void TIM2_dac_Init (void)
     { 0 };
 
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 89;
+  htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 399;
+  htim2.Init.Period = 89;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init (&htim2) != HAL_OK)

@@ -42,7 +42,7 @@ int main (void)
   TIM12_PWM_Living_Bedroom_Init ();
   DMA_Init ();
   DAC_Init ();
-  TIM2_dac_Init ();
+  TIM2_DAC_Init ();
   TIM9_us_delay_Init ();
 
   //float RTCTempSens;
@@ -52,14 +52,16 @@ int main (void)
   float dusk = 0;
   int sysRestart = 1;
   float currentTime = 0;
-  long int lastConversion = 0;
+  uint32_t lastConversion = 0;
   uint8_t key;
+  int statusFlag1 = 0;
+  int statusFlag2 = 0;
+  int keySet = 0;
+  HAL_TIM_Base_Start (&htim2);
 
 //  set_Time (00, 30, 14, 1, 16, 3, 20);
 
-//HAL_GPIO_WritePin (GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
-
-//  HAL_TIM_Base_Start (&htim9);
+  HAL_TIM_Base_Start (&htim9);
 
   while (1)
     {
@@ -82,7 +84,6 @@ int main (void)
       blinds_Living_Room (dusk, currentTime);
 //      blinds_Bedroom (dusk, currentTime);
 
-      gnerate_Sine_Wave ();      // PROBA
       fire_Alarm ();
       emergency_Ventilation ();
       /*
@@ -90,33 +91,45 @@ int main (void)
 
        if (key != 0x01)
        {
+       keySet = 1;
        LCD_Send_Cmd (0x85);
+       LCD_Put_Cur (0, 0);
        LCD_Send_Data (key);
        }
-
-       if (HAL_GetTick () - lastConversion >= 1000L)
+       if (keySet == 1)
        {
-       DHT11_Data_Transfer ();
+       if (HAL_GetTick () - lastConversion >= 500L)
+       {
+       lastConversion = HAL_GetTick ();
+       keySet = 0;
+       key = 0x01;
+       LCD_Clear ();
        }
-       */
-      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
-               Time.seconds);
-      LCD_Put_Cur (0, 0);
-      LCD_Send_String (LCDCharBuffer);
-
-      //      sprintf (
-      //          LCDCharBuffer, "T: %fC",
-      //          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
-
-      /*
-       sprintf (
-       LCDCharBuffer,
-       " H: %f",
-       (float) (((dht11.humidity / 10) + 48)
-       + ((dht11.humidity_dec % 10) + 48)));
-       LCD_Put_Cur (1, 0);
+       }
+*/
+       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
+       Time.seconds);
+       LCD_Put_Cur (0, 0);
        LCD_Send_String (LCDCharBuffer);
-       */
+
+      if (HAL_GetTick () - lastConversion >= 1000L)
+        {
+//          DHT11_Data_Transfer ();
+        }
+
+      sprintf (
+          LCDCharBuffer, "T: %fC",
+          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
+      LCD_Put_Cur_2 (0, 0);
+      LCD_Send_String_2 (LCDCharBuffer);
+      sprintf (
+          LCDCharBuffer,
+          " H: %f",
+          (float) (((dht11.humidity / 10) + 48)
+              + ((dht11.humidity_dec % 10) + 48)));
+      LCD_Put_Cur_2 (1, 0);
+      LCD_Send_String_2 (LCDCharBuffer);
+
       //  if (HAL_GetTick () - lastConversion > 500L)
       //    {
       //     lastConversion = HAL_GetTick ();

@@ -42,7 +42,7 @@ void emergency_Ventilation (void)
     }
   else if ((check_For_Gases () == false) && gasesPresent == 1)
     {
-      if (HAL_GetTick () - lastConversion >= 10000L)
+      if (HAL_GetTick () - lastConversion >= MINS_1)
         {
           gasesPresent = 0;
           HAL_GPIO_WritePin (GPIOH, GPIO_INTAKE_EXHAUST_FAN, GPIO_PIN_RESET);
