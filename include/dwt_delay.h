@@ -25,9 +25,28 @@
 #ifndef INC_DWT_DELAY_H_
 #define INC_DWT_DELAY_H_
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #define DWT_DELAY_NEWBIE 0
 
+
+#define delayUS_ASM(us) do {\
+  asm volatile (  "MOV R0,%[loops]\n\t"\
+      "1: \n\t"\
+      "SUB R0, #1\n\t"\
+      "CMP R0, #0\n\t"\
+      "BNE 1b \n\t" : : [loops] "r" (16*us) : "memory"\
+          );\
+} while(0)
+
 void DWT_Init(void);
-void DWT_Delay(uint32_t us);
+void DWT_Delay (uint32_t us);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_DWT_DELAY_DWT_DELAY_H_ */

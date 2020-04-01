@@ -44,6 +44,7 @@ int main (void)
   DAC_Init ();
   TIM2_DAC_Init ();
   TIM9_us_delay_Init ();
+  DWT_Init ();
 
   //float RTCTempSens;
   char LCDCharBuffer[10];
@@ -106,15 +107,17 @@ int main (void)
        LCD_Clear ();
        }
        }
-*/
-       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
-       Time.seconds);
-       LCD_Put_Cur (0, 0);
-       LCD_Send_String (LCDCharBuffer);
+       */
+      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
+
+      sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
+               Time.seconds);
+      LCD_Put_Cur (0, 0);
+      LCD_Send_String (LCDCharBuffer);
 
       if (HAL_GetTick () - lastConversion >= 1000L)
         {
-//          DHT11_Data_Transfer ();
+          DHT11_Data_Transfer ();
         }
 
       sprintf (

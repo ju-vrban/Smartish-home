@@ -14,7 +14,7 @@ void GPIO_DHT11_serial_input (void)
 {
   GPIO_InitStruct.Pin = DHT11_SERIAL_PIN;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init (GPIOE, &GPIO_InitStruct);
 }
 
@@ -29,22 +29,16 @@ void GPIO_DHT11_serial_output (void)
 
 void DHT11_Init (void)
 {
-  static long int lastConversion = 0;
-
   GPIO_DHT11_serial_output ();
-
   HAL_GPIO_WritePin (GPIOE, DHT11_SERIAL_PIN, 0);
-
-  if (HAL_GetTick () - lastConversion >= 18L)
-    {
-      lastConversion = HAL_GetTick ();
-      GPIO_DHT11_serial_input ();
-    }
+  HAL_Delay (20);
 }
 
 uint8_t DHT11_Check_Response (void)
 {
   uint8_t Response = 0;
+
+  GPIO_DHT11_serial_input ();
 
   delay_us (40);
 
@@ -56,9 +50,8 @@ uint8_t DHT11_Check_Response (void)
       else
         Response = -1;
     }
-  while (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_SET)
-    {
-    }
+  while ((HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN)))
+    ;
 
   return Response;
 }
@@ -71,21 +64,18 @@ uint8_t DHT11_Read (void)
   for (j = 0; j < 8; j++)
     {
       while (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_RESET)
-        {
-        }
+        ;
 
       delay_us (40);
 
       if (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_RESET)
-
         i &= ~(1 << (7 - j));   // write 0
 
       else
         i |= (1 << (7 - j)); // else write 1
 
       while ((HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN)))
-        {
-        }
+        ;
     }
 
   return i;

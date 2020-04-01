@@ -33,8 +33,8 @@ void DWT_Init (void)
   if (!(CoreDebug->DEMCR & CoreDebug_DEMCR_TRCENA_Msk))
     {
       CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-      DWT->CYCCNT = 0;
       DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+      DWT->CYCCNT = 0;
     }
 }
 
@@ -68,16 +68,16 @@ void DWT_Delay(uint32_t us) // microseconds
  *
  * @param uint32_t us  Number of microseconds to delay for
  */
-void DWT_Delay (uint32_t us) // microseconds
-{
-  uint32_t startTick = DWT->CYCCNT, delayTicks = us
-      * (SystemCoreClock / 1000000);
 
-  while (DWT->CYCCNT - startTick < delayTicks)
-    {
-      ;
-    }
+#pragma GCC push_options
+#pragma GCC optimize ("O3")
+void delayUS_DWT(uint32_t us) {
+volatile uint32_t cycles = (SystemCoreClock/1000000L)*us;
+volatile uint32_t start = DWT->CYCCNT;
+do {
+} while(DWT->CYCCNT - start < cycles);
 }
+#pragma GCC pop_options
 
 
 #endif
