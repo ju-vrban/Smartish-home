@@ -149,7 +149,7 @@ void LCD_Send_Cmd_2 (char cmd)
   data_t[1] = data_u | 0x08;  //en=0, rs=0
   data_t[2] = data_l | 0x0C;  //en=1, rs=0
   data_t[3] = data_l | 0x08;  //en=0, rs=0
-  HAL_I2C_Master_Transmit (&hi2c3, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
+  HAL_I2C_Master_Transmit (&hi2c3, LCD_WRITE_ADDRESS_2, (uint8_t*) data_t, 4,
                            100);
 }
 
@@ -168,7 +168,7 @@ void LCD_Send_Data_2 (char data)
   data_t[1] = data_u | 0x09;  //en=0, rs=1
   data_t[2] = data_l | 0x0D;  //en=1, rs=1
   data_t[3] = data_l | 0x09;  //en=0, rs=1
-  HAL_I2C_Master_Transmit (&hi2c3, LCD_WRITE_ADDRESS, (uint8_t*) data_t, 4,
+  HAL_I2C_Master_Transmit (&hi2c3, LCD_WRITE_ADDRESS_2, (uint8_t*) data_t, 4,
                            100);
 }
 
@@ -192,10 +192,10 @@ void LCD_Clear_2 (void)
  *        panel and column of the display
  * @return None
  */
-void LCD_Put_Cur_2 (int leftRightHalf, int col)
+void LCD_Put_Cur_2 (int row, int col)
 {
 
-  switch (leftRightHalf)
+  switch (row)
     {
     case 0:
       col |= 0x80;

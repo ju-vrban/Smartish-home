@@ -37,6 +37,7 @@ int main (void)
   I2C2_LCD_Init ();
   I2C3_LCD_Init ();
   LCD_Init ();
+  LCD_Init_2 ();
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
   TIM12_PWM_Living_Bedroom_Init ();
@@ -58,6 +59,13 @@ int main (void)
   int statusFlag1 = 0;
   int statusFlag2 = 0;
   int keySet = 0;
+  float Temperature;
+  float Humidity;
+  uint8_t TEMP;
+  uint8_t RH;
+  int DHT11Checksum = 0;
+  int DHT11StatusFlag = 0;
+
   HAL_TIM_Base_Start (&htim2);
 
 //  set_Time (00, 30, 14, 1, 16, 3, 20);
@@ -108,42 +116,42 @@ int main (void)
        }
        }
        */
-      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);
       LCD_Put_Cur (0, 0);
       LCD_Send_String (LCDCharBuffer);
 
-      if (HAL_GetTick () - lastConversion >= 1000L)
+      if (HAL_GetTick () - lastConversion >= 1500L)
         {
-          DHT11_Data_Transfer ();
+          lastConversion = HAL_GetTick ();
+          DHT11Checksum = DHT11_Data_Transfer ();
+          DHT11StatusFlag = 0;
         }
 
-      sprintf (
-          LCDCharBuffer, "T: %fC",
-          (float) (((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48)));
-      LCD_Put_Cur_2 (0, 0);
-      LCD_Send_String_2 (LCDCharBuffer);
-      sprintf (
-          LCDCharBuffer,
-          " H: %f",
-          (float) (((dht11.humidity / 10) + 48)
-              + ((dht11.humidity_dec % 10) + 48)));
-      LCD_Put_Cur_2 (1, 0);
-      LCD_Send_String_2 (LCDCharBuffer);
+      if (DHT11Checksum == DHT11_OK && DHT11StatusFlag == 0)
+        {
+          DHT11StatusFlag = 1;
+          LCD_Put_Cur_2 (0,0);
+          LCD_Send_String_2 ("T: ");
+          LCD_Send_Data_2 ((dht11.temp / 10) + 48);
+          LCD_Send_Data_2 ((dht11.temp_dec % 10) + 48);
+          LCD_Send_String_2 (" C");
 
-      //  if (HAL_GetTick () - lastConversion > 500L)
-      //    {
-      //     lastConversion = HAL_GetTick ();
-      //HAL_GPIO_TogglePin (GPIOD, GPIO_PIN_11);
+          LCD_Put_Cur_2 (1,0);
+          LCD_Send_String_2 ("RH: ");
+          LCD_Send_Data_2 ((dht11.humidity / 10) + 48);
+          LCD_Send_Data_2 ((dht11.humidity_dec % 10) + 48);
+          LCD_Send_String_2 (" %");
+        }
       /*
        force_Temp_Conversion ();
        RTCTempSens = get_RTC_Temp ();
 
        sprintf (LCDCharBuffer, "%.2f C", RTCTempSens);
        LCD_Put_Cur (1, 1);
-       LCD_Send_String (LCDCharBuffer);*/
+       LCD_Send_String (LCDCharBuffer);
+       */
     }
 }
 
