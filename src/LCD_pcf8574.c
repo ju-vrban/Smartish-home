@@ -34,7 +34,7 @@ void LCD_Send_Cmd (char cmd)
 void LCD_Send_Data (char data)
 {
   char data_u, data_l;
-  uint8_t data_t[2];
+  uint8_t data_t[4];
   data_u = (data & 0xf0);
   data_l = ((data << 4) & 0xf0);
   data_t[0] = data_u | 0x0D;  //en=1, rs=1
@@ -52,11 +52,8 @@ void LCD_Send_Data (char data)
  */
 void LCD_Clear (void)
 {
-  LCD_Send_Cmd (0x80);
-  for (int i = 0; i < 70; i++)
-    {
-      LCD_Send_Data (' ');
-    }
+  LCD_Send_Cmd(0x01);
+  HAL_Delay(10);
 }
 
 /**
@@ -161,7 +158,7 @@ void LCD_Send_Cmd_2 (char cmd)
 void LCD_Send_Data_2 (char data)
 {
   char data_u, data_l;
-  uint8_t data_t[2];
+  uint8_t data_t[4];
   data_u = (data & 0xf0);
   data_l = ((data << 4) & 0xf0);
   data_t[0] = data_u | 0x0D;  //en=1, rs=1
@@ -179,11 +176,8 @@ void LCD_Send_Data_2 (char data)
  */
 void LCD_Clear_2 (void)
 {
-  LCD_Send_Cmd_2 (0x80);
-  for (int i = 0; i < 70; i++)
-    {
-      LCD_Send_Data_2 (' ');
-    }
+  LCD_Send_Cmd_2(0x01);
+  HAL_Delay(10);
 }
 
 /**

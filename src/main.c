@@ -33,38 +33,46 @@ int main (void)
 
   /* Initialize all configured peripherals */
   GPIO_Init ();
+
   I2C1_RTC_Init ();
   I2C2_LCD_Init ();
   I2C3_LCD_Init ();
+
   LCD_Init ();
   LCD_Init_2 ();
+
+  TIM2_DAC_Init ();
   TIM3_Encoder_Living_Room_Init ();
   TIM4_Encoder_Bedroom_Init ();
+  TIM9_us_delay_Init ();
   TIM12_PWM_Living_Bedroom_Init ();
+
   DMA_Init ();
   DAC_Init ();
-  TIM2_DAC_Init ();
-  TIM9_us_delay_Init ();
   DWT_Init ();
 
-  //float RTCTempSens;
   char LCDCharBuffer[10];
+
+  //float RTCTempSens;
+  float dusk = 0;
+  float currentTime = 0;
+  float Temperature;
+  float Humidity;
+
   int timeOfUpdate[3] =
     { 03, 00, 00 };
-  float dusk = 0;
   int sysRestart = 1;
-  float currentTime = 0;
-  uint32_t lastConversion = 0;
-  uint8_t key;
   int statusFlag1 = 0;
   int statusFlag2 = 0;
   int keySet = 0;
-  float Temperature;
-  float Humidity;
-  uint8_t TEMP;
-  uint8_t RH;
   int DHT11Checksum = 0;
   int DHT11StatusFlag = 0;
+
+  uint8_t key;
+  uint8_t TEMP;
+  uint8_t RH;
+
+  uint32_t lastConversion = 0;
 
   HAL_TIM_Base_Start (&htim2);
 
@@ -72,8 +80,45 @@ int main (void)
 
   HAL_TIM_Base_Start (&htim9);
 
+  LCD_Clear ();
+  HAL_Delay (1000);
+  LCD_Send_Data ('A');
+  HAL_Delay (1000);
+  LCD_Put_Cur (1, 0);
+  LCD_Send_Data ('l');
+  HAL_Delay (1000);
+  LCD_Put_Cur (1, 11);
+  LCD_Send_Data ('3');
+  HAL_Delay (1000);
+  LCD_Put_Cur (0, 5);
+  LCD_Send_Data ('Q');
+  LCD_Clear ();
+  int row = 0, col = 0;
+
   while (1)
     {
+      /*
+      LCD_Put_Cur (0, 0);
+      while (1)
+        {
+          for (int i = 0; i < 128; i++)
+            {
+              LCD_Put_Cur (row, col);
+              LCD_Send_Data (i + 33);
+              col++;
+              if (col > 16)
+                {
+                  col = 0;
+                  row++;
+                }
+              if (row > 1)
+                row = 0;
+              HAL_Delay (250);
+            }
+          LCD_Clear ();
+          HAL_Delay (1500);
+        }
+        */
       get_Time ();
 
       if ((Time.hours == timeOfUpdate[0] && Time.minutes == timeOfUpdate[1]
@@ -132,13 +177,13 @@ int main (void)
       if (DHT11Checksum == DHT11_OK && DHT11StatusFlag == 0)
         {
           DHT11StatusFlag = 1;
-          LCD_Put_Cur_2 (0,0);
+          LCD_Put_Cur_2 (0, 0);
           LCD_Send_String_2 ("T: ");
           LCD_Send_Data_2 ((dht11.temp / 10) + 48);
           LCD_Send_Data_2 ((dht11.temp_dec % 10) + 48);
           LCD_Send_String_2 (" C");
 
-          LCD_Put_Cur_2 (1,0);
+          LCD_Put_Cur_2 (1, 0);
           LCD_Send_String_2 ("RH: ");
           LCD_Send_Data_2 ((dht11.humidity / 10) + 48);
           LCD_Send_Data_2 ((dht11.humidity_dec % 10) + 48);
