@@ -79,46 +79,50 @@ int main (void)
 //  set_Time (00, 30, 14, 1, 16, 3, 20);
 
   HAL_TIM_Base_Start (&htim9);
-
-  LCD_Clear ();
-  HAL_Delay (1000);
-  LCD_Send_Data ('A');
-  HAL_Delay (1000);
-  LCD_Put_Cur (1, 0);
-  LCD_Send_Data ('l');
-  HAL_Delay (1000);
-  LCD_Put_Cur (1, 11);
-  LCD_Send_Data ('3');
-  HAL_Delay (1000);
-  LCD_Put_Cur (0, 5);
-  LCD_Send_Data ('Q');
-  LCD_Clear ();
+//
+//  LCD_Clear ();
+//  HAL_Delay (1000);
+//  LCD_Send_Data ('A');
+//  HAL_Delay (1000);
+//  LCD_Put_Cur (1, 0);
+//  LCD_Send_Data ('l');
+//  HAL_Delay (1000);
+//  LCD_Put_Cur (1, 11);
+//  LCD_Send_Data ('3');
+//  HAL_Delay (1000);
+//  LCD_Put_Cur (0, 5);
+//  LCD_Send_Data ('Q');
+//  LCD_Clear ();
   int row = 0, col = 0;
 
   while (1)
     {
       /*
-      LCD_Put_Cur (0, 0);
-      while (1)
-        {
-          for (int i = 0; i < 128; i++)
-            {
-              LCD_Put_Cur (row, col);
-              LCD_Send_Data (i + 33);
-              col++;
-              if (col > 16)
-                {
-                  col = 0;
-                  row++;
-                }
-              if (row > 1)
-                row = 0;
-              HAL_Delay (250);
-            }
-          LCD_Clear ();
-          HAL_Delay (1500);
-        }
-        */
+       HAL_Delay (1500);
+       LCD_Put_Cur_2 (0, 0);
+       LCD_Clear_2 ();
+       HAL_Delay (50);
+       LCD_Clear_2 ();
+       while (1)
+       {
+       for (int i = 0; i < 128; i++)
+       {
+       LCD_Put_Cur_2 (row, col);
+       LCD_Send_Data_2 (i + 33);
+       col++;
+       if (col > 15)
+       {
+       col = 0;
+       row++;
+       }
+       if (row > 1)
+       row = 0;
+       HAL_Delay (250);
+       }
+       LCD_Clear_2 ();
+       HAL_Delay (1500);
+       }
+       */
       get_Time ();
 
       if ((Time.hours == timeOfUpdate[0] && Time.minutes == timeOfUpdate[1]
@@ -164,7 +168,7 @@ int main (void)
 
       sprintf (LCDCharBuffer, "%02d:%02d:%02d", Time.hours, Time.minutes,
                Time.seconds);
-      LCD_Put_Cur (0, 0);
+      LCD_Send_Cmd (0x80|0x00);
       LCD_Send_String (LCDCharBuffer);
 
       if (HAL_GetTick () - lastConversion >= 1500L)
@@ -177,13 +181,14 @@ int main (void)
       if (DHT11Checksum == DHT11_OK && DHT11StatusFlag == 0)
         {
           DHT11StatusFlag = 1;
-          LCD_Put_Cur_2 (0, 0);
+//          LCD_Send_Cmd_2 (0x80 | 0x05);
+
           LCD_Send_String_2 ("T: ");
           LCD_Send_Data_2 ((dht11.temp / 10) + 48);
           LCD_Send_Data_2 ((dht11.temp_dec % 10) + 48);
           LCD_Send_String_2 (" C");
 
-          LCD_Put_Cur_2 (1, 0);
+//          LCD_Send_Cmd_2 (0x80 | 0x40);
           LCD_Send_String_2 ("RH: ");
           LCD_Send_Data_2 ((dht11.humidity / 10) + 48);
           LCD_Send_Data_2 ((dht11.humidity_dec % 10) + 48);
