@@ -40,7 +40,7 @@ uint8_t DHT11_Check_Response (void)
 
   GPIO_DHT11_serial_input ();
 
-  delay_us (40);
+  delay_us (50); // 40us
 
   if (HAL_GPIO_ReadPin (GPIOE, DHT11_SERIAL_PIN) == GPIO_PIN_RESET)
     {

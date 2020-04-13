@@ -97,7 +97,7 @@ void LCD_Init (void)
   HAL_Delay (10);
 
   // dislay initialisation
-  LCD_Send_Cmd (0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
+  LCD_Send_Cmd (0x20); // Function set --> DL=0 (4 bit mode), N = 0 (1 line display) F = 0 (5x8 characters)
   HAL_Delay (1);
   LCD_Send_Cmd (0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
   HAL_Delay (1);
