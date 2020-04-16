@@ -8,10 +8,7 @@ extern "C"
 
 #include "main.h"
 
-  void check_Boiler_Temp (void);
-  void set_Boiler_Temp (void);
-
-
+  void boiler_Control (float currentTime );
 
 #ifdef __cplusplus
 }

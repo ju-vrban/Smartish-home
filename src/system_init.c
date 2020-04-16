@@ -139,8 +139,8 @@ void GPIO_Init (void)
   HAL_GPIO_Init (GPIOF, &GPIO_InitStruct);
 
   /**GPIO switch input configuration
-   PD6      ------> GPIO_LIVING_ROOM_ENCODER_SW #
-   PD7      ------> GPIO_BEDROOM_ENCODER_SW     #
+   PC10      ------> GPIO_LIVING_ROOM_ENCODER_SW #
+   PC12      ------> GPIO_BEDROOM_ENCODER_SW     #
    */
   GPIO_InitStruct.Pin = GPIO_LIVING_ROOM_ENCODER_SW | GPIO_BEDROOM_ENCODER_SW;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -298,6 +298,16 @@ void GPIO_Init (void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init (GPIOA, &GPIO_InitStruct);
+
+  /**GPIO switch input configuration
+   PC13      ------> GPIO_HEATING_COOLING
+   PC12      ------> GPIO_BOILER
+   */
+  GPIO_InitStruct.Pin = GPIO_HEATING_COOLING | GPIO_BOILER;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init (GPIOC, &GPIO_InitStruct);
 }
 
 /*----------------------------------------------------------------------------*/

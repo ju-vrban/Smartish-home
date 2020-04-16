@@ -48,6 +48,8 @@ extern "C"
 #define GPIO_INTAKE_EXHAUST_FAN           GPIO_PIN_2
 #define GPIO_FIRE_IR_SENSOR               GPIO_PIN_1
 #define GPIO_FORCEFUL_ENTRY               GPIO_PIN_6
+#define GPIO_HEATING_COOLING              GPIO_PIN_13
+#define GPIO_BOILER                       GPIO_PIN_12
 
   /* Keypad*/
 #define KEYPAD_ROW_1                      GPIO_PIN_2

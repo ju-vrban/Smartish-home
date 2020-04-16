@@ -16,6 +16,7 @@ float calculate_Dusk_Time (void)
     { 1.2, 1.5, 2.7 };
 
   int Month = Time.month;
+
   switch (Month)
     {
     case January:

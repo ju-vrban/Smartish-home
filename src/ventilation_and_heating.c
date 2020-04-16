@@ -5,7 +5,7 @@
  ******************************************************************************
  * @file  : ventilation_and_heating.c
  * @brief : Source file for handling the ventilation of the house in case of
- * the presence of dangerous gases and detection and handling of fires.
+ * the presence of dangerous gases and controlling the AC unit.
  ******************************************************************************
  */
 
@@ -50,4 +50,39 @@ void emergency_Ventilation (void)
     }
 }
 
+/**
+ * @brief Turns on a relay for the AC unit which is set to a fixed temperature,
+ * and can be manually controlled via an AC remote
+ *
+ * @param roomTemp
+ * @retval None
+ */
+void heating_Cooling_control (float roomTemp)
+{
+  static int controlFlag = 0;
+  float roomTempHigher = 25;
+  float roomTempLower = 20;
+  bool automaticMode;
 
+  automaticMode = automatic_Mode ();
+
+  if (automaticMode == ON)
+    {
+      if (roomTemp <= roomTempLower && controlFlag == 0)
+        {
+          controlFlag = 1;
+          HAL_GPIO_WritePin (GPIOC, GPIO_HEATING_COOLING, GPIO_PIN_SET);
+        }
+      else if (roomTemp >= roomTempHigher && controlFlag == 0)
+        {
+          controlFlag = 1;
+          HAL_GPIO_WritePin (GPIOC, GPIO_HEATING_COOLING, GPIO_PIN_SET);
+        }
+      else if (roomTemp >= roomTempLower && roomTemp <= roomTempHigher
+          && controlFlag == 1)
+        {
+          controlFlag = 0;
+          HAL_GPIO_WritePin (GPIOC, GPIO_HEATING_COOLING, GPIO_PIN_RESET);
+        }
+    }
+}

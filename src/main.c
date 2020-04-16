@@ -58,6 +58,8 @@ int main (void)
   float currentTime = 0;
   float Temperature;
   float Humidity;
+  float roomTemp = 20;
+  float roomHumidity;
 
   int timeOfUpdate[3] =
     { 03, 00, 00 };
@@ -140,9 +142,12 @@ int main (void)
       if (DHT11Checksum == DHT11_OK && DHT11StatusFlag == 0)
         {
           DHT11StatusFlag = 1;
+          roomTemp = ((dht11.temp / 10) + 48) + ((dht11.temp_dec % 10) + 48);
+          roomHumidity = ((dht11.humidity / 10) + 48)
+              + ((dht11.humidity_dec % 10) + 48);
 
           LCD_Send_Cmd_2 (0x01);
-          HAL_Delay(2);
+          HAL_Delay (2);
 
           LCD_Send_Cmd_2 (0x04);
           LCD_Send_String_2 ("T: ");
@@ -156,6 +161,8 @@ int main (void)
           LCD_Send_Data_2 ((dht11.humidity_dec % 10) + 48);
           LCD_Send_String_2 (" %");
         }
+
+      heating_Cooling_control(roomTemp);
       /*
        force_Temp_Conversion ();
        RTCTempSens = get_RTC_Temp ();

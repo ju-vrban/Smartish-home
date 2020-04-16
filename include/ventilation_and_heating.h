@@ -11,6 +11,7 @@ extern "C"
 
   bool check_For_Gases (void);
   void emergency_Ventilation(void);
+  void heating_Cooling_control(float roomTemp);
 
 
 
